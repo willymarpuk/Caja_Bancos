@@ -1,0 +1,31 @@
+<h1>Listing cuentas_corrientes_venta</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id persona</th>
+      <th>Id caja</th>
+      <th>Id movimiento de caja</th>
+      <th>Monto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cuentas_corrientes_venta.each do |cuentas_corrientes_ventum| %>
+      <tr>
+        <td><%= cuentas_corrientes_ventum.id_persona %></td>
+        <td><%= cuentas_corrientes_ventum.id_caja %></td>
+        <td><%= cuentas_corrientes_ventum.id_movimiento_de_caja %></td>
+        <td><%= cuentas_corrientes_ventum.monto %></td>
+        <td><%= link_to 'Show', cuentas_corrientes_ventum %></td>
+        <td><%= link_to 'Edit', edit_cuentas_corrientes_ventum_path(cuentas_corrientes_ventum) %></td>
+        <td><%= link_to 'Destroy', cuentas_corrientes_ventum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cuentas corrientes ventum', new_cuentas_corrientes_ventum_path %>

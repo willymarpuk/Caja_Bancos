@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id cuenta bancaria:</strong>
+  <%= @cheques_emitido.id_cuenta_bancaria %>
+</p>
+
+<p>
+  <strong>Id banco:</strong>
+  <%= @cheques_emitido.id_banco %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @cheques_emitido.fecha %>
+</p>
+
+<p>
+  <strong>Concepto:</strong>
+  <%= @cheques_emitido.concepto %>
+</p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @cheques_emitido.monto %>
+</p>
+
+<%= link_to 'Edit', edit_cheques_emitido_path(@cheques_emitido) %> |
+<%= link_to 'Back', cheques_emitidos_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@cuentas_corrientes_ventum) do |f| %>
+  <% if @cuentas_corrientes_ventum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cuentas_corrientes_ventum.errors.count, "error") %> prohibited this cuentas_corrientes_ventum from being saved:</h2>
+
+      <ul>
+      <% @cuentas_corrientes_ventum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_persona %><br>
+    <%= f.number_field :id_persona %>
+  </div>
+  <div class="field">
+    <%= f.label :id_caja %><br>
+    <%= f.number_field :id_caja %>
+  </div>
+  <div class="field">
+    <%= f.label :id_movimiento_de_caja %><br>
+    <%= f.number_field :id_movimiento_de_caja %>
+  </div>
+  <div class="field">
+    <%= f.label :monto %><br>
+    <%= f.text_field :monto %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

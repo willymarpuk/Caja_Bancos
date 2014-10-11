@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id persona:</strong>
+  <%= @cuentas_corrientes_ventum.id_persona %>
+</p>
+
+<p>
+  <strong>Id caja:</strong>
+  <%= @cuentas_corrientes_ventum.id_caja %>
+</p>
+
+<p>
+  <strong>Id movimiento de caja:</strong>
+  <%= @cuentas_corrientes_ventum.id_movimiento_de_caja %>
+</p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @cuentas_corrientes_ventum.monto %>
+</p>
+
+<%= link_to 'Edit', edit_cuentas_corrientes_ventum_path(@cuentas_corrientes_ventum) %> |
+<%= link_to 'Back', cuentas_corrientes_venta_path %>

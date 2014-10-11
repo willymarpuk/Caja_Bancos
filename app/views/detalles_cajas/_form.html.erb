@@ -1,0 +1,33 @@
+<%= form_for(@detalles_caja) do |f| %>
+  <% if @detalles_caja.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@detalles_caja.errors.count, "error") %> prohibited this detalles_caja from being saved:</h2>
+
+      <ul>
+      <% @detalles_caja.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_caja %><br>
+    <%= f.number_field :id_caja %>
+  </div>
+  <div class="field">
+    <%= f.label :id_cheque_emitido %><br>
+    <%= f.number_field :id_cheque_emitido %>
+  </div>
+  <div class="field">
+    <%= f.label :id_cheque_entrante %><br>
+    <%= f.number_field :id_cheque_entrante %>
+  </div>
+  <div class="field">
+    <%= f.label :monto %><br>
+    <%= f.text_field :monto %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

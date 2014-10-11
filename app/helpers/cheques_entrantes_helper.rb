@@ -1,0 +1,2 @@
+module ChequesEntrantesHelper
+end

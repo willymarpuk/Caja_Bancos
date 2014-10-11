@@ -1,0 +1,31 @@
+<h1>Listing detalles_cajas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id caja</th>
+      <th>Id cheque emitido</th>
+      <th>Id cheque entrante</th>
+      <th>Monto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @detalles_cajas.each do |detalles_caja| %>
+      <tr>
+        <td><%= detalles_caja.id_caja %></td>
+        <td><%= detalles_caja.id_cheque_emitido %></td>
+        <td><%= detalles_caja.id_cheque_entrante %></td>
+        <td><%= detalles_caja.monto %></td>
+        <td><%= link_to 'Show', detalles_caja %></td>
+        <td><%= link_to 'Edit', edit_detalles_caja_path(detalles_caja) %></td>
+        <td><%= link_to 'Destroy', detalles_caja, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Detalles caja', new_detalles_caja_path %>

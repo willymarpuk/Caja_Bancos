@@ -1,0 +1,29 @@
+<h1>Listing cuentas_bancaria</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id banco</th>
+      <th>Fecha de apertura</th>
+      <th>Saldo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cuentas_bancaria.each do |cuentas_bancarium| %>
+      <tr>
+        <td><%= cuentas_bancarium.id_banco %></td>
+        <td><%= cuentas_bancarium.fecha_de_apertura %></td>
+        <td><%= cuentas_bancarium.saldo %></td>
+        <td><%= link_to 'Show', cuentas_bancarium %></td>
+        <td><%= link_to 'Edit', edit_cuentas_bancarium_path(cuentas_bancarium) %></td>
+        <td><%= link_to 'Destroy', cuentas_bancarium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cuentas bancarium', new_cuentas_bancarium_path %>

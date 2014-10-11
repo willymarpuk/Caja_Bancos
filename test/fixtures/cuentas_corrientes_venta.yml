@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_persona: 1
+  id_caja: 1
+  id_movimiento_de_caja: 1
+  monto: 1.5
+
+two:
+  id_persona: 1
+  id_caja: 1
+  id_movimiento_de_caja: 1
+  monto: 1.5

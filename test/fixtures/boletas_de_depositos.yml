@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_banco: 1
+  id_persona: 1
+  id_cuenta_bancaria: 1
+  id_caja: 1
+  id_cheque_entrante: 1
+  fecha: 2014-10-11
+
+two:
+  id_banco: 1
+  id_persona: 1
+  id_cuenta_bancaria: 1
+  id_caja: 1
+  id_cheque_entrante: 1
+  fecha: 2014-10-11

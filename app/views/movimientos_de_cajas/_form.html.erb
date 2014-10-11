@@ -1,0 +1,45 @@
+<%= form_for(@movimientos_de_caja) do |f| %>
+  <% if @movimientos_de_caja.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movimientos_de_caja.errors.count, "error") %> prohibited this movimientos_de_caja from being saved:</h2>
+
+      <ul>
+      <% @movimientos_de_caja.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_tipo_de_movimiento %><br>
+    <%= f.number_field :id_tipo_de_movimiento %>
+  </div>
+  <div class="field">
+    <%= f.label :id_caja %><br>
+    <%= f.number_field :id_caja %>
+  </div>
+  <div class="field">
+    <%= f.label :id_cheque_entrante %><br>
+    <%= f.number_field :id_cheque_entrante %>
+  </div>
+  <div class="field">
+    <%= f.label :id_cheque_emitido %><br>
+    <%= f.number_field :id_cheque_emitido %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_field :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :monto_efectivo %><br>
+    <%= f.text_field :monto_efectivo %>
+  </div>
+  <div class="field">
+    <%= f.label :monto_cheque %><br>
+    <%= f.text_field :monto_cheque %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

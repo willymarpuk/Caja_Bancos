@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_tipo_de_movimiento: 1
+  id_caja: 1
+  id_cheque_entrante: 1
+  id_cheque_emitido: 1
+  descripcion: MyString
+  monto_efectivo: 1.5
+  monto_cheque: 1.5
+
+two:
+  id_tipo_de_movimiento: 1
+  id_caja: 1
+  id_cheque_entrante: 1
+  id_cheque_emitido: 1
+  descripcion: MyString
+  monto_efectivo: 1.5
+  monto_cheque: 1.5
