@@ -1,0 +1,2 @@
+module CuentasCorrientesVentaHelper
+end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_cuenta_bancaria: 1
+  id_banco: 1
+  fecha: 2014-10-19
+  concepto: MyString
+  monto: 1.5
+
+two:
+  id_cuenta_bancaria: 1
+  id_banco: 1
+  fecha: 2014-10-19
+  concepto: MyString
+  monto: 1.5

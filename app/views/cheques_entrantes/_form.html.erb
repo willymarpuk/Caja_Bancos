@@ -1,0 +1,33 @@
+<%= form_for(@cheques_entrante) do |f| %>
+  <% if @cheques_entrante.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cheques_entrante.errors.count, "error") %> prohibited this cheques_entrante from being saved:</h2>
+
+      <ul>
+      <% @cheques_entrante.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_banco %><br>
+    <%= f.number_field :id_banco %>
+  </div>
+  <div class="field">
+    <%= f.label :numero %><br>
+    <%= f.number_field :numero %>
+  </div>
+  <div class="field">
+    <%= f.label :monto %><br>
+    <%= f.text_field :monto %>
+  </div>
+  <div class="field">
+    <%= f.label :concepto %><br>
+    <%= f.text_field :concepto %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

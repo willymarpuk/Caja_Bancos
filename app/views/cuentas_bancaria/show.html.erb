@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id banco:</strong>
+  <%= @cuentas_bancarium.id_banco %>
+</p>
+
+<p>
+  <strong>Fecha de apertura:</strong>
+  <%= @cuentas_bancarium.fecha_de_apertura %>
+</p>
+
+<p>
+  <strong>Saldo:</strong>
+  <%= @cuentas_bancarium.saldo %>
+</p>
+
+<p>
+  <strong>Id firmante:</strong>
+  <%= @cuentas_bancarium.id_firmante %>
+</p>
+
+<%= link_to 'Edit', edit_cuentas_bancarium_path(@cuentas_bancarium) %> |
+<%= link_to 'Back', cuentas_bancaria_path %>

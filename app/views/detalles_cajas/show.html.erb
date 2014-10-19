@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id caja:</strong>
+  <%= @detalles_caja.id_caja %>
+</p>
+
+<p>
+  <strong>Id cheque emitido:</strong>
+  <%= @detalles_caja.id_cheque_emitido %>
+</p>
+
+<p>
+  <strong>Id cheque entrante:</strong>
+  <%= @detalles_caja.id_cheque_entrante %>
+</p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @detalles_caja.monto %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @detalles_caja.item %>
+</p>
+
+<%= link_to 'Edit', edit_detalles_caja_path(@detalles_caja) %> |
+<%= link_to 'Back', detalles_cajas_path %>

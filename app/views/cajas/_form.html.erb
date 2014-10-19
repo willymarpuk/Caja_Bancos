@@ -1,0 +1,49 @@
+<%= form_for(@caja) do |f| %>
+  <% if @caja.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@caja.errors.count, "error") %> prohibited this caja from being saved:</h2>
+
+      <ul>
+      <% @caja.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_estado %><br>
+    <%= f.number_field :id_estado %>
+  </div>
+  <div class="field">
+    <%= f.label :id_persona %><br>
+    <%= f.number_field :id_persona %>
+  </div>
+  <div class="field">
+    <%= f.label :apertura %><br>
+    <%= f.date_select :apertura %>
+  </div>
+  <div class="field">
+    <%= f.label :cierre %><br>
+    <%= f.date_select :cierre %>
+  </div>
+  <div class="field">
+    <%= f.label :saldo_inicial_efectivo %><br>
+    <%= f.text_field :saldo_inicial_efectivo %>
+  </div>
+  <div class="field">
+    <%= f.label :saldo_final_efectivo %><br>
+    <%= f.text_field :saldo_final_efectivo %>
+  </div>
+  <div class="field">
+    <%= f.label :saldo_inicial_cheque %><br>
+    <%= f.text_field :saldo_inicial_cheque %>
+  </div>
+  <div class="field">
+    <%= f.label :saldo_final_cheque %><br>
+    <%= f.text_field :saldo_final_cheque %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

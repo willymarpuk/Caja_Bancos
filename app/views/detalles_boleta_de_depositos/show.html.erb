@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id boleta de deposito:</strong>
+  <%= @detalles_boleta_de_deposito.id_boleta_de_deposito %>
+</p>
+
+<p>
+  <strong>Efectivo:</strong>
+  <%= @detalles_boleta_de_deposito.efectivo %>
+</p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @detalles_boleta_de_deposito.monto %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @detalles_boleta_de_deposito.item %>
+</p>
+
+<p>
+  <strong>Id cheque entrante:</strong>
+  <%= @detalles_boleta_de_deposito.id_cheque_entrante %>
+</p>
+
+<%= link_to 'Edit', edit_detalles_boleta_de_deposito_path(@detalles_boleta_de_deposito) %> |
+<%= link_to 'Back', detalles_boleta_de_depositos_path %>

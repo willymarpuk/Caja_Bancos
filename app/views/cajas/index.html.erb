@@ -1,0 +1,40 @@
+<h1> Caja <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></button></h1>
+<div id="form1">
+  <%= render 'form' %>
+</div>
+
+<div class="well">
+<table id="table">
+  <thead>
+    <tr>
+      <th>Id estado</th>
+      <th>Id persona</th>
+      <th>Apertura</th>
+      <th>Cierre</th>
+      <th>Saldo inicial efectivo</th>
+      <th>Saldo final efectivo</th>
+      <th>Saldo inicial cheque</th>
+      <th>Saldo final cheque</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cajas.each do |caja| %>
+      <tr>
+        <td><%= caja.id_estado %></td>
+        <td><%= caja.id_persona %></td>
+        <td><%= caja.apertura %></td>
+        <td><%= caja.cierre %></td>
+        <td><%= caja.saldo_inicial_efectivo %></td>
+        <td><%= caja.saldo_final_efectivo %></td>
+        <td><%= caja.saldo_inicial_cheque %></td>
+        <td><%= caja.saldo_final_cheque %></td>
+        <td><%= link_to 'Show', caja %></td>
+        <td><%= link_to 'Edit', edit_caja_path(caja) %></td>
+        <td><%= link_to 'Destroy', caja, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

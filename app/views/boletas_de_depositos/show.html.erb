@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id banco:</strong>
+  <%= @boletas_de_deposito.id_banco %>
+</p>
+
+<p>
+  <strong>Id persona:</strong>
+  <%= @boletas_de_deposito.id_persona %>
+</p>
+
+<p>
+  <strong>Id cuenta bancaria:</strong>
+  <%= @boletas_de_deposito.id_cuenta_bancaria %>
+</p>
+
+<p>
+  <strong>Id caja:</strong>
+  <%= @boletas_de_deposito.id_caja %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @boletas_de_deposito.fecha %>
+</p>
+
+<%= link_to 'Edit', edit_boletas_de_deposito_path(@boletas_de_deposito) %> |
+<%= link_to 'Back', boletas_de_depositos_path %>

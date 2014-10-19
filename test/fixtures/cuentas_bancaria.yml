@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_banco: 1
+  fecha_de_apertura: 2014-10-19
+  saldo: 1.5
+  id_firmante: 1
+
+two:
+  id_banco: 1
+  fecha_de_apertura: 2014-10-19
+  saldo: 1.5
+  id_firmante: 1

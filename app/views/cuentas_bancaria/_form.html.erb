@@ -1,0 +1,33 @@
+<%= form_for(@cuentas_bancarium) do |f| %>
+  <% if @cuentas_bancarium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cuentas_bancarium.errors.count, "error") %> prohibited this cuentas_bancarium from being saved:</h2>
+
+      <ul>
+      <% @cuentas_bancarium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_banco %><br>
+    <%= f.number_field :id_banco %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_de_apertura %><br>
+    <%= f.date_select :fecha_de_apertura %>
+  </div>
+  <div class="field">
+    <%= f.label :saldo %><br>
+    <%= f.text_field :saldo %>
+  </div>
+  <div class="field">
+    <%= f.label :id_firmante %><br>
+    <%= f.number_field :id_firmante %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

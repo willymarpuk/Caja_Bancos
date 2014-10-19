@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id banco:</strong>
+  <%= @cheques_entrante.id_banco %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @cheques_entrante.numero %>
+</p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @cheques_entrante.monto %>
+</p>
+
+<p>
+  <strong>Concepto:</strong>
+  <%= @cheques_entrante.concepto %>
+</p>
+
+<%= link_to 'Edit', edit_cheques_entrante_path(@cheques_entrante) %> |
+<%= link_to 'Back', cheques_entrantes_path %>

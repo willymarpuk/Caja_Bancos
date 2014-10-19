@@ -1,9 +1,42 @@
 Rails.application.routes.draw do
+  resources :bancos
+
+  resources :cheques_emitidos
+
+  resources :boletas_de_depositos
+
+  resources :detalles_boleta_de_depositos
+
+  resources :tipos_de_personas
+
+  resources :personas
+
+  resources :cuentas_bancaria
+
+  resources :movimientos_de_bancos
+
+  resources :cheques_entrantes
+
+  resources :movimientos_de_cajas
+
+  resources :tipos_de_movimientos
+
+  resources :cuentas_corrientes_venta
+
+  resources :tipos_de_estados
+
+  resources :detalles_cajas
+
+  resources :cajas
+
+  devise_for :users
+  get 'home/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

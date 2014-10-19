@@ -1,0 +1,35 @@
+<h1> Movimientos de Bancos<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></button></h1>
+<div id="form1">
+  <%= render 'form' %>
+</div>
+<table id="table">
+  <thead>
+    <tr>
+      <th>Id tipo de movimiento</th>
+      <th>Id banco</th>
+      <th>Id cuenta bancaria</th>
+      <th>Descripcion</th>
+      <th>Monto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movimientos_de_bancos.each do |movimientos_de_banco| %>
+      <tr>
+        <td><%= movimientos_de_banco.id_tipo_de_movimiento %></td>
+        <td><%= movimientos_de_banco.id_banco %></td>
+        <td><%= movimientos_de_banco.id_cuenta_bancaria %></td>
+        <td><%= movimientos_de_banco.descripcion %></td>
+        <td><%= movimientos_de_banco.monto %></td>
+        <td><%= link_to 'Show', movimientos_de_banco %></td>
+        <td><%= link_to 'Edit', edit_movimientos_de_banco_path(movimientos_de_banco) %></td>
+        <td><%= link_to 'Destroy', movimientos_de_banco, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Movimientos de banco', new_movimientos_de_banco_path %>
