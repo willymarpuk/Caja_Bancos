@@ -1,4 +1,4 @@
-<h1> Personas <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></button></h1>
+<h1> Personas <button type="button" class="btn btn-info" id="btn1"><span class="glyphicon glyphicon-chevron-up" id="gbtn1"></span></button></h1>
 <div id="form1">
   <%= render 'form' %>
 </div>
@@ -24,9 +24,9 @@
         <td><%= persona.localidad %></td>
         <td><%= persona.departamento %></td>
         <td><%= persona.telefono %></td>
-        <td><%= link_to 'Show', persona %></td>
+<!--         <td><%= link_to 'Show', persona %></td>
         <td><%= link_to 'Edit', edit_persona_path(persona) %></td>
-        <td><%= link_to 'Destroy', persona, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', persona, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>

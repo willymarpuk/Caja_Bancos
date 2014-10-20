@@ -16,9 +16,15 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import "bootstrap-datetimepicker";
 
 /* Hide for mobile, show later */
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+
 .sidebar {
   display: none;
 }
@@ -30,10 +36,9 @@
     left: 0;
     z-index: 1000;
     display: block;
-    padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
+    background-color: #2f4050;
     border-right: 1px solid #eee;
   }
 }
@@ -52,5 +57,85 @@
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
   color: #fff;
-  background-color: #428bca;
+  font-weight: 600;
+  background-color: #293846;
 }
+
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #293846;
+}
+
+.navbar-inverse {
+  background-color: #f3f3f4;
+  border-color: #e7eaec;
+  border-top: 4px;
+}
+
+.navbar-fixed-top {
+top: 0;
+border-width: 0 0 4px;
+}
+
+
+a:visited {
+color: #B4B4C2;
+}
+
+// // btn-default
+// .btn-default {
+// background-color: #c2c2c2;
+// border-color: #c2c2c2;
+// color: #FFFFFF;
+// }
+
+
+// // btn-primary
+// .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+// background-color: #18a689;
+// border-color: #18a689;
+// color: #FFFFFF;
+// }
+// .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+// background-color: #18a689;
+// border-color: #18a689;
+// color: #FFFFFF;
+// }
+
+// // btn-info
+// .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open .dropdown-toggle.btn-info {
+// background-color: #21b9bb;
+// border-color: #21b9bb;
+// color: #FFFFFF;
+// }
+// .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open .dropdown-toggle.btn-info {
+// background-color: #21b9bb;
+// border-color: #21b9bb;
+// color: #FFFFFF;
+// }
+
+.btn-outline {
+color: inherit;
+background-color: transparent;
+transition: all .5s;
+}
+
+// .btn-circle {
+// width: 30px;
+// height: 30px;
+// padding: 6px 0;
+// border-radius: 15px;
+// text-align: center;
+// font-size: 12px;
+// line-height: 1.428571429;
+// }
+
+// .btn-circle.btn-lg {
+// width: 50px;
+// height: 50px;
+// padding: 10px 16px;
+// border-radius: 25px;
+// font-size: 18px;
+// line-height: 1.33;
+// }
+
