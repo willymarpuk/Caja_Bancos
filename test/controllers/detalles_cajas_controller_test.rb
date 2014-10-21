@@ -18,7 +18,7 @@ class DetallesCajasControllerTest < ActionController::TestCase
 
   test "should create detalles_caja" do
     assert_difference('DetallesCaja.count') do
-      post :create, detalles_caja: { id_caja: @detalles_caja.id_caja, id_cheque_emitido: @detalles_caja.id_cheque_emitido, id_cheque_entrante: @detalles_caja.id_cheque_entrante, monto: @detalles_caja.monto }
+      post :create, detalles_caja: { id_caja: @detalles_caja.id_caja, id_cheque_emitido: @detalles_caja.id_cheque_emitido, id_cheque_entrante: @detalles_caja.id_cheque_entrante, item: @detalles_caja.item, monto: @detalles_caja.monto }
     end
 
     assert_redirected_to detalles_caja_path(assigns(:detalles_caja))
@@ -35,7 +35,7 @@ class DetallesCajasControllerTest < ActionController::TestCase
   end
 
   test "should update detalles_caja" do
-    patch :update, id: @detalles_caja, detalles_caja: { id_caja: @detalles_caja.id_caja, id_cheque_emitido: @detalles_caja.id_cheque_emitido, id_cheque_entrante: @detalles_caja.id_cheque_entrante, monto: @detalles_caja.monto }
+    patch :update, id: @detalles_caja, detalles_caja: { id_caja: @detalles_caja.id_caja, id_cheque_emitido: @detalles_caja.id_cheque_emitido, id_cheque_entrante: @detalles_caja.id_cheque_entrante, item: @detalles_caja.item, monto: @detalles_caja.monto }
     assert_redirected_to detalles_caja_path(assigns(:detalles_caja))
   end
 

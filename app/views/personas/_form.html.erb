@@ -10,23 +10,38 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :id_tipo_de_persona %><br>
-    <%= f.number_field :id_tipo_de_persona %>
+<div class="row">
+<div class="col-md-4">
+    <div class="field">
+      <%= f.label :id_tipo_de_persona %><br>
+      <%= f.number_field :id_tipo_de_persona %>
+    </div>
+    <div class="field">
+      <%= f.label :nombre %><br>
+      <%= f.text_field :nombre %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
+  <div class="col-md-4">
+    <div class="field">
+      <%= f.label :direccion %><br>
+      <%= f.text_field :direccion %>
+    </div>
+    <div class="field">
+      <%= f.label :localidad %><br>
+      <%= f.text_field :localidad %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :direccion %><br>
-    <%= f.text_field :direccion %>
-  </div>
-  <div class="field">
-    <%= f.label :telefono %><br>
-    <%= f.number_field :telefono %>
-  </div>
+  <div class="col-md-4">
+    <div class="field">
+      <%= f.label :departamento %><br>
+      <%= f.text_field :departamento %>
+    </div>
+    <div class="field">
+      <%= f.label :telefono %><br>
+      <%= f.number_field :telefono %>
+    </div>
+    </div>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

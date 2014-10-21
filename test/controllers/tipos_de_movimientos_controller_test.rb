@@ -18,7 +18,7 @@ class TiposDeMovimientosControllerTest < ActionController::TestCase
 
   test "should create tipos_de_movimiento" do
     assert_difference('TiposDeMovimiento.count') do
-      post :create, tipos_de_movimiento: { descripcion: @tipos_de_movimiento.descripcion }
+      post :create, tipos_de_movimiento: { descripcion: @tipos_de_movimiento.descripcion, tipo: @tipos_de_movimiento.tipo }
     end
 
     assert_redirected_to tipos_de_movimiento_path(assigns(:tipos_de_movimiento))
@@ -35,7 +35,7 @@ class TiposDeMovimientosControllerTest < ActionController::TestCase
   end
 
   test "should update tipos_de_movimiento" do
-    patch :update, id: @tipos_de_movimiento, tipos_de_movimiento: { descripcion: @tipos_de_movimiento.descripcion }
+    patch :update, id: @tipos_de_movimiento, tipos_de_movimiento: { descripcion: @tipos_de_movimiento.descripcion, tipo: @tipos_de_movimiento.tipo }
     assert_redirected_to tipos_de_movimiento_path(assigns(:tipos_de_movimiento))
   end
 

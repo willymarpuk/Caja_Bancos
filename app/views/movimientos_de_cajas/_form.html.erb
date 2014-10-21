@@ -10,36 +10,45 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :id_tipo_de_movimiento %><br>
-    <%= f.number_field :id_tipo_de_movimiento %>
+<div class="row">
+  <div class="col-md-3">
+      <div class="field">
+        <%= f.label :id_tipo_de_movimiento %><br>
+        <%= f.number_field :id_tipo_de_movimiento %>
+      </div>
+      <div class="field">
+        <%= f.label :id_caja %><br>
+        <%= f.number_field :id_caja %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :id_caja %><br>
-    <%= f.number_field :id_caja %>
+  <div class="col-md-3">
+      <div class="field">
+        <%= f.label :id_cheque_entrante %><br>
+        <%= f.number_field :id_cheque_entrante %>
+      </div>
+      <div class="field">
+        <%= f.label :id_cheque_emitido %><br>
+        <%= f.number_field :id_cheque_emitido %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :id_cheque_entrante %><br>
-    <%= f.number_field :id_cheque_entrante %>
+  <div class="col-md-3">
+      <div class="field">
+        <%= f.label :descripcion %><br>
+        <%= f.text_field :descripcion %>
+      </div>
+      <div class="field">
+        <%= f.label :monto_efectivo %><br>
+        <%= f.text_field :monto_efectivo %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :id_cheque_emitido %><br>
-    <%= f.number_field :id_cheque_emitido %>
+  <div class="col-md-3">
+      <div class="field">
+        <%= f.label :monto_cheque %><br>
+        <%= f.text_field :monto_cheque %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :descripcion %><br>
-    <%= f.text_field :descripcion %>
   </div>
-  <div class="field">
-    <%= f.label :monto_efectivo %><br>
-    <%= f.text_field :monto_efectivo %>
-  </div>
-  <div class="field">
-    <%= f.label :monto_cheque %><br>
-    <%= f.text_field :monto_cheque %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>

@@ -10,32 +10,37 @@
       </ul>
     </div>
   <% end %>
+<div class="row">
+  <div class="col-md-3">
+      <div class="field">
+        <%= f.label :id_banco %><br>
+        <%= f.number_field :id_banco %>
+      </div>
+      <div class="field">
+        <%= f.label :id_persona %><br>
+        <%= f.number_field :id_persona %>
+      </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :id_banco %><br>
-    <%= f.number_field :id_banco %>
+   <div class="col-md-3">
+      <div class="field">
+        <%= f.label :id_cuenta_bancaria %><br>
+        <%= f.number_field :id_cuenta_bancaria %>
+      </div>
+      <div class="field">
+        <%= f.label :id_caja %><br>
+        <%= f.number_field :id_caja %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :id_persona %><br>
-    <%= f.number_field :id_persona %>
-  </div>
-  <div class="field">
-    <%= f.label :id_cuenta_bancaria %><br>
-    <%= f.number_field :id_cuenta_bancaria %>
-  </div>
-  <div class="field">
-    <%= f.label :id_caja %><br>
-    <%= f.number_field :id_caja %>
-  </div>
-  <div class="field">
-    <%= f.label :id_cheque_entrante %><br>
-    <%= f.number_field :id_cheque_entrante %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha %><br>
-    <%= f.date_select :fecha %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+ 
+      <div class="field">
+        <%= f.label :fecha %><br>
+        <%= f.date_select :fecha %>
+      </div>
+
+</div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>

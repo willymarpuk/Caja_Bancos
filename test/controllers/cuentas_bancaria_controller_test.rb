@@ -18,7 +18,7 @@ class CuentasBancariaControllerTest < ActionController::TestCase
 
   test "should create cuentas_bancarium" do
     assert_difference('CuentasBancarium.count') do
-      post :create, cuentas_bancarium: { fecha_de_apertura: @cuentas_bancarium.fecha_de_apertura, id_banco: @cuentas_bancarium.id_banco, saldo: @cuentas_bancarium.saldo }
+      post :create, cuentas_bancarium: { fecha_de_apertura: @cuentas_bancarium.fecha_de_apertura, id_banco: @cuentas_bancarium.id_banco, id_firmante: @cuentas_bancarium.id_firmante, saldo: @cuentas_bancarium.saldo }
     end
 
     assert_redirected_to cuentas_bancarium_path(assigns(:cuentas_bancarium))
@@ -35,7 +35,7 @@ class CuentasBancariaControllerTest < ActionController::TestCase
   end
 
   test "should update cuentas_bancarium" do
-    patch :update, id: @cuentas_bancarium, cuentas_bancarium: { fecha_de_apertura: @cuentas_bancarium.fecha_de_apertura, id_banco: @cuentas_bancarium.id_banco, saldo: @cuentas_bancarium.saldo }
+    patch :update, id: @cuentas_bancarium, cuentas_bancarium: { fecha_de_apertura: @cuentas_bancarium.fecha_de_apertura, id_banco: @cuentas_bancarium.id_banco, id_firmante: @cuentas_bancarium.id_firmante, saldo: @cuentas_bancarium.saldo }
     assert_redirected_to cuentas_bancarium_path(assigns(:cuentas_bancarium))
   end
 

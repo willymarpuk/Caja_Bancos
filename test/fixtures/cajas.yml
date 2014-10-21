@@ -3,8 +3,8 @@
 one:
   id_estado: 1
   id_persona: 1
-  apertura: 2014-10-10
-  cierre: 2014-10-10
+  apertura: 2014-10-19
+  cierre: 2014-10-19
   saldo_inicial_efectivo: 1.5
   saldo_final_efectivo: 1.5
   saldo_inicial_cheque: 1.5
@@ -13,8 +13,8 @@ one:
 two:
   id_estado: 1
   id_persona: 1
-  apertura: 2014-10-10
-  cierre: 2014-10-10
+  apertura: 2014-10-19
+  cierre: 2014-10-19
   saldo_inicial_efectivo: 1.5
   saldo_final_efectivo: 1.5
   saldo_inicial_cheque: 1.5

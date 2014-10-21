@@ -18,7 +18,7 @@ class DetallesBoletaDeDepositosControllerTest < ActionController::TestCase
 
   test "should create detalles_boleta_de_deposito" do
     assert_difference('DetallesBoletaDeDeposito.count') do
-      post :create, detalles_boleta_de_deposito: { efectivo: @detalles_boleta_de_deposito.efectivo, id_boleta_de_deposito: @detalles_boleta_de_deposito.id_boleta_de_deposito, monto: @detalles_boleta_de_deposito.monto }
+      post :create, detalles_boleta_de_deposito: { efectivo: @detalles_boleta_de_deposito.efectivo, id_boleta_de_deposito: @detalles_boleta_de_deposito.id_boleta_de_deposito, id_cheque_entrante: @detalles_boleta_de_deposito.id_cheque_entrante, item: @detalles_boleta_de_deposito.item, monto: @detalles_boleta_de_deposito.monto }
     end
 
     assert_redirected_to detalles_boleta_de_deposito_path(assigns(:detalles_boleta_de_deposito))
@@ -35,7 +35,7 @@ class DetallesBoletaDeDepositosControllerTest < ActionController::TestCase
   end
 
   test "should update detalles_boleta_de_deposito" do
-    patch :update, id: @detalles_boleta_de_deposito, detalles_boleta_de_deposito: { efectivo: @detalles_boleta_de_deposito.efectivo, id_boleta_de_deposito: @detalles_boleta_de_deposito.id_boleta_de_deposito, monto: @detalles_boleta_de_deposito.monto }
+    patch :update, id: @detalles_boleta_de_deposito, detalles_boleta_de_deposito: { efectivo: @detalles_boleta_de_deposito.efectivo, id_boleta_de_deposito: @detalles_boleta_de_deposito.id_boleta_de_deposito, id_cheque_entrante: @detalles_boleta_de_deposito.id_cheque_entrante, item: @detalles_boleta_de_deposito.item, monto: @detalles_boleta_de_deposito.monto }
     assert_redirected_to detalles_boleta_de_deposito_path(assigns(:detalles_boleta_de_deposito))
   end
 

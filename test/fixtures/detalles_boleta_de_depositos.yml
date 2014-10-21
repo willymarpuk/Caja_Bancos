@@ -4,8 +4,12 @@ one:
   id_boleta_de_deposito: 1
   efectivo: 1.5
   monto: 1.5
+  item: 1
+  id_cheque_entrante: 1
 
 two:
   id_boleta_de_deposito: 1
   efectivo: 1.5
   monto: 1.5
+  item: 1
+  id_cheque_entrante: 1

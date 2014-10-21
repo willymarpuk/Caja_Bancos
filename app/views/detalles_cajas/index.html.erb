@@ -7,6 +7,7 @@
       <th>Id cheque emitido</th>
       <th>Id cheque entrante</th>
       <th>Monto</th>
+      <th>Item</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= detalles_caja.id_cheque_emitido %></td>
         <td><%= detalles_caja.id_cheque_entrante %></td>
         <td><%= detalles_caja.monto %></td>
+        <td><%= detalles_caja.item %></td>
         <td><%= link_to 'Show', detalles_caja %></td>
         <td><%= link_to 'Edit', edit_detalles_caja_path(detalles_caja) %></td>
         <td><%= link_to 'Destroy', detalles_caja, method: :delete, data: { confirm: 'Are you sure?' } %></td>

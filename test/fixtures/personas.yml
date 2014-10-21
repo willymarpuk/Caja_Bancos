@@ -4,10 +4,14 @@ one:
   id_tipo_de_persona: 1
   nombre: MyString
   direccion: MyString
+  localidad: MyString
+  departamento: MyString
   telefono: 1
 
 two:
   id_tipo_de_persona: 1
   nombre: MyString
   direccion: MyString
+  localidad: MyString
+  departamento: MyString
   telefono: 1

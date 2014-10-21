@@ -1,9 +1,12 @@
-<h1>Listing tipos_de_movimientos</h1>
-
-<table>
+<h1> Tipos de Movimientos <button type="button" class="btn btn-info" id="btn1"><span class="glyphicon glyphicon-chevron-up" id="gbtn1"></span></button></h1>
+<div id="form1">
+  <%= render 'form' %>
+</div>
+<table id="table">
   <thead>
     <tr>
       <th>Descripcion</th>
+      <th>Tipo</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +15,7 @@
     <% @tipos_de_movimientos.each do |tipos_de_movimiento| %>
       <tr>
         <td><%= tipos_de_movimiento.descripcion %></td>
+        <td><%= tipos_de_movimiento.tipo %></td>
         <td><%= link_to 'Show', tipos_de_movimiento %></td>
         <td><%= link_to 'Edit', edit_tipos_de_movimiento_path(tipos_de_movimiento) %></td>
         <td><%= link_to 'Destroy', tipos_de_movimiento, method: :delete, data: { confirm: 'Are you sure?' } %></td>

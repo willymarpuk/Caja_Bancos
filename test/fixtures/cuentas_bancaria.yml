@@ -2,10 +2,12 @@
 
 one:
   id_banco: 1
-  fecha_de_apertura: 2014-10-11
+  fecha_de_apertura: 2014-10-19
   saldo: 1.5
+  id_firmante: 1
 
 two:
   id_banco: 1
-  fecha_de_apertura: 2014-10-11
+  fecha_de_apertura: 2014-10-19
   saldo: 1.5
+  id_firmante: 1

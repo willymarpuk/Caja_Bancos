@@ -5,9 +5,11 @@ one:
   id_cheque_emitido: 1
   id_cheque_entrante: 1
   monto: 1.5
+  item: 1
 
 two:
   id_caja: 1
   id_cheque_emitido: 1
   id_cheque_entrante: 1
   monto: 1.5
+  item: 1
