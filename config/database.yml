@@ -9,7 +9,8 @@ development:
   encoding: unicode
   database: caja_banco_development
   pool: 5
-  username: adrian
+  # username: adrian
+  username: postgres
   password: 123
 
 test:
@@ -17,7 +18,8 @@ test:
   encoding: unicode
   database: caja_banco_test
   pool: 5
-  username: adrian
+  # username: adrian
+  username: postgres
   password: 123
 
 production:
@@ -25,5 +27,6 @@ production:
   encoding: unicode
   database: caja_banco_production
   pool: 5
-  username: adrian
+  # username: adrian
+  username: postgres
   password: 123
