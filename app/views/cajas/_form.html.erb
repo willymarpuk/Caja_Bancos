@@ -14,45 +14,46 @@
   <div class="col-md-3">
       <div class="field">
         <%= f.label :id_estado %><br>
-        <%= f.number_field :id_estado %>
+        <%= f.number_field :id_estado , :class => 'form-control'%>
       </div>
       <div class="field">
         <%= f.label :id_persona %><br>
-        <%= f.number_field :id_persona %>
+        <%= f.number_field :id_persona , :class => 'form-control'%>
       </div>
   </div>
 
   <div class="col-md-3">
       <div class="field">
-        <%= f.label :apertura %><br>
-        <%= f.text_field :apertura, :class => 'datepicker' %>
+        <i class="glyphicon glyphicon-calendar"></i> <%= f.label :apertura %><br>
+        <%= f.text_field :apertura, :class => 'datepicker form-control' %>
 
       </div>
       <div class="field">
-        <%= f.label :cierre %><br>
-        <%= f.text_field :cierre, :class => 'datepicker' %>
+        <i class="glyphicon glyphicon-calendar"></i> <%= f.label :cierre %><br>
+        <%= f.text_field :cierre, :class => 'datepicker form-control' %>
       </div>
   </div>
 
   <div class="col-md-3">
     <div class="field">
       <%= f.label :saldo_inicial_efectivo %><br>
-      <%= f.text_field :saldo_inicial_efectivo %>
+
+      <%= f.text_field :saldo_inicial_efectivo, :class => 'form-control' %>
     </div>
     <div class="field">
       <%= f.label :saldo_final_efectivo %><br>
-      <%= f.text_field :saldo_final_efectivo %>
+      <%= f.text_field :saldo_final_efectivo, :class => 'form-control' %>
     </div>
   </div>
 
   <div class="col-md-3">
     <div class="field">
       <%= f.label :saldo_inicial_cheque %><br>
-      <%= f.text_field :saldo_inicial_cheque %>
+      <%= f.text_field :saldo_inicial_cheque, :class => 'form-control' %>
     </div>
     <div class="field">
       <%= f.label :saldo_final_cheque %><br>
-      <%= f.text_field :saldo_final_cheque %>
+      <%= f.text_field :saldo_final_cheque , :class => 'form-control'%>
     </div>
   </div>
 
