@@ -12,10 +12,10 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-             <li><a href="#">Cerrar</a></li>
-            <li><a href="#">Profile</a></li>
+             <!-- <li><a href="#">Cerrar</a></li>
+            <li><a href="#">Profile</a></li> -->
              <li style="margin-top: 16px;"> Bienvenido <%= current_user.username %> </li> 
-             <li> <%= link_to "<i class=\"glyphicon glyphicon-calendar\"> Cerrar Sesión</i>".html_safe, destroy_user_session_path, :method => :delete %></li>
+             <li> <%= link_to "<i class=\"glyphicon glyphicon-log-out\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Cerrar Sesión\"></i>".html_safe, destroy_user_session_path, :method => :delete %></li>
             <% else %>
            <li>  <%= link_to "Sign in", new_user_session_path %> </li> 
             <% end %>

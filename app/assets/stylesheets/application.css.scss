@@ -22,14 +22,13 @@
 body{
   font-family: 'Open Sans', sans-serif;
 }
-
-  .navbar li:hover{
-    background-color: red;
-  }
+.col-md-offset-1 {
+  margin-left: 12.333333%;
+}
 
 .sidebar {
   display: none;
-  width: 13.6666666667%;
+  width: 12.666667%;
 }
 @media (min-width: 768px) {
   .sidebar {
@@ -53,9 +52,12 @@ body{
   margin-left: -20px;
 }
 .nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 20px;
+position: relative;
+  display: block;
+  padding: 6px 15px;
+  font-size: small;
 }
+
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
@@ -101,24 +103,24 @@ color: #ffffff;
 background-color: #128f76;
 border-color: #11866f;
 }
-// .btn-circle {
-// width: 30px;
-// height: 30px;
-// padding: 6px 0;
-// border-radius: 15px;
-// text-align: center;
-// font-size: 12px;
-// line-height: 1.428571429;
-// }
+.btn-circle {
+width: 30px;
+height: 30px;
+padding: 6px 0;
+border-radius: 15px;
+text-align: center;
+font-size: 12px;
+line-height: 1.428571429;
+}
 
-// .btn-circle.btn-lg {
-// width: 50px;
-// height: 50px;
-// padding: 10px 16px;
-// border-radius: 25px;
-// font-size: 18px;
-// line-height: 1.33;
-// }
+.btn-circle.btn-lg {
+width: 50px;
+height: 50px;
+padding: 10px 16px;
+border-radius: 25px;
+font-size: 18px;
+line-height: 1.33;
+}
 
   .form-signin {
     max-width: 330px;

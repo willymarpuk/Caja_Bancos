@@ -4,29 +4,64 @@ class CajasController < ApplicationController
   def index
     @cajas = Caja.all
     @caja = Caja.new
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @cajas }
+    end
   end
 
   def show
+    @caja = Caja.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @caja }
+    end
   end
 
   def new
     @caja = Caja.new
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @caja }
+    end
   end
 
   def edit
+      @caja = Caja.find(params[:id])
   end
 
   def create
     @caja = Caja.new(caja_params)
-    @caja.save
+    respond_to do |format|
+      if @caja.save
+        format.html { redirect_to caja_path, notice: 'caja was successfully created.' }
+        format.json { render :show, status: :created, location: @caja }
+      else
+        format.html { render :new }
+        format.json { render json: @caja.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
-    @caja.update(caja_params)
+   respond_to do |format|
+      if @caja.update(caja_params)
+        format.html { redirect_to @caja, notice: 'caja was successfully updated.' }
+        format.json { render :show, status: :ok, location: @caja }
+      else
+        format.html { render :edit }
+        format.json { render json: @caja.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
     @caja.destroy
+      respond_to do |format|
+      format.html { redirect_to @caja, notice: 'caja was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
