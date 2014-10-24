@@ -1,4 +1,4 @@
-<h1> Bancos <button type="button" class="btn btn-info" id="btn1"><span class="glyphicon glyphicon-chevron-up" id="gbtn1"></span></button></h1>
+<h1> Bancos <button type="button" class="btn btn-info btn-outline" id="btn1"><span class="glyphicon glyphicon-chevron-up" id="gbtn1"></span></button></h1>
 <div id="form1">
   <%= render 'form' %>
 </div>
@@ -14,14 +14,10 @@
     <% @bancos.each do |banco| %>
       <tr>
         <td><%= banco.nombre_banco %></td>
-        <td><%= link_to 'Show', banco %></td>
+<!--         <td><%= link_to 'Show', banco %></td>
         <td><%= link_to 'Edit', edit_banco_path(banco) %></td>
-        <td><%= link_to 'Destroy', banco, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', banco, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Banco', new_banco_path %>

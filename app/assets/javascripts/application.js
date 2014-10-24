@@ -21,12 +21,11 @@
 //= require bootstrap-datetimepicker
 //= require_tree .
 
-
-
 $(document).ready(function() {
+
 	$('.datepicker').datetimepicker({
-					pickTime: false
-				});
+	    language: 'ru'
+	});
 	$('#table').dataTable()
 	sPaginationType: "full_numbers"
 });

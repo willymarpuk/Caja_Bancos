@@ -11,17 +11,14 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li> <div id="user_nav" style="margin-top: 16px;">
             <% if user_signed_in? %>
-              Signed in as <%= current_user.email %>. Not you?
-              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+             <!-- <li><a href="#">Cerrar</a></li>
+            <li><a href="#">Profile</a></li> -->
+             <li style="margin-top: 16px;"> Bienvenido <%= current_user.username %> </li> 
+             <li> <%= link_to "<i class=\"glyphicon glyphicon-log-out\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Cerrar Sesión\"></i>".html_safe, destroy_user_session_path, :method => :delete %></li>
             <% else %>
-              <%= link_to "Sign up", new_user_registration_path %> or
-              <%= link_to "Sign in", new_user_session_path %>
+           <li>  <%= link_to "Sign in", new_user_session_path %> </li> 
             <% end %>
-          </div>  </li>
           </ul>
         </div>
       </div>

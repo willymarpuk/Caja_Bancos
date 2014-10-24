@@ -67,7 +67,7 @@ class BancosController < ApplicationController
   def destroy
     @banco.destroy
     respond_to do |format|
-      format.html { redirect_to personas_url, notice: 'Banco was successfully destroyed.' }
+      format.html { redirect_to @banco, notice: 'Banco was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

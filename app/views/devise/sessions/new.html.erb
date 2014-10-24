@@ -1,0 +1,10 @@
+<div class="container">
+	<div class="form-signin">
+		<h2 class="form-signin-heading">Iniciar Sesión</h2>
+			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+				<%= f.text_field :username, autofocus: true , class:"form-control", placeholder:"Nombre de usuario" %>
+				<%= f.password_field :password, autocomplete: "off" , class:"form-control", placeholder:"Password" %>
+				<div><%= f.submit "Acceder", :class=>"btn btn-lg btn-primary btn-block" %></div>
+			<% end %>
+	</div>
+</div>
