@@ -1,4 +1,4 @@
-<h1> Movimientos de Bancos<button type="button" class="btn btn-info" id="btn1"><span class="glyphicon glyphicon-chevron-up" id="gbtn1"></span></button></h1>
+<h1> Movimientos de Bancos <button type="button" class="btn btn-info btn-outline btn-circle" id="btn1"><span class="glyphicon glyphicon-chevron-up" id="gbtn1"></span></button></h1>
 <div id="form1">
   <%= render 'form' %>
 </div>
@@ -10,6 +10,7 @@
       <th>Id cuenta bancaria</th>
       <th>Descripcion</th>
       <th>Monto</th>
+      <th>Acciones</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,14 +23,20 @@
         <td><%= movimientos_de_banco.id_cuenta_bancaria %></td>
         <td><%= movimientos_de_banco.descripcion %></td>
         <td><%= movimientos_de_banco.monto %></td>
-        <td><%= link_to 'Show', movimientos_de_banco %></td>
-        <td><%= link_to 'Edit', edit_movimientos_de_banco_path(movimientos_de_banco) %></td>
-        <td><%= link_to 'Destroy', movimientos_de_banco, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <td>
+           <!--  <%= link_to movimientos_de_banco , class: 'btn btn-info btn-outline btn-circle', title: 'View', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+                <span class="glyphicon glyphicon-search"></span>
+                <% end %> -->
+            
+            <%= link_to edit_movimientos_de_banco_path(movimientos_de_banco), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+                <% end %>
+            
+            <%= link_to movimientos_de_banco, method: :delete, data: { confirm: 'Va eliminarlo, esta seguro?' }, class: 'btn btn-danger btn-outline btn-circle', title: 'Borrar', 'data-toggle' => 'tooltip', 'data-placement' => 'right'  do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+      </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Movimientos de banco', new_movimientos_de_banco_path %>

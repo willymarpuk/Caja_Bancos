@@ -10,28 +10,44 @@
       </ul>
     </div>
   <% end %>
-
+<div class="row">
+  <div class="col-md-2">
   <div class="field">
     <%= f.label :id_cuenta_bancaria %><br>
-    <%= f.number_field :id_cuenta_bancaria %>
+    <%= f.number_field :id_cuenta_bancaria  , :class => 'form-control'%>
   </div>
+</div>
+<div class="col-md-2">
   <div class="field">
     <%= f.label :id_banco %><br>
-    <%= f.number_field :id_banco %>
+    <%= f.number_field :id_banco , :class => 'form-control' %>
   </div>
+</div>
+<div class="col-md-2">
   <div class="field">
-    <%= f.label :fecha %><br>
-    <%= f.date_select :fecha %>
+    <i class="glyphicon glyphicon-calendar"></i><%= f.label :fecha %><br>
+    <%= f.text_field :fecha , :class => 'datepicker form-control' %>
   </div>
+</div>
+<div class="col-md-3">
   <div class="field">
     <%= f.label :concepto %><br>
-    <%= f.text_field :concepto %>
+    <%= f.text_field :concepto , :class => 'form-control' %>
   </div>
+</div>
+<div class="col-md-3">
   <div class="field">
-    <%= f.label :monto %><br>
-    <%= f.text_field :monto %>
+     <i class="glyphicon glyphicon-usd"></i> <%= f.label :monto %><br>
+    <%= f.text_field :monto, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' } %>
   </div>
+</div>
+</div>
+<br>
   <div class="actions">
-    <%= f.submit %>
+    <% if controller.action_name == 'new' or controller.action_name == 'index' %>
+      <%= f.submit "Agregar", :class => 'btn btn-primary'%>
+    <% elsif controller.action_name == 'edit' %>
+      <%= f.submit "Actualizar", :class => 'btn btn-primary'%>
+    <% end %>
   </div>
-<% end %>
+<% end %> <br>

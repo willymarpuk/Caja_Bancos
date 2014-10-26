@@ -13,9 +13,13 @@
 
   <div class="field">
     <%= f.label :descripcion %><br>
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion, :class => 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <% if controller.action_name == 'new' or controller.action_name == 'index' %>
+      <%= f.submit "Agregar", :class => 'btn btn-primary'%>
+    <% elsif controller.action_name == 'edit' %>
+      <%= f.submit "Actualizar", :class => 'btn btn-primary'%>
+    <% end %>
   </div>
-<% end %>
+<% end %> <br>

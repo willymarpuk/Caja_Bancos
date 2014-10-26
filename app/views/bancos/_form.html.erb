@@ -10,12 +10,19 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <div class="field">
     <%= f.label :nombre_banco %><br>
-    <%= f.text_field :nombre_banco %>
+    <%= f.text_field :nombre_banco, :class => 'form-control' %> <br>
+  </div>
+  </div>
   </div>
   <div class="actions">
-        <%= f.submit 'Agregar', :class => 'btn btn-primary' %>
+    <% if controller.action_name == 'new' or controller.action_name == 'index' %>
+      <%= f.submit "Agregar", :class => 'btn btn-primary'%>
+    <% elsif controller.action_name == 'edit' %>
+      <%= f.submit "Actualizar", :class => 'btn btn-primary'%>
+    <% end %>
   </div>
 <% end %>

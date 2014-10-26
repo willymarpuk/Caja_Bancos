@@ -14,7 +14,6 @@
       <th>Saldo inicial cheque</th>
       <th>Saldo final cheque</th>
       <th>Acciones</th>
-      <!-- <th colspan="3"></th> -->
     </tr>
   </thead>
 
@@ -30,18 +29,18 @@
         <td><%= caja.saldo_inicial_cheque %></td>
         <td><%= caja.saldo_final_cheque %></td>
         <td>
-       <!--  <%= link_to caja , class: 'btn btn-info', title: 'View', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
-            <span class="glyphicon glyphicon-search"></span>
-            <% end %> -->
-        
-        <%= link_to edit_caja_path(caja), class: 'btn btn-warning', title: 'Edit', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
-            <span class="glyphicon glyphicon-pencil"></span>
-            <% end %>
-        
-        <%= link_to caja, method: :delete, data: { confirm: 'Va eliminarlo, esta seguro?' }, class: 'btn btn-danger', title: 'Delete', 'data-toggle' => 'tooltip', 'data-placement' => 'right'  do %>
-        <span class="glyphicon glyphicon-remove"></span>
-      <% end %>
-    </td>  
+           <!--  <%= link_to caja , class: 'btn btn-info btn-outline btn-circle', title: 'View', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+                <span class="glyphicon glyphicon-search"></span>
+                <% end %> -->
+            
+            <%= link_to edit_caja_path(caja), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+                <% end %>
+            
+            <%= link_to caja, method: :delete, data: { confirm: 'Va eliminarlo, esta seguro?' }, class: 'btn btn-danger btn-outline btn-circle', title: 'borrar', 'data-toggle' => 'tooltip', 'data-placement' => 'right'  do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+      </td>
       </tr>
     <% end %>
   </tbody>

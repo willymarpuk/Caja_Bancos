@@ -13,13 +13,17 @@
 
   <div class="field">
     <%= f.label :descripcion %><br>
-    <%= f.number_field :descripcion %>
+    <%= f.number_field :descripcion, :class => 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :tipo %><br>
-    <%= f.number_field :tipo %>
+    <%= f.number_field :tipo, :class => 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <% if controller.action_name == 'new' or controller.action_name == 'index' %>
+      <%= f.submit "Agregar", :class => 'btn btn-primary'%>
+    <% elsif controller.action_name == 'edit' %>
+      <%= f.submit "Actualizar", :class => 'btn btn-primary'%>
+    <% end %>
   </div>
-<% end %>
+<% end %> <br>

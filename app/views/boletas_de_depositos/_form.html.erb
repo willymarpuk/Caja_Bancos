@@ -14,33 +14,38 @@
   <div class="col-md-3">
       <div class="field">
         <%= f.label :id_banco %><br>
-        <%= f.number_field :id_banco %>
+        <%= f.number_field :id_banco, :class => 'form-control' %>
       </div>
       <div class="field">
         <%= f.label :id_persona %><br>
-        <%= f.number_field :id_persona %>
+        <%= f.number_field :id_persona, :class => 'form-control' %>
       </div>
   </div>
 
-   <div class="col-md-3">
+   <div class="col-md-offset-1 col-md-3">
       <div class="field">
         <%= f.label :id_cuenta_bancaria %><br>
-        <%= f.number_field :id_cuenta_bancaria %>
+        <%= f.number_field :id_cuenta_bancaria, :class => 'form-control' %>
       </div>
       <div class="field">
         <%= f.label :id_caja %><br>
-        <%= f.number_field :id_caja %>
+        <%= f.number_field :id_caja, :class => 'form-control' %>
       </div>
   </div>
-
- 
+   <div class="col-md-offset-1 col-md-3">
       <div class="field">
-        <%= f.label :fecha %><br>
-        <%= f.date_select :fecha %>
+        <i class="glyphicon glyphicon-calendar"></i> <%= f.label :fecha %><br>
+        <%= f.text_field :fecha, :class => 'datepicker form-control' %>
       </div>
-
+  </div>
 </div>
-    <div class="actions">
-              <%= f.submit 'Agregar', :class => 'btn btn-primary' %>
-    </div>
+
+
+  <div class="actions">
+    <% if controller.action_name == 'new' or controller.action_name == 'index' %>
+      <%= f.submit "Agregar", :class => 'btn btn-primary'%>
+    <% elsif controller.action_name == 'edit' %>
+      <%= f.submit "Actualizar", :class => 'btn btn-primary'%>
+    <% end %>
+  </div>
   <% end %>

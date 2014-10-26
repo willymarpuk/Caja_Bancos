@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20141022115722) do
     t.integer  "id_persona"
     t.integer  "id_cuenta_bancaria"
     t.integer  "id_caja"
+    t.integer  "id_cheque_entrante"
     t.date     "fecha"
     t.datetime "created_at"
     t.datetime "updated_at"
