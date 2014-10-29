@@ -1,0 +1,60 @@
+<h1>Lista de Usuarios <button type="button" class="btn btn-info btn-outline btn-circle" id="btn1"><span class="glyphicon glyphicon-chevron-up" id="gbtn1"></span></button></h1>
+<div id="form1">
+  <h2>Sign up</h2>
+
+<%= form_for("user", :url => user_session_path) do |f| %>
+
+  
+
+  <div><%= f.label :username %><br />
+  <%= f.text_field :username , :class => 'form-control'%></div>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true, :class => 'form-control' %></div>
+
+  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+    <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control' %></div>
+
+    <div class="actions">
+    <% if controller.action_name == 'new' or controller.action_name == 'index' %>
+      <%= f.submit "Agregar", :class => 'btn btn-primary'%>
+    <% elsif controller.action_name == 'edit' %>
+      <%= f.submit "Actualizar", :class => 'btn btn-primary'%>
+    <% end %>
+  </div>
+<% end %>
+
+</div>
+
+<table id="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Nombre de Usuario</th>
+      <th>email</th>
+      <!-- <th>encrypted_password</th> -->
+    <th>Cantidad conexiones al sistema</th>
+    <th>Ultima vez conectado</th>
+    <th>Creacion del perfil</th>
+    <th>Modificacion del perfil</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |u| %>
+      <tr>
+        <td><%= u.id %></td>
+        <td><%= u.username%></td>
+        <td><%= u.email %></td>
+        <td><%= u.sign_in_count%></td>
+        <td><%= u.current_sign_in_at%></td>
+        <td><%= u.created_at%></td>
+        <td><%= u.updated_at%></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
