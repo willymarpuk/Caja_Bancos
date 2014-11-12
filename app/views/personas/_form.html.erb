@@ -14,35 +14,39 @@
 <div class="col-md-4">
     <div class="field">
       <%= f.label :id_tipo_de_persona %><br>
-      <%= f.number_field :id_tipo_de_persona %>
+      <%= f.number_field :id_tipo_de_persona, :class => 'form-control' %>
     </div>
     <div class="field">
       <%= f.label :nombre %><br>
-      <%= f.text_field :nombre %>
+      <%= f.text_field :nombre, :class => 'form-control' %>
     </div>
   </div>
   <div class="col-md-4">
     <div class="field">
       <%= f.label :direccion %><br>
-      <%= f.text_field :direccion %>
+      <%= f.text_field :direccion, :class => 'form-control' %>
     </div>
     <div class="field">
       <%= f.label :localidad %><br>
-      <%= f.text_field :localidad %>
+      <%= f.text_field :localidad, :class => 'form-control' %>
     </div>
   </div>
   <div class="col-md-4">
     <div class="field">
       <%= f.label :departamento %><br>
-      <%= f.text_field :departamento %>
+      <%= f.text_field :departamento, :class => 'form-control' %>
     </div>
     <div class="field">
       <%= f.label :telefono %><br>
-      <%= f.number_field :telefono %>
+      <%= f.number_field :telefono, :class => 'form-control' %>
     </div>
     </div>
 </div>
   <div class="actions">
-    <%= f.submit %>
+    <% if controller.action_name == 'new' or controller.action_name == 'index' %>
+      <%= f.submit "Agregar", :class => 'btn btn-primary'%>
+    <% elsif controller.action_name == 'edit' %>
+      <%= f.submit "Actualizar", :class => 'btn btn-primary'%>
+    <% end %>
   </div>
-<% end %>
+<% end %> <br>

@@ -14,41 +14,48 @@
   <div class="col-md-3">
       <div class="field">
         <%= f.label :id_tipo_de_movimiento %><br>
-        <%= f.number_field :id_tipo_de_movimiento %>
+        <%= f.number_field :id_tipo_de_movimiento, :class => 'form-control' %>
       </div>
       <div class="field">
         <%= f.label :id_caja %><br>
-        <%= f.number_field :id_caja %>
+        <%= f.number_field :id_caja, :class => 'form-control' %>
       </div>
   </div>
   <div class="col-md-3">
       <div class="field">
         <%= f.label :id_cheque_entrante %><br>
-        <%= f.number_field :id_cheque_entrante %>
+        <%= f.number_field :id_cheque_entrante, :class => 'form-control' %>
       </div>
       <div class="field">
         <%= f.label :id_cheque_emitido %><br>
-        <%= f.number_field :id_cheque_emitido %>
+        <%= f.number_field :id_cheque_emitido, :class => 'form-control' %>
       </div>
   </div>
   <div class="col-md-3">
       <div class="field">
         <%= f.label :descripcion %><br>
-        <%= f.text_field :descripcion %>
+        <%= f.text_field :descripcion, :class => 'form-control' %>
       </div>
-      <div class="field">
-        <%= f.label :monto_efectivo %><br>
-        <%= f.text_field :monto_efectivo %>
-      </div>
+  <div class="field">
+     <i class="glyphicon glyphicon-usd"></i> <%= f.label :monto_efectivo %><br>
+    <%= f.text_field :monto_efectivo, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' } %>
+  </div>
   </div>
   <div class="col-md-3">
-      <div class="field">
-        <%= f.label :monto_cheque %><br>
-        <%= f.text_field :monto_cheque %>
-      </div>
+    <div class="field">
+       <i class="glyphicon glyphicon-usd"></i> <%= f.label :monto_cheque %><br>
+      <%= f.text_field :monto_cheque, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' } %>
+    </div>
   </div>
-  </div>
-      <div class="actions">
-        <%= f.submit %>
-      </div>
+</div>
+</br>
+
+  <div class="actions">
+    <% if controller.action_name == 'new' or controller.action_name == 'index' %>
+      <%= f.submit "Agregar", :class => 'btn btn-primary'%>
+    <% elsif controller.action_name == 'edit' %>
+      <%= f.submit "Actualizar", :class => 'btn btn-primary'%>
     <% end %>
+  </div>
+    <% end %>
+</br>

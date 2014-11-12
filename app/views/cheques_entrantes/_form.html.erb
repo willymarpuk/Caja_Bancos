@@ -10,24 +10,39 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :id_banco %><br>
-    <%= f.number_field :id_banco %>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :id_banco %><br>
+        <%= f.number_field :id_banco , :class => 'form-control'%>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :numero %><br>
+        <%= f.number_field :numero, :class => 'form-control'%>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+         <i class="glyphicon glyphicon-usd"></i> <%= f.label :monto %><br>
+        <%= f.text_field :monto, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' } %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :concepto %><br>
+        <%= f.text_field :concepto , :class => 'form-control'%>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :numero %><br>
-    <%= f.number_field :numero %>
-  </div>
-  <div class="field">
-    <%= f.label :monto %><br>
-    <%= f.text_field :monto %>
-  </div>
-  <div class="field">
-    <%= f.label :concepto %><br>
-    <%= f.text_field :concepto %>
-  </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <% if controller.action_name == 'new' or controller.action_name == 'index' %>
+      <%= f.submit "Agregar", :class => 'btn btn-primary'%>
+    <% elsif controller.action_name == 'edit' %>
+      <%= f.submit "Actualizar", :class => 'btn btn-primary'%>
+    <% end %>
   </div>
 <% end %>
+<br>
