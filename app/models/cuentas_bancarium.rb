@@ -28,4 +28,8 @@ class CuentasBancarium < ActiveRecord::Base
 		:format => {
 			with: /\A[0-9]+\z/,
 			message: 'solo permite numeros'}
+
+	validates :fecha_de_apertura,
+		:presence => {
+			message: 'este campo es requerido'}
 end

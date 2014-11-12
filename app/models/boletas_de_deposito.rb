@@ -15,7 +15,7 @@ class BoletasDeDeposito < ActiveRecord::Base
 			with: /\A[0-9]+\z/,
 			message: 'solo permite numeros'}
 
-	validates :numero,
+	validates :id_persona,
 		:presence => {
 			message: 'este campo es requerido'},
 
@@ -23,7 +23,7 @@ class BoletasDeDeposito < ActiveRecord::Base
 			with: /\A[0-9]+\z/,
 			message: 'solo permite numeros'}
 
-	validates :monto,
+	validates :id_cuenta_bancaria,
 		:presence => {
 			message: 'este campo es requerido'},
 
@@ -31,11 +31,15 @@ class BoletasDeDeposito < ActiveRecord::Base
 			with: /\A[0-9]+\z/,
 			message: 'solo permite numeros'}
 
-	validates :concepto,
+	validates :id_caja,
 		:presence => {
 			message: 'este campo es requerido'},
 
 		:format => {
-			with: /\A[a-zA-Z]+\z/,
-			message: 'solo permite letras'}
+			with: /\A[0-9]+\z/,
+			message: 'solo permite numeros'}
+
+validates :fecha,
+		:presence => {
+			message: 'este campo es requerido'}
 end

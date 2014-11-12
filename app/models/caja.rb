@@ -26,13 +26,9 @@ class Caja < ActiveRecord::Base
 
 	validates :apertura,
 		:presence => {
-			message: 'este campo es requerido'},
+			message: 'este campo es requerido'}
 
 	validates :cierre,
-		:presence => {
-			message: 'este campo es requerido'},
-
-	validates :apertura,
 		:presence => {
 			message: 'este campo es requerido'}
 

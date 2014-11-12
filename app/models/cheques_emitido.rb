@@ -22,7 +22,19 @@ class ChequesEmitido < ActiveRecord::Base
 			with: /\A[0-9]+\z/,
 			message: 'solo permite numeros'}
 
-	validates :descripcion,
+	validates :monto,
+		:presence => {
+			message: 'este campo es requerido'},
+
+		:format => {
+			with: /\A[0-9]+\z/,
+			message: 'solo permite numeros'}
+
+	validates :fecha,
+		:presence => {
+			message: 'este campo es requerido'}
+
+	validates :concepto,
 		:presence => {
 			message: 'este campo es requerido'},
 
@@ -33,12 +45,4 @@ class ChequesEmitido < ActiveRecord::Base
 		:format => {
 			with: /\A[a-zA-Z]+\z/,
 			message: 'solo permite letras'}
-
-	validates :monto,
-		:presence => {
-			message: 'este campo es requerido'},
-
-		:format => {
-			with: /\A[0-9]+\z/,
-			message: 'solo permite numeros'}
 end
