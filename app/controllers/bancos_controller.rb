@@ -9,8 +9,12 @@ class BancosController < ApplicationController
      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @bancos }
+      format.xls { send_data @bancos.to_xls(:header => false ), :filename => 'bancos.xls' }
+      format.pdf { render_banco_list(@bancos) }
     end
   end
+
+  
   # GET /bancos/1
   # GET /bancos/1.json
   def show
@@ -79,5 +83,21 @@ class BancosController < ApplicationController
 
     def banco_params
       params.require(:banco).permit(:nombre_banco)
+    end
+
+  def render_banco_list(banco)
+      report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'bancos', 'show.tlf')
+
+      banco.each do |task|
+        report.list.add_row do |row|
+          row.values no: task.id, 
+                     name: task.nombre_banco
+          row.item(:name).style(:color, 'red')
+        end
+      end
+      
+      send_data report.generate, filename: 'bancos.pdf', 
+                                 type: 'application/pdf', 
+                                 disposition: 'attachment'
     end
 end
