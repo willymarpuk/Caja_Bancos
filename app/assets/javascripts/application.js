@@ -78,6 +78,7 @@ $(document).ready(function() {
 	});
 });
 
+<<<<<<< HEAD
 $(document).ready(function () {
 	$("#new_banco").validate({
 		debug: true,
@@ -90,3 +91,9 @@ $(document).ready(function () {
 		}
 	});
 });
+=======
+function printpage()
+  {
+  window.print()
+  };
+>>>>>>> 29284e080e4ebf197f604b7d1fe64b26eb886093

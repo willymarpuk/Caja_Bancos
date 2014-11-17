@@ -1,0 +1,3 @@
+report.start_new_page do |page|
+  page.item(:nombre_banco).value(@bancos.nombre_banco)
+end

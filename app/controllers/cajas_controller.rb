@@ -7,6 +7,7 @@ class CajasController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cajas }
+      format.xls { send_data @cajas.to_xls, :filename => 'cajas.xls' }
     end
   end
 

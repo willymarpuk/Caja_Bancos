@@ -39,7 +39,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
-
+gem 'simple_form'
 gem 'devise'
 gem 'cancan'
 gem "rolify"
@@ -47,8 +47,14 @@ gem 'jquery-datatables-rails', '~> 2.2.3'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
+<<<<<<< HEAD
 
 gem 'jquery-turbolinks'
 
 gem "jquery-validation-rails"
 gem 'html5_validators'
+=======
+gem 'to_xls'
+gem 'thinreports-rails'
+gem 'jquery-turbolinks'
+>>>>>>> 29284e080e4ebf197f604b7d1fe64b26eb886093
