@@ -8,6 +8,7 @@ class CajasController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @cajas }
       format.xls { send_data @cajas.to_xls, :filename => 'cajas.xls' }
+     # format.pdf { render_caja_list(@cajas) }
     end
   end
 
@@ -73,4 +74,20 @@ class CajasController < ApplicationController
     def caja_params
       params.require(:caja).permit(:id_estado, :id_persona, :apertura, :cierre, :saldo_inicial_efectivo, :saldo_final_efectivo, :saldo_inicial_cheque, :saldo_final_cheque)
     end
+=begin
+  def render_caja_list(caja)
+      report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'cajas', 'show.tlf')
+
+      caja.each do |task|
+        report.list.add_row do |row|
+          row.values no: task.id
+          row.item(:no).style(:color, 'red')
+        end
+      end
+      
+      send_data report.generate, filename: 'cajas.pdf', 
+                                 type: 'application/pdf', 
+                                 disposition: 'attachment'
+    end
+=end
 end

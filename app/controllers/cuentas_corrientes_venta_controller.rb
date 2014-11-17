@@ -4,29 +4,65 @@ class CuentasCorrientesVentaController < ApplicationController
   def index
     @cuentas_corrientes_venta = CuentasCorrientesVentum.all
     @cuentas_corrientes_ventum = CuentasCorrientesVentum.new
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @cuentas_corrientes_venta }
+      format.xls { send_data @cuentas_corrientes_venta.to_xls(:header => false ), :filename => 'cuentas_corrientes_ventas.xls' }
+    #  format.pdf { render_cuentas_corrientes_ventas_list(@cuentas_corrientes_venta) }
   end
 
   def show
+    @cuentas_corrientes_venta = CuentasCorrientesVentum.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @cuentas_corrientes_venta }
+    end
   end
 
   def new
-    @cuentas_corrientes_ventum = CuentasCorrientesVentum.new
+    @cuentas_corrientes_venta = CuentasCorrientesVentum.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @cuentas_corrientes_venta }
+    end
   end
 
   def edit
+    @cuentas_corrientes_venta= CuentasCorrientesVentum.find(params[:id])
   end
 
   def create
     @cuentas_corrientes_ventum = CuentasCorrientesVentum.new(cuentas_corrientes_ventum_params)
-    @cuentas_corrientes_ventum.save
+    respond_to do |format|
+      if @cuentas_corrientes_ventum.save
+        format.html { redirect_to @cuentas_corrientes_ventum, notice: 'cuentas corrientes ventas was successfully created.' }
+        format.json { render :show, status: :created, location: @cuentas_corrientes_ventum }
+      else
+        format.html { render :new }
+        format.json { render json: @cuentas_corrientes_ventum.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
-    @cuentas_corrientes_ventum.update(cuentas_corrientes_ventum_params)
+    respond_to do |format|
+      if @cuentas_corrientes_ventum.update(cuentas_corrientes_ventum_params)
+        format.html { redirect_to @cuentas_corrientes_ventum, notice: 'cuentas corrientes ventas was successfully updated.' }
+        format.json { render :show, status: :ok, location: @cuentas_corrientes_ventum }
+      else
+        format.html { render :edit }
+        format.json { render json: @cuentas_corrientes_ventum.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
     @cuentas_corrientes_ventum.destroy
+    respond_to do |format|
+      format.html { redirect_to @cuentas_corrientes_ventum, notice: 'cuentas corrientes ventas was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -37,4 +73,22 @@ class CuentasCorrientesVentaController < ApplicationController
     def cuentas_corrientes_ventum_params
       params.require(:cuentas_corrientes_ventum).permit(:id_persona, :id_caja, :id_movimiento_de_caja, :monto)
     end
+
+=begin
+ def render_cuentas_corrientes_ventas_list(cuenta_corrientes_venta)
+      report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'cuenta_corrientes_venta', 'show.tlf')
+
+      cuenta_corrientes_venta.each do |task|
+        report.list.add_row do |row|
+          row.values no: task.id, 
+                     name: task.nombre_banco
+          row.item(:name).style(:color, 'red')
+        end
+      end
+      
+      send_data report.generate, filename: 'cuentas corrientes ventas.pdf', 
+                                 type: 'application/pdf', 
+                                 disposition: 'attachment'
+    end
+=end
 end

@@ -44,5 +44,7 @@
       </tr>
     <% end %>
   </tbody>
+  <%= link_to "PRINT", '#', onclick: "printpage()"%> | 
+  <%= link_to 'PDF', cajas_path(@cajass, format: 'pdf') %> | 
   <%= link_to 'Excel Download', cajas_path(:format => :xls) %>
 </table>

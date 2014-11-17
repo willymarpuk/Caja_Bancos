@@ -4,29 +4,65 @@ class BoletasDeDepositosController < ApplicationController
   def index
     @boletas_de_depositos = BoletasDeDeposito.all
     @boletas_de_deposito = BoletasDeDeposito.new
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @boletas_de_depositos }
+      format.xls { send_data @boletas_de_depositos.to_xls(:header => false ), :filename => 'boletas_de_depositos.xls' }
+      # format.pdf { render_boletas_de_deposito_list(@boletas_de_depositos) }
   end
 
   def show
+    @boletas_de_deposito = BoletasDeDeposito.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @boletas_de_deposito }
+    end
   end
 
   def new
     @boletas_de_deposito = BoletasDeDeposito.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @boletas_de_deposito }
   end
 
   def edit
+    @boletas_de_deposito = BoletasDeDeposito.find(params[:id])
   end
 
-  def create
+ def create
     @boletas_de_deposito = BoletasDeDeposito.new(boletas_de_deposito_params)
-    @boletas_de_deposito.save
+
+    respond_to do |format|
+      if @boletas_de_deposito.save
+        format.html { redirect_to @boletas_de_deposito, notice: 'boletas_de_deposito was successfully created.' }
+        format.json { render :show, status: :created, location: @boletas_de_deposito }
+      else
+        format.html { render :new }
+        format.json { render json: @boletas_de_deposito.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
-    @boletas_de_deposito.update(boletas_de_deposito_params)
+    respond_to do |format|
+      if @boletas_de_deposito.update(boletas_de_deposito_params)
+        format.html { redirect_to @boletas_de_deposito, notice: 'boletas_de_deposito was successfully updated.' }
+        format.json { render :show, status: :ok, location: @boletas_de_deposito }
+      else
+        format.html { render :edit }
+        format.json { render json: @boletas_de_deposito.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
     @boletas_de_deposito.destroy
+    respond_to do |format|
+      format.html { redirect_to @boletas_de_deposito, notice: 'boletas_de_deposito was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -37,4 +73,24 @@ class BoletasDeDepositosController < ApplicationController
     def boletas_de_deposito_params
       params.require(:boletas_de_deposito).permit(:id_banco, :id_persona, :id_cuenta_bancaria, :id_caja, :fecha)
     end
+=begin
+  
+rescue Exception => e
+  
+end
+  def render_boletas_de_deposito_list(boletas_de_deposito)
+      report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'boletas_de_depositos', 'show.tlf')
+
+      boletas_de_deposito.each do |task|
+        report.list.add_row do |row|
+          row.values no: task.id 
+          row.item(:no).style(:color, 'red')
+        end
+      end
+      
+      send_data report.generate, filename: 'boletas de depositos.pdf', 
+                                 type: 'application/pdf', 
+                                 disposition: 'attachment'
+    end
+=end
 end
