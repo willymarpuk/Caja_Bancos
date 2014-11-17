@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   resources :cajas
 
   devise_for :users
+
+  resources :user_admin, :controller => 'users'
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

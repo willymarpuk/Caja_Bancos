@@ -49,3 +49,6 @@ gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 
 gem 'jquery-turbolinks'
+
+gem "jquery-validation-rails"
+gem 'html5_validators'

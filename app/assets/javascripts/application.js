@@ -21,6 +21,8 @@
 //= require moment/es
 //= require bootstrap-datetimepicker
 //= require autoNumeric
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require_tree .
 
 
@@ -72,6 +74,19 @@ $(document).ready(function() {
 		}else{
 			$('#gbtn1').removeClass('glyphicon glyphicon-chevron-down');
 			$('#gbtn1').addClass('glyphicon glyphicon-chevron-up');
+		}
+	});
+});
+
+$(document).ready(function () {
+	$("#new_banco").validate({
+		debug: true,
+		rules: {
+		"banco[nombre_banco]": {required: true}
+		},
+		message:{
+			 "banco[nombre_banco]": "We need your email address to contact you"
+			  
 		}
 	});
 });
