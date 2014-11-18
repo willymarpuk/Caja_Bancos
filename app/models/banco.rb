@@ -19,4 +19,42 @@ class Banco < ActiveRecord::Base
 		:format => {
 			with: /\A[a-zA-Z]+\z/,
 			message: 'solo permite letras'}
+
+	validates :telefono,
+		:presence => {
+			message: 'este campo es requerido'},
+
+		:format => {
+			with: /\A[0-9]+\z/,
+			message: 'solo permite numeros'}
+
+	validates :direccion,
+		:presence => {
+			message: 'este campo es requerido'},
+
+		:length => { 
+			:maximum => 50,
+			:too_long => 'debe tener como maximo %{count} caracteres'},
+
+		:format => {
+			with: /\A[A-Za-z0-9]+\z/,
+			message: 'No se permite caracteres de puntuacion'}
+
+	validates :sucursal,
+		:presence => {
+			message: 'este campo es requerido'},
+
+		:length => { 
+			:maximum => 50,
+			:too_long => 'debe tener como maximo %{count} caracteres'},
+
+		:format => {
+			with: /\A[A-Za-z0-9]+\z/,
+			message: 'No se permite caracteres de puntuacion'}
+
+	validates :correo, 
+		:format => { 
+			:with => VALID_EMAIL_REGEX,
+			message: "El formato del correo es invalido" }
+
 end
