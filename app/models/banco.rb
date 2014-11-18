@@ -7,6 +7,7 @@ class Banco < ActiveRecord::Base
 
 
 	# Validaciones
+	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 	validates :nombre_banco, 
 		:presence => {
