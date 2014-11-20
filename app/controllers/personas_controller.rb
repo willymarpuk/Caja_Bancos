@@ -8,7 +8,7 @@ class PersonasController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @personas }
       format.xls { send_data @personas.to_xls(:header => false ), :filename => 'personas.xls' }
-     # format.pdf { render_personas_list(@personas) }
+      format.pdf { render_personas_list(@personas) }
     end
   end
 
@@ -73,15 +73,24 @@ class PersonasController < ApplicationController
     def persona_params
       params.require(:persona).permit(:id_tipo_de_persona, :nombre, :direccion, :localidad, :departamento, :telefono)
     end
-=begin
+
 def render_personas_list(persona)
       report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'personas', 'show.tlf')
 
       persona.each do |task|
         report.list.add_row do |row|
-          row.values no: task.id, 
-                     name: task.nombre_banco
-          row.item(:name).style(:color, 'red')
+          row.values nombre: task.nombre, 
+                     tipo_de_persona: task.id_tipo_de_persona,
+                     direccion: task.direccion,
+                     localidad: task.localidad,
+                     departamento: task.departamento,
+                     telefono: task.telefono
+          row.item(:nombre).style(:color, 'red')
+          row.item(:tipo_de_persona).style(:color, 'red')
+          row.item(:direccion).style(:color, 'red')
+          row.item(:localidad).style(:color, 'red')
+          row.item(:departamento).style(:color, 'red')
+          row.item(:telefono).style(:color, 'red')
         end
       end
       
@@ -89,5 +98,4 @@ def render_personas_list(persona)
                                  type: 'application/pdf', 
                                  disposition: 'attachment'
     end
-=end
 end

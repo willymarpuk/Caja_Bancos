@@ -8,7 +8,8 @@ class ChequesEntrantesController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @cheques_entrantes }
       format.xls { send_data @cheques_entrantes.to_xls(:header => false ), :filename => 'cheques_entrantes.xls' }
-      # format.pdf { render_cheques_entrante_list(@cheques_entrantes) }
+      format.pdf { render_cheques_entrante_list(@cheques_entrantes) }
+    end
   end
 
   def show
@@ -25,8 +26,9 @@ class ChequesEntrantesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @cheques_entrante }
+    end
   end
-
+  
   def edit
     @cheques_entrante= ChequesEntrante.find(params[:id])
   end
@@ -74,15 +76,19 @@ class ChequesEntrantesController < ApplicationController
       params.require(:cheques_entrante).permit(:id_banco, :numero, :monto, :concepto)
     end
 
-=begin
  def render_cheques_entrante_list(cheques_entrante)
       report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'cheques_entrantes', 'show.tlf')
 
       cheques_entrante.each do |task|
         report.list.add_row do |row|
-          row.values no: task.id, 
-                     name: task.nombre_banco
-          row.item(:name).style(:color, 'red')
+          row.values banco: task.id_banco,
+                     numero: task.numero,
+                     monto: task.monto,
+                     concepto: task.concepto                     
+          row.item(:banco).style(:color, 'red')
+          row.item(:numero).style(:color, 'red')
+          row.item(:monto).style(:color, 'red')
+          row.item(:concepto).style(:color, 'red')
         end
       end
       
@@ -90,5 +96,4 @@ class ChequesEntrantesController < ApplicationController
                                  type: 'application/pdf', 
                                  disposition: 'attachment'
     end
-=end
 end

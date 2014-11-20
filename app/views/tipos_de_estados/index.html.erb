@@ -31,4 +31,7 @@
       </tr>
     <% end %>
   </tbody>
+  <%= link_to "PRINT", '#', onclick: "printpage()"%> | 
+  <%= link_to 'PDF', tipos_de_estados_path(@tipos_de_estados, format: 'pdf') %> | 
+  <%= link_to 'Excel Download', tipos_de_estados_path(:format => :xls) %>
 </table>

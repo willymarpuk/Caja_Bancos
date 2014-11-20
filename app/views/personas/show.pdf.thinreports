@@ -1,0 +1,8 @@
+report.start_new_page do |page|
+  page.item(:nombre).value(@personas.nombre)
+  page.item(:tipo_de_persona).value(@personas.id_tipo_de_persona)
+  page.item(:direccion).value(@personas.direccion)
+  page.item(:localidad).value(@personas.localidad)
+  page.item(:departamento).value(@personas.departamento)
+  page.item(:telefono).value(@personas.telefono)
+end

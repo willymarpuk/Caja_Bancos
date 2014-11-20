@@ -8,7 +8,7 @@ class CajasController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @cajas }
       format.xls { send_data @cajas.to_xls, :filename => 'cajas.xls' }
-     # format.pdf { render_caja_list(@cajas) }
+      format.pdf { render_caja_list(@cajas) }
     end
   end
 
@@ -74,14 +74,28 @@ class CajasController < ApplicationController
     def caja_params
       params.require(:caja).permit(:id_estado, :id_persona, :apertura, :cierre, :saldo_inicial_efectivo, :saldo_final_efectivo, :saldo_inicial_cheque, :saldo_final_cheque)
     end
-=begin
+
   def render_caja_list(caja)
       report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'cajas', 'show.tlf')
 
       caja.each do |task|
         report.list.add_row do |row|
-          row.values no: task.id
-          row.item(:no).style(:color, 'red')
+          row.values estado: task.id_estado,
+                     persona: task.id_persona,
+                     apertura: task.apertura,
+                     cierre: task.cierre,
+                     saldo_inicial_efectivo: task.saldo_inicial_efectivo,
+                     saldo_final_efectivo: task.saldo_final_efectivo,
+                     saldo_inicial_cheque: task.saldo_inicial_cheque,
+                     saldo_final_cheque: task.saldo_final_cheque
+          row.item(:estado).style(:color, 'red')
+          row.item(:persona).style(:color, 'red')
+          row.item(:apertura).style(:color, 'red')
+          row.item(:cierre).style(:color, 'red')
+          row.item(:saldo_inicial_efectivo).style(:color, 'red')
+          row.item(:saldo_final_efectivo).style(:color, 'red')
+          row.item(:saldo_inicial_cheque).style(:color, 'red')
+          row.item(:saldo_final_cheque).style(:color, 'red')
         end
       end
       
@@ -89,5 +103,4 @@ class CajasController < ApplicationController
                                  type: 'application/pdf', 
                                  disposition: 'attachment'
     end
-=end
 end

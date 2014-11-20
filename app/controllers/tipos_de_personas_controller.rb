@@ -74,21 +74,20 @@ class TiposDePersonasController < ApplicationController
     def tipos_de_persona_params
       params.require(:tipos_de_persona).permit(:descripcion)
     end
-=begin
+
   def render_tipos_de_personas_list(tipos_de_persona)
       report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'tipos_de_personas', 'show.tlf')
 
       tipos_de_persona.each do |task|
         report.list.add_row do |row|
           row.values no: task.id, 
-                     name: task.nombre_banco
-          row.item(:name).style(:color, 'red')
+                     descripcion: task.descripcion
+          row.item(:descripcion).style(:color, 'red')
         end
       end
       
-      send_data report.generate, filename: 'bancos.pdf', 
+      send_data report.generate, filename: 'tipos de personas.pdf', 
                                  type: 'application/pdf', 
                                  disposition: 'attachment'
     end
-=end
 end

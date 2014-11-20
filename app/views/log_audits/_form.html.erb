@@ -1,0 +1,21 @@
+<%= simple_form_for(@log_audit) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+    <%= f.input :nombre_tabla %>
+
+    <%= f.input :operacion %>
+
+    <%= f.input :valor_anterior %>
+
+    <%= f.input :valor_nuevo %>
+
+    <%= f.input :nombre_usuario %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -8,7 +8,7 @@ class MovimientosDeBancosController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @movimientos_de_bancos }
       format.xls { send_data @movimientos_de_bancos.to_xls(:header => false ), :filename => 'movimientos_de_bancos.xls' }
-      #format.pdf { render_movimientos_de_bancos_list(@movimientos_de_bancos) }
+      format.pdf { render_movimientos_de_bancos_list(@movimientos_de_bancos) }
     end
   end
 
@@ -63,6 +63,7 @@ class MovimientosDeBancosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @movimientos_de_banco, notice: 'movimientos_de_banco was successfully destroyed.' }
       format.json { head :no_content }
+    end  
   end
 
   private
@@ -73,17 +74,22 @@ class MovimientosDeBancosController < ApplicationController
     def movimientos_de_banco_params
       params.require(:movimientos_de_banco).permit(:id_tipo_de_movimiento, :id_banco, :id_cuenta_bancaria, :descripcion, :monto)
     end
-=begin
-  
-rescue Exception => e
+
   def render_movimientos_de_bancos_list(movimientos_de_banco)
       report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'movimientos_de_bancos', 'show.tlf')
 
       movimientos_de_banco.each do |task|
         report.list.add_row do |row|
-          row.values no: task.id, 
-                     name: task.nombre_banco
-          row.item(:name).style(:color, 'red')
+          row.values tipo_de_movimiento: task.id_tipo_de_movimiento, 
+                     banco: task.id_banco,
+                     cuenta_bancaria: task.id_cuenta_bancaria,
+                     monto: task.monto,
+                     descripcion: task.descripcion
+          row.item(:tipo_de_movimiento).style(:color, 'red')
+          row.item(:banco).style(:color, 'red')
+          row.item(:cuenta_bancaria).style(:color, 'red')
+          row.item(:monto).style(:color, 'red')
+          row.item(:descripcion).style(:color, 'red')
         end
       end
       
@@ -91,8 +97,4 @@ rescue Exception => e
                                  type: 'application/pdf', 
                                  disposition: 'attachment'
     end
-
-=end
-  
-
 end

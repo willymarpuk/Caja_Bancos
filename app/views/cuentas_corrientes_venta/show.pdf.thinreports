@@ -1,0 +1,6 @@
+report.start_new_page do |page|
+  page.item(:persona).value(@cuentas_corrientes_ventas.id_persona)
+  page.item(:caja).value(@cuentas_corrientes_ventas.id_caja)
+  page.item(:movimiento_de_caja).value(@cuentas_corrientes_ventas.id_movimiento_de_caja)
+  page.item(:monto).value(@cuentas_corrientes_ventas.monto)
+end

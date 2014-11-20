@@ -8,7 +8,8 @@ class ChequesEmitidosController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @cheques_emitidos }
       format.xls { send_data @cheques_emitidos.to_xls(:header => false ), :filename => 'cheques_emitidos.xls' }
-      #format.pdf { render_cheques_emitido_list(@cheques_emitidos) }
+      format.pdf { render_cheques_emitido_list(@cheques_emitidos) }
+    end
   end
 
   def show
@@ -17,6 +18,7 @@ class ChequesEmitidosController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @cheques_emitido }
+    end  
   end
 
   def new
@@ -24,6 +26,7 @@ class ChequesEmitidosController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @cheques_emitido}
+    end  
   end
 
   def edit
@@ -71,15 +74,22 @@ class ChequesEmitidosController < ApplicationController
     def cheques_emitido_params
       params.require(:cheques_emitido).permit(:id_cuenta_bancaria, :id_banco, :fecha, :concepto, :monto)
     end
-=begin
+
    def render_cheques_emitido_list(cheques_emitido)
      report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'cheques_emitidos', 'show.tlf')
    
       cheques_emitido.each do |task|
        report.list.add_row do |row|
-          row.values no: task.id, 
-                     name: task.nombre_banco
-          row.item(:name).style(:color, 'red')
+          row.values cuenta_bancaria: task.id_cuenta_bancaria, 
+                     banco: task.id_banco,
+                     fecha: task.fecha,
+                     concepto: task.concepto,
+                     monto: task.monto
+          row.item(:cuenta_bancaria).style(:color, 'red')
+          row.item(:banco).style(:color, 'red')
+          row.item(:fecha).style(:color, 'red')
+          row.item(:concepto).style(:color, 'red')
+          row.item(:monto).style(:color, 'red')
         end
       end
       
@@ -87,5 +97,5 @@ class ChequesEmitidosController < ApplicationController
                                  type: 'application/pdf', 
                                  disposition: 'attachment'
     end 
-=end
+
 end

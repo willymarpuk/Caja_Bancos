@@ -8,7 +8,8 @@ class TiposDeMovimientosController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @tipos_de_movimientos }
       format.xls { send_data @tipos_de_movimientos.to_xls(:header => false ), :filename => 'tipos_de_movimientos.xls' }
-      # format.pdf { render_tipos_de_movimientos_list(@tipos_de_movimientos) }
+      format.pdf { render_tipos_de_movimientos_list(@tipos_de_movimientos) }
+    end
   end
 
   def show
@@ -73,15 +74,17 @@ class TiposDeMovimientosController < ApplicationController
     def tipos_de_movimiento_params
       params.require(:tipos_de_movimiento).permit(:descripcion, :tipo)
     end
-=begin
+
   def render_tipos_de_movimientos_list(tipos_de_movimiento)
       report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'tipos_de_movimientos', 'show.tlf')
 
       tipos_de_movimiento.each do |task|
         report.list.add_row do |row|
           row.values no: task.id, 
-                     name: task.nombre_banco
-          row.item(:name).style(:color, 'red')
+                     tipo: task.tipo,
+                     descripcion: task.descripcion
+          row.item(:tipo).style(:color, 'red')
+          row.item(:descripcion).style(:color, 'red')
         end
       end
       
@@ -89,5 +92,4 @@ class TiposDeMovimientosController < ApplicationController
                                  type: 'application/pdf', 
                                  disposition: 'attachment'
     end
-=end
 end

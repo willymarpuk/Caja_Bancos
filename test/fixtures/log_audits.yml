@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_tabla: MyString
+  operacion: MyString
+  valor_anterior: MyString
+  valor_nuevo: MyString
+  nombre_usuario: MyString
+
+two:
+  nombre_tabla: MyString
+  operacion: MyString
+  valor_anterior: MyString
+  valor_nuevo: MyString
+  nombre_usuario: MyString

@@ -8,7 +8,8 @@ class MovimientosDeCajasController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @movimientos_de_cajas }
       format.xls { send_data @movimientos_de_cajas.to_xls(:header => false ), :filename => 'movimientos_de_cajas.xls' }
-      # format.pdf { render_movimientos_de_cajas_list(@movimientos_de_cajas) }
+      format.pdf { render_movimientos_de_cajas_list(@movimientos_de_cajas) }
+    end
   end
 
   def show
@@ -25,6 +26,7 @@ class MovimientosDeCajasController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @movimientos_de_caja }
+    end
   end
 
   def edit
@@ -73,15 +75,26 @@ class MovimientosDeCajasController < ApplicationController
       params.require(:movimientos_de_caja).permit(:id_tipo_de_movimiento, :id_caja, :id_cheque_entrante, :id_cheque_emitido, :descripcion, :monto_efectivo, :monto_cheque)
     end
 
-=begin
+
 def render_movimientos_de_cajas_list(movimientos_de_caja)
       report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'movimientos_de_cajas', 'show.tlf')
 
       movimientos_de_caja.each do |task|
         report.list.add_row do |row|
-          row.values no: task.id, 
-                     name: task.nombre_banco
-          row.item(:name).style(:color, 'red')
+          row.values tipo_de_movimiento: task.id_tipo_de_movimiento, 
+                     caja: task.caja,
+                     cheque_entrante: task.id_cheque_entrante,
+                     cheque_emitido: task.id_cheque_emitido,
+                     descripcion: task.descripcion,
+                     monto_efectivo: task.monto_efectivo,
+                     monto_cheque: task.monto_cheque                    
+          row.item(:tipo_de_movimiento).style(:color, 'red')
+          row.item(:caja).style(:color, 'red')
+          row.item(:cheque_entrante).style(:color, 'red')
+          row.item(:cheque_emitido).style(:color, 'red')
+          row.item(:descripcion).style(:color, 'red')
+          row.item(:monto_efectivo).style(:color, 'red')
+          row.item(:monto_cheque).style(:color, 'red')
         end
       end
       
@@ -89,5 +102,4 @@ def render_movimientos_de_cajas_list(movimientos_de_caja)
                                  type: 'application/pdf', 
                                  disposition: 'attachment'
     end
-=end
 end

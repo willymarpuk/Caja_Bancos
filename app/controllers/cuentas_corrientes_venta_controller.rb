@@ -8,7 +8,8 @@ class CuentasCorrientesVentaController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @cuentas_corrientes_venta }
       format.xls { send_data @cuentas_corrientes_venta.to_xls(:header => false ), :filename => 'cuentas_corrientes_ventas.xls' }
-    #  format.pdf { render_cuentas_corrientes_ventas_list(@cuentas_corrientes_venta) }
+      format.pdf { render_cuentas_corrientes_ventas_list(@cuentas_corrientes_venta) }
+    end
   end
 
   def show
@@ -74,15 +75,20 @@ class CuentasCorrientesVentaController < ApplicationController
       params.require(:cuentas_corrientes_ventum).permit(:id_persona, :id_caja, :id_movimiento_de_caja, :monto)
     end
 
-=begin
+
  def render_cuentas_corrientes_ventas_list(cuenta_corrientes_venta)
       report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'cuenta_corrientes_venta', 'show.tlf')
 
       cuenta_corrientes_venta.each do |task|
         report.list.add_row do |row|
-          row.values no: task.id, 
-                     name: task.nombre_banco
-          row.item(:name).style(:color, 'red')
+          row.values persona: task.id_persona, 
+                     caja: task.id_caja,
+                     movimiento_de_caja: task.id_movimiento_de_caja,
+                     monto: task.monto
+          row.item(:persona).style(:color, 'red')
+          row.item(:caja).style(:color, 'red')
+          row.item(:movimiento_de_caja).style(:color, 'red')
+          row.item(:monto).style(:color, 'red')
         end
       end
       
@@ -90,5 +96,4 @@ class CuentasCorrientesVentaController < ApplicationController
                                  type: 'application/pdf', 
                                  disposition: 'attachment'
     end
-=end
 end

@@ -8,7 +8,7 @@ class TiposDeEstadosController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @tipos_de_estados }
       format.xls { send_data @tipos_de_estados.to_xls(:header => false ), :filename => 'tipos_de_estados.xls' }
-     # format.pdf { render_tipos_de_estados_list(@tipos_de_estados) }
+      format.pdf { render_tipos_de_estados_list(@tipos_de_estados) }
     end
   end
 
@@ -74,15 +74,15 @@ class TiposDeEstadosController < ApplicationController
     def tipos_de_estado_params
       params.require(:tipos_de_estado).permit(:descripcion)
     end
-=begin
+
 def render_tipos_de_estados_list(tipos_de_estado)
       report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'tipos_de_estados', 'show.tlf')
 
       tipos_de_estado.each do |task|
         report.list.add_row do |row|
           row.values no: task.id, 
-                     name: task.nombre_banco
-          row.item(:name).style(:color, 'red')
+                     descripcion: task.descripcion
+          row.item(:descripcion).style(:color, 'red')
         end
       end
       
@@ -90,5 +90,4 @@ def render_tipos_de_estados_list(tipos_de_estado)
                                  type: 'application/pdf', 
                                  disposition: 'attachment'
     end
-=end
 end

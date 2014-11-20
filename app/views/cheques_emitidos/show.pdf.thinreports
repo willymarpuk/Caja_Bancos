@@ -1,0 +1,7 @@
+report.start_new_page do |page|
+  page.item(:cuenta_bancaria).value(@cheques_emitidos.id_cuenta_bancaria)
+  page.item(:banco).value(@cheques_emitidos.id_banco)
+  page.item(:fecha).value(@cheques_emitidos.fecha)
+  page.item(:concepto).value(@cheques_emitidos.concepto)
+  page.item(:monto).value(@cheques_emitidos.monto)
+end

@@ -1,0 +1,6 @@
+report.start_new_page do |page|
+  page.item(:banco).value(@cuentas_bancarias.id_banco)
+  page.item(:fecha_de_apertura).value(@cuentas_bancarias.fecha_de_apertura)
+  page.item(:saldo).value(@cuentas_bancarias.saldo)
+  page.item(:firmante).value(@cuentas_bancarias.id_firmante)
+end

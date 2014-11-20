@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'user_admin/index'
 
+  resources :log_audits
+
   resources :bancos
 
   resources :cheques_emitidos

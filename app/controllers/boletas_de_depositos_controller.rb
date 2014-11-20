@@ -8,8 +8,9 @@ class BoletasDeDepositosController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @boletas_de_depositos }
       format.xls { send_data @boletas_de_depositos.to_xls(:header => false ), :filename => 'boletas_de_depositos.xls' }
-      # format.pdf { render_boletas_de_deposito_list(@boletas_de_depositos) }
+      format.pdf { render_boletas_de_deposito_list(@boletas_de_depositos) }
   end
+end
 
   def show
     @boletas_de_deposito = BoletasDeDeposito.find(params[:id])
@@ -25,6 +26,7 @@ class BoletasDeDepositosController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @boletas_de_deposito }
+  end
   end
 
   def edit
@@ -73,24 +75,27 @@ class BoletasDeDepositosController < ApplicationController
     def boletas_de_deposito_params
       params.require(:boletas_de_deposito).permit(:id_banco, :id_persona, :id_cuenta_bancaria, :id_caja, :fecha)
     end
-=begin
-  
-rescue Exception => e
-  
-end
-  def render_boletas_de_deposito_list(boletas_de_deposito)
-      report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'boletas_de_depositos', 'show.tlf')
 
-      boletas_de_deposito.each do |task|
-        report.list.add_row do |row|
-          row.values no: task.id 
-          row.item(:no).style(:color, 'red')
-        end
-      end
-      
-      send_data report.generate, filename: 'boletas de depositos.pdf', 
+    
+ def render_boletas_de_deposito_list(boletas_de_deposito)
+     report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'boletas_de_depositos', 'show.tlf')
+     boletas_de_deposito.each do |task|
+       report.list.add_row do |row|
+         row.values banco: task.id_banco,
+                    persona: task.id_persona,
+                    cuenta_bancaria: task.id_cuenta_bancaria,
+                    caja: task.id_caja,
+                    fecha: task.fecha
+         row.item(:banco).style(:color, 'red')
+         row.item(:persona).style(:color, 'red')
+         row.item(:cuenta_bancaria).style(:color, 'red')
+         row.item(:caja).style(:color, 'red')
+         row.item(:fecha).style(:color, 'red')
+       end
+     end
+     
+     send_data report.generate, filename: 'boletas de depositos.pdf', 
                                  type: 'application/pdf', 
                                  disposition: 'attachment'
-    end
-=end
+   end
 end
