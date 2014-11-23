@@ -7,7 +7,10 @@ class TiposDePersonasController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tipos_de_personas }
-      format.xls { send_data @tipos_de_personas.to_xls(:header => false ), :filename => 'tipos_de_personas.xls' }
+      format.xls { send_data @tipos_de_personas.to_xls(
+        :columns => [:created_at, :descripcion, :updated_at],
+        :headers => ["Fecha Creada", "tipos de personas", "Fecha actualizacion"] ), 
+        :filename => 'tipos_de_personas.xls' }
       format.pdf { render_tipos_de_personas_list(@tipos_de_personas) }
     end
   end

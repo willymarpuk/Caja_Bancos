@@ -43,4 +43,7 @@
       </tr>
     <% end %>
   </tbody>
+  <%= link_to "PRINT", '#', onclick: "printpage()"%> | 
+  <%= link_to 'PDF', movimientos_de_cajas_path(@movimientos_de_cajas, format: 'pdf') %> | 
+  <%= link_to 'Excel Download', movimientos_de_cajas_path(:format => :xls) %>
 </table>

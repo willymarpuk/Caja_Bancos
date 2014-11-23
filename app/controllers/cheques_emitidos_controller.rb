@@ -7,7 +7,10 @@ class ChequesEmitidosController < ApplicationController
      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cheques_emitidos }
-      format.xls { send_data @cheques_emitidos.to_xls(:header => false ), :filename => 'cheques_emitidos.xls' }
+      format.xls { send_data @cheques_emitidos.to_xls(
+      :columns => [:id_cuenta_bancaria,  :id_banco, :fecha, :concepto, :monto ],
+      :headers => ["Cuenta bancaria", "Banco", "fecha", "Concepto", "Monto"] ),
+      :filename => 'cheques_emitidos.xls' }
       format.pdf { render_cheques_emitido_list(@cheques_emitidos) }
     end
   end

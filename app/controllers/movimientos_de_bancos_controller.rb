@@ -7,7 +7,10 @@ class MovimientosDeBancosController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @movimientos_de_bancos }
-      format.xls { send_data @movimientos_de_bancos.to_xls(:header => false ), :filename => 'movimientos_de_bancos.xls' }
+      format.xls { send_data @movimientos_de_bancos.to_xls(
+      :columns => [:id_tipo_de_movimiento, :id_banco, :id_cuenta_bancaria, :monto, :descripcion],
+      :headers => ["Tipo de movimiento", "Banco", "Cuenta bancaria", "Monto", "Descripcion"] ),
+      :filename => 'movimientos_de_bancos.xls' }
       format.pdf { render_movimientos_de_bancos_list(@movimientos_de_bancos) }
     end
   end

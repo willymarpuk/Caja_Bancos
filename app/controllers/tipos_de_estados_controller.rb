@@ -7,7 +7,10 @@ class TiposDeEstadosController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tipos_de_estados }
-      format.xls { send_data @tipos_de_estados.to_xls(:header => false ), :filename => 'tipos_de_estados.xls' }
+      format.xls { send_data @tipos_de_estados.to_xls(
+        :columns => [:created_at, :descripcion, :updated_at],
+        :headers => ["Fecha Creada", "tipos de estados", "Fecha actualizacion"] ),
+        :filename => 'tipos_de_estados.xls' }
       format.pdf { render_tipos_de_estados_list(@tipos_de_estados) }
     end
   end

@@ -7,7 +7,10 @@ class CajasController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cajas }
-      format.xls { send_data @cajas.to_xls, :filename => 'cajas.xls' }
+      format.xls { send_data @cajas.to_xls(
+      :columns => [:id_estado, :id_persona, :apertura, :cierre, :saldo_inicial_efectivo, :saldo_final_efectivo, :saldo_inicial_cheque, :saldo_final_cheque],
+      :headers => ["Estado", "Persona", "Apertura", "Cierre", "Saldo inicial de efectivo", "Saldo final de efectivo", "Saldo inicial de cheques", "Saldo final de cheques"] ),
+      :filename => 'cajas.xls' }
       format.pdf { render_caja_list(@cajas) }
     end
   end

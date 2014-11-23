@@ -32,4 +32,7 @@
       </td>
     <% end %>
   </tbody>
+  <%= link_to "PRINT", '#', onclick: "printpage()"%> | 
+  <%= link_to 'PDF', tipos_de_movimientos_path(@tipos_de_movimientos, format: 'pdf') %> | 
+  <%= link_to 'Excel Download', tipos_de_movimientos_path(:format => :xls) %>
 </table>

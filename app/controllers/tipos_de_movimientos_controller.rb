@@ -7,7 +7,10 @@ class TiposDeMovimientosController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tipos_de_movimientos }
-      format.xls { send_data @tipos_de_movimientos.to_xls(:header => false ), :filename => 'tipos_de_movimientos.xls' }
+      format.xls { send_data @tipos_de_movimientos.to_xls(
+        :columns => [:created_at, :descripcion, :tipo, :updated_at],
+        :headers => ["Fecha Creada", "tipos de movimientos","tipo", "Fecha actualizacion"] ),
+        :filename => 'tipos_de_movimientos.xls' }
       format.pdf { render_tipos_de_movimientos_list(@tipos_de_movimientos) }
     end
   end

@@ -7,7 +7,10 @@ class CuentasBancariaController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cuentas_bancaria }
-      format.xls { send_data @cuentas_bancaria.to_xls(:header => false ), :filename => 'cuentas_bancarias.xls' }
+      format.xls { send_data @cuentas_bancaria.to_xls(
+      :columns => [:id_banco, :id_cuenta_bancaria, :saldo, :id_firmante],
+      :headers => ["Banco", "Cuenta bancaria", "Saldo", "Firmante"] ),
+      :filename => 'cuentas_bancarias.xls' }
       format.pdf { render_cuentas_bancaria_list(@cuentas_bancaria) }
     end
   end

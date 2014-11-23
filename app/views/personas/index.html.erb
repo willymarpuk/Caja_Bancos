@@ -41,4 +41,7 @@
       </tr>
     <% end %>
   </tbody>
+  <%= link_to "PRINT", '#', onclick: "printpage()"%> | 
+  <%= link_to 'PDF', personas_path(@personas, format: 'pdf') %> | 
+  <%= link_to 'Excel Download', personas_path(:format => :xls) %>
 </table>

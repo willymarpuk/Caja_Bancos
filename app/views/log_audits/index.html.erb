@@ -1,4 +1,7 @@
-<h1> Log de auditoria</h1>
+<h1> Log de auditoria <h3 align="right"><%= link_to "PRINT", '#', onclick: "printpage()"%> | 
+  <%= link_to 'PDF', log_audits_path(@log_audits, format: 'pdf') %> | 
+  <%= link_to 'Excel Download', log_audits_path(:format => :xls) %></h3></h1> 
+  
 
 <table id="table" class="table table-hover">
   <thead>

@@ -3,13 +3,17 @@ class BancosController < ApplicationController
 
   # GET /bancos
   # GET /bancos.json
+  
   def index
     @bancos = Banco.all
     @banco = Banco.new
      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @bancos }
-      format.xls { send_data @bancos.to_xls(:header => false ), :filename => 'bancos.xls' }
+      format.xls { send_data @bancos.to_xls(
+        :columns => [:nombre_banco],
+        :headers => ["Banco" ] ),
+        :filename => 'bancos.xls' }
       format.pdf { render_banco_list(@bancos) }
     end
   end

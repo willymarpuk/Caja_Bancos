@@ -7,7 +7,10 @@ class CuentasCorrientesVentaController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cuentas_corrientes_venta }
-      format.xls { send_data @cuentas_corrientes_venta.to_xls(:header => false ), :filename => 'cuentas_corrientes_ventas.xls' }
+      format.xls { send_data @cuentas_corrientes_venta.to_xls(
+      :columns => [:id_persona, :id_caja, :id_movimiento_de_caja, :monto],
+      :headers => ["persona", "Caja", "Movimiento de caja", "Monto"] ),
+      :filename => 'cuentas_corrientes_ventas.xls' }
       format.pdf { render_cuentas_corrientes_ventas_list(@cuentas_corrientes_venta) }
     end
   end

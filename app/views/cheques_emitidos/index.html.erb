@@ -39,4 +39,7 @@
       </tr>
     <% end %>
   </tbody>
+  <%= link_to "PRINT", '#', onclick: "printpage()"%> | 
+  <%= link_to 'PDF', cheques_emitidos_path(@cheques_emitidos, format: 'pdf') %> | 
+  <%= link_to 'Excel Download', cheques_emitidos_path(:format => :xls) %>
 </table>

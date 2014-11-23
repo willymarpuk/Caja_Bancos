@@ -37,4 +37,7 @@
       </tr>
     <% end %>
   </tbody>
+  <%= link_to "PRINT", '#', onclick: "printpage()"%> | 
+  <%= link_to 'PDF', cuentas_corrientes_venta_path(@cuentas_corrientes_venta, format: 'pdf') %> | 
+  <%= link_to 'Excel Download', cuentas_corrientes_venta_path(:format => :xls) %>
 </table>

@@ -7,7 +7,10 @@ class MovimientosDeCajasController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @movimientos_de_cajas }
-      format.xls { send_data @movimientos_de_cajas.to_xls(:header => false ), :filename => 'movimientos_de_cajas.xls' }
+      format.xls { send_data @movimientos_de_cajas.to_xls(
+      :columns => [:id_tipo_de_movimiento, :id_caja, :id_cheque_entrante, :id_cheque_emitido, :descripcion, :monto_efectivo, :monto_cheque],
+      :headers => ["Tipo de movimiento", "Caja", "cheque entrante", "cheque emitido", "Descripcion", "monto de efectivo", "Monto de cheque"] ),
+      :filename => 'movimientos_de_cajas.xls' }
       format.pdf { render_movimientos_de_cajas_list(@movimientos_de_cajas) }
     end
   end
