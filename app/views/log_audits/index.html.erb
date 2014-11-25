@@ -1,0 +1,42 @@
+<h1> Log de auditoria </h1>
+
+<div class="reports" style="margin-left: 90.333333%">
+    <%= link_to '#', onclick: "printpage()", class: 'btn btn-print btn-outline btn-circle', title: 'Imprimir reporte', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+      <span class="glyphicon glyphicon-print" style="color: white"></span>
+    <% end %>
+    <%= link_to users_path(@users, format: 'pdf'), class: 'btn btn-pdf btn-outline btn-circle', title: 'Exportar en formato PDF', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+      <span style="color: white">PDF</span>
+    <% end %>
+    <%= link_to users_path(:format => :xls), class: 'btn btn-xls btn-outline btn-circle', title: 'Exportar en formato XLS', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+      <span style="color: white">XLS</span>
+    <% end %>
+</div>
+</br>
+
+<table id="table" class="table table-hover">
+  <thead>
+    <tr>
+      <th>Tabla modificada</th>
+      <th>Operacion</th>
+      <th>Valor anterior</th>
+      <th>Valor nuevo</th>
+      <th>Nombre usuario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @log_audits.each do |log_audit| %>
+      <tr>
+        <td><%= log_audit.nombre_tabla %></td>
+        <td><%= log_audit.operacion %></td>
+        <td><%= log_audit.valor_anterior %></td>
+        <td><%= log_audit.valor_nuevo %></td>
+        <td><%= log_audit.nombre_usuario %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

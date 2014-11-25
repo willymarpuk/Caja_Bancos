@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre tabla:</strong>
+  <%= @log_audit.nombre_tabla %>
+</p>
+
+<p>
+  <strong>Operacion:</strong>
+  <%= @log_audit.operacion %>
+</p>
+
+<p>
+  <strong>Valor anterior:</strong>
+  <%= @log_audit.valor_anterior %>
+</p>
+
+<p>
+  <strong>Valor nuevo:</strong>
+  <%= @log_audit.valor_nuevo %>
+</p>
+
+<p>
+  <strong>Nombre usuario:</strong>
+  <%= @log_audit.nombre_usuario %>
+</p>
+
+<%= link_to 'Edit', edit_log_audit_path(@log_audit) %> |
+<%= link_to 'Back', log_audits_path %>

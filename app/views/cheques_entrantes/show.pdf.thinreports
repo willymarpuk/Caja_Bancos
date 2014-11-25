@@ -1,0 +1,6 @@
+report.start_new_page do |page|
+  page.item(:banco).value(@cheques_entrantes.id_banco)
+  page.item(:numero).value(@cheques_entrantes.numero)
+  page.item(:monto).value(@cheques_entrantes.monto)
+  page.item(:concepto).value(@cheques_entrantes.concepto)
+end

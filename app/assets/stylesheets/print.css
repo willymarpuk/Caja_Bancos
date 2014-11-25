@@ -1,5 +1,5 @@
 @media print {
-	div.row{
+	div#tabla_print{
 	    display: none;
 	}
 }

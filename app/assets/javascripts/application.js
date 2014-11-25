@@ -21,8 +21,7 @@
 //= require moment/es
 //= require bootstrap-datetimepicker
 //= require autoNumeric
-//= require jquery.validate
-//= require jquery.validate.additional-methods
+
 //= require_tree .
 
 
@@ -78,7 +77,6 @@ $(document).ready(function() {
 	});
 });
 
-<<<<<<< HEAD
 $(document).ready(function () {
 	$("#new_banco").validate({
 		debug: true,
@@ -91,9 +89,23 @@ $(document).ready(function () {
 		}
 	});
 });
-=======
-function printpage()
-  {
-  window.print()
-  };
->>>>>>> 29284e080e4ebf197f604b7d1fe64b26eb886093
+
+ function printpage() {
+	//Get the HTML of div
+	var divElements = document.getElementById("tabla_print").innerHTML;
+	//Get the HTML of whole page
+	var oldPage = document.body.innerHTML;
+
+	//Reset the page's HTML with div's HTML only
+	document.body.innerHTML = 
+	  "<html><head><title></title></head><body>" + 
+	  divElements + "</body>";
+
+	//Print Page
+	window.print();
+
+	//Restore orignal HTML
+	document.body.innerHTML = oldPage;
+
+          
+}

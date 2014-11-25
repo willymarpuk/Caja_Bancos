@@ -13,22 +13,37 @@
 <div class="row">
   <div class="col-md-3">
       <div class="field">
-        <%= f.label :id_tipo_de_movimiento %><br>
-        <%= f.number_field :id_tipo_de_movimiento, :class => 'form-control' %>
+        <label for="movimientos_de_caja_id_tipo_de_movimiento">Tipo de Movimiento
+            <%= link_to "#modal-tipoDeMovimiento", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+        </label>
+        </br>
+        <%= f.collection_select :id_tipo_de_movimiento, TiposDeMovimiento.all,:id, :name_with_initial, {prompt: "Seleccione el movimiento"}, {class: "form-control"}%>
       </div>
       <div class="field">
-        <%= f.label :id_caja %><br>
-        <%= f.number_field :id_caja, :class => 'form-control' %>
+        <label for="movimientos_de_caja_id_cuenta_bancaria">Caja</label><br>
+        <%= f.collection_select :id_caja, Caja.all,:id, :name_with_initial, {prompt: "Seleccione una Caja"}, {class: "form-control"}%>
       </div>
   </div>
   <div class="col-md-3">
       <div class="field">
-        <%= f.label :id_cheque_entrante %><br>
-        <%= f.number_field :id_cheque_entrante, :class => 'form-control' %>
+        <label for="movimientos_de_caja_id_cheque_entrante">Cheques de Terceros
+            <%= link_to "#modal-chequeEntrante", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+        </label>
+        </br>
+        <%= f.collection_select :id_cheque_entrante, ChequesEntrante.all,:id, :name_with_initial, {prompt: "Seleccione el cheque entrante"}, {class: "form-control"}%>
       </div>
       <div class="field">
-        <%= f.label :id_cheque_emitido %><br>
-        <%= f.number_field :id_cheque_emitido, :class => 'form-control' %>
+        <label for="movimientos_de_caja_id_cheque_emitido">Cheque Emitido
+            <%= link_to "#modal-chequeEmitido", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+        </label>
+        </br>
+        <%= f.collection_select :id_cheque_emitido, ChequesEmitido.all,:id, :name_with_initial, {prompt: "Seleccione el cheque entrante"}, {class: "form-control"}%>
       </div>
   </div>
   <div class="col-md-3">

@@ -3,13 +3,17 @@ class BancosController < ApplicationController
 
   # GET /bancos
   # GET /bancos.json
+  
   def index
     @bancos = Banco.all
     @banco = Banco.new
      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @bancos }
-      format.xls { send_data @bancos.to_xls(:header => false ), :filename => 'bancos.xls' }
+      format.xls { send_data @bancos.to_xls(
+        :columns => [:nombre_banco],
+        :headers => ["Banco" ] ),
+        :filename => 'bancos.xls' }
       format.pdf { render_banco_list(@bancos) }
     end
   end
@@ -91,8 +95,16 @@ class BancosController < ApplicationController
       banco.each do |task|
         report.list.add_row do |row|
           row.values no: task.id, 
-                     name: task.nombre_banco
+                     name: task.nombre_banco,
+                     sucursal: task.sucursal,
+                     direccion: task.direccion,
+                     telefono: task.telefono,
+                     correo: task.correo
           row.item(:name).style(:color, 'red')
+          row.item(:sucursal).style(:color, 'red')
+          row.item(:direccion).style(:color, 'red')
+          row.item(:telefono).style(:color, 'red')
+          row.item(:correo).style(:color, 'red')
         end
       end
       

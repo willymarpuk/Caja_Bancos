@@ -1,0 +1,9 @@
+report.start_new_page do |page|
+  page.item(:tipo_de_movimiento).value(@movimientos_de_cajas.tipo_de_movimiento)
+  page.item(:caja).value(@movimientos_de_cajas.caja)
+  page.item(:cheque_entrante).value(@movimientos_de_cajas.cheque_entrante)
+  page.item(:cheque_emitido).value(@movimientos_de_cajas.cheque_emitido)
+  page.item(:descripcion).value(@movimientos_de_cajas.descripcion)
+  page.item(:monto_efectivo).value(@movimientos_de_cajas.monto_efectivo)
+  page.item(:monto_cheque).value(@movimientos_de_cajas.monto_cheque)
+end

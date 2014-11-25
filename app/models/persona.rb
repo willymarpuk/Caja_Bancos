@@ -76,4 +76,8 @@ class Persona < ActiveRecord::Base
 			with: /\A[0-9]+\z/,
 			message: 'solo permite numeros'}
 
+	def name_with_initial
+		"#{nombre}"
+	end
+
 end

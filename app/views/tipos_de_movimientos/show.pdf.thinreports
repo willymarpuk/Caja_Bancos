@@ -1,0 +1,4 @@
+report.start_new_page do |page|
+  page.item(:tipo).value(@tipos_de_movimientos.tipo)
+  page.item(:descripcion).value(@tipos_de_movimientos.descripcion)
+end

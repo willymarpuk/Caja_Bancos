@@ -1,0 +1,7 @@
+report.start_new_page do |page|
+  page.item(:tipo_de_movimiento).value(@movimientos_de_bancos.id_tipo_de_movimiento)
+  page.item(:banco).value(@movimientos_de_bancos.id_banco)
+  page.item(:cuenta_bancaria).value(@movimientos_de_bancos.id_cuenta_bancaria)
+  page.item(:monto).value(@movimientos_de_bancos.monto)
+  page.item(:descripcion).value(@movimientos_de_bancos.descripcion)
+end

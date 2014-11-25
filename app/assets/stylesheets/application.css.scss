@@ -18,6 +18,21 @@
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
 
+
+#tabla_print{
+      display: none !important;
+}
+
+.mini-stat {
+padding: 30px;
+margin-top: 100px;
+margin-bottom: 20px;
+}
+.bg-facebook {
+background-color: #3b5998!important;
+border: 1px solid #3b5998;
+color: white;
+}
 /* Hide for mobile, show later */
 body{
   font-family: 'Open Sans', sans-serif;
@@ -71,102 +86,107 @@ position: relative;
   font-weight: 600;
   background-color: #293846;
 }
-
 .nav > li > a:hover, .nav > li > a:focus {
   text-decoration: none;
   background-color: #293846;
 }
-
 .navbar-inverse {
   background-color: #f3f3f4;
   border-color: #e7eaec;
   border-top: 4px;
 }
-
 .navbar-fixed-top {
-top: 0;
-border-width: 0 0 4px;
+  top: 0;
+  border-width: 0 0 4px;
 }
-
-
+a{
+  color: #B4B4C2;
+}
 a:visited {
-color: #B4B4C2;
+  color: #B4B4C2;
 }
-
-
 .btn-outline {
-color: inherit;
-background-color: transparent;
-transition: all .5s;
+  color: inherit;
+  background-color: transparent;
+  transition: all .5s;
 }
 .btn-primary {
-color: #ffffff;
-background-color: #18bc9c;
-border-color: #18bc9c;
+  color: #ffffff;
+  background-color: #18bc9c;
+  border-color: #18bc9c;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-color: #ffffff;
-background-color: #128f76;
-border-color: #11866f;
+  color: #ffffff;
+  background-color: #128f76;
+  border-color: #11866f;
+}
+.btn-pdf {
+  color: #ffffff;
+  background-color: #d9534f;
+  border-color: #d9534f;
+}
+.btn-pdf:hover, .btn-pdf:focus, .btn-pdf:active, .btn-pdf.active, .open>.dropdown-toggle.btn-pdf {
+  color: #ffffff;
+  background-color: #A90505;
+  border-color: #A90505;
+}
+.btn-xls {
+  color: #ffffff;
+  background-color: #3AB645;
+  border-color: #3AB645;
+}
+.btn-xls:hover, .btn-xls:focus, .btn-xls:active, .btn-xls.active, .open>.dropdown-toggle.btn-xls {
+  color: #ffffff;
+  background-color: #00890C;
+  border-color: #00890C;
+}
+.btn-print {
+  color: #ffffff;
+  background-color: #46b8da;
+  border-color: #46b8da;
+}
+.btn-print:hover, .btn-print:focus, .btn-print:active, .btn-print.active, .open>.dropdown-toggle.btn-print {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #428bca;
 }
 .btn-circle {
-width: 30px;
-height: 30px;
-padding: 6px 0;
-border-radius: 15px;
-text-align: center;
-font-size: 12px;
-line-height: 1.428571429;
+  width: 30px;
+  height: 30px;
+  padding: 6px 0;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.428571429;
 }
-
 .btn-circle.btn-lg {
-width: 50px;
-height: 50px;
-padding: 10px 16px;
-border-radius: 25px;
-font-size: 18px;
-line-height: 1.33;
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  border-radius: 25px;
+  font-size: 18px;
+  line-height: 1.33;
 }
-
-// .form-control{
-//   border-radius: 0px;
-//   border-top: 0px;
-//   border-left: 0px;
-//   border-right: 0px;
-//   border-bottom-width: 2px;
-//   -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.075);
-//   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.075); 
-// }
-
-  .form-signin {
-    max-width: 330px;
-    margin: 0 auto;
-    margin-top: 17%;
-  }
-
-  .form-signin .form-control {
-    // position: relative;
-    font-size: 16px;
-    height: auto;
-    // -webkit-box-sizing: border-box;
-    // -moz-box-sizing: border-box;
-    // box-sizing: border-box;
-  }
-
-  .form-signin input[type="text"] {
-    margin-bottom: 10px;
-    border-radius:0px;
-  }
-  .form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-radius:0px;
-
-  }
-  .form-signin-heading {
-    // color: #fff;
-    text-align: center;
-    // text-shadow: 0 2px 2px rgba(0,0,0,0.5);
-  }
-  .form-signin .btn{
-    border-radius:0px;
-  }
+.form-signin {
+  max-width: 330px;
+  margin: 0 auto;
+  margin-top: 17%;
+}
+.form-signin .form-control {
+  font-size: 16px;
+  height: auto;
+}
+.form-signin input[type="text"] {
+  margin-bottom: 10px;
+  border-radius:0px;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-radius:0px;
+}
+.form-signin-heading {
+  text-align: center;
+}
+.form-signin .btn{
+  border-radius:0px;
+}

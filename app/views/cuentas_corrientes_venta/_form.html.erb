@@ -12,21 +12,32 @@
   <% end %>
 <div class="row">
   <div class="col-md-3">
+    <div class="field">
+      <label for="cuentas_corrientes_ventum_id_persona">Persona  
+          <%= link_to "#modal-persona", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+            <span class="glyphicon glyphicon-plus"></span>
+          <% end %>
+      </label>
+      </br>
+      <%= f.collection_select :id_persona, Persona.all,:id, :name_with_initial, {prompt: "Seleccione un Personal"}, {class: "form-control"}%>
+    </div>
+</div>
+<div class="col-md-3">
   <div class="field">
-    <%= f.label :id_persona %><br>
-    <%= f.number_field :id_persona, :class => 'form-control' %>
+    <label for="cuentas_corrientes_ventum_id_caja">Caja  </label>
+    </br>
+    <%= f.collection_select :id_caja, Caja.all,:id, :name_with_initial, {prompt: "Seleccione una Caja"}, {class: "form-control"}%>
   </div>
 </div>
 <div class="col-md-3">
   <div class="field">
-    <%= f.label :id_caja %><br>
-    <%= f.number_field :id_caja, :class => 'form-control' %>
-  </div>
-</div>
-<div class="col-md-3">
-  <div class="field">
-    <%= f.label :id_movimiento_de_caja %><br>
-    <%= f.number_field :id_movimiento_de_caja, :class => 'form-control' %>
+    <label for="cuentas_corrientes_ventum_id_movimiento_de_caja"> Movimiento de Caja  
+        <%= link_to "#modal-movimientoDeCaja", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+          <span class="glyphicon glyphicon-plus"></span>
+        <% end %>
+    </label>
+    </br>
+    <%= f.collection_select :id_movimiento_de_caja, MovimientosDeCaja.all,:id, :name_with_initial, {prompt: "Seleccione el Movimiento"}, {class: "form-control"}%>
   </div>
 </div>
 <div class="col-md-3">
@@ -46,3 +57,5 @@
   </div>
 <% end %>
 <br>
+<%= render 'cuentas_corrientes_venta/modals/persona' %>
+<%= render 'cuentas_corrientes_venta/modals/movimientoDeCaja' %>

@@ -1,0 +1,7 @@
+report.start_new_page do |page|
+  page.item(:tabla_modificada).value(@log_audits.tabla_modificada)
+  page.item(:operacion).value(@log_audits.operacion)
+  page.item(:valor_anterior).value(@log_audits.valor_anterior)
+  page.item(:valor_nuevo).value(@log_audits.valor_nuevo)
+  page.item(:nombre_usuario).value(@log_audits.nombre_usuario)
+end

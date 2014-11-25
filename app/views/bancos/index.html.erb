@@ -7,6 +7,10 @@
     <tr>
       <th>Nombre del banco</th>
       <th>Acciones</th>
+      <th>sucursal</th>
+      <th>direccion</th>
+      <th>telefono</th>
+      <th>correo</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,6 +19,10 @@
     <% @bancos.each do |banco| %>
       <tr>
       <td><%= banco.nombre_banco %></td>
+      <td><%= banco.sucursal %></td>
+      <td><%= banco.direccion %></td>
+      <td><%= banco.telefono %></td>
+      <td><%= banco.correo %></td>
          <td>
         <%= link_to edit_banco_path(banco), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
             <span class="glyphicon glyphicon-pencil"></span>
@@ -26,8 +34,45 @@
     </td>  
     <% end %>
   </tbody>
-
-  <%= link_to "PRINT", '#', onclick: "printpage()"%>
-  <%= link_to 'PDF', bancos_path(@bancos, format: 'pdf') %>
-  <%= link_to 'Excel Download', bancos_path(:format => :xls) %>
+  <div class="reports" style="margin-left: 90.333333%">
+    <%= link_to '#', onclick: "printpage()", class: 'btn btn-print btn-outline btn-circle', title: 'Imprimir reporte', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+      <span class="glyphicon glyphicon-print" style="color: white"></span>
+    <% end %>
+    <%= link_to bancos_path(@bancos, format: 'pdf'), class: 'btn btn-pdf btn-outline btn-circle', title: 'Exportar en formato PDF', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+      <span style="color: white">PDF</span>
+    <% end %>
+    <%= link_to bancos_path(:format => :xls), class: 'btn btn-xls btn-outline btn-circle', title: 'Exportar en formato XLS', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+      <span style="color: white">XLS</span>
+    <% end %>
+  </div>
+  </br>
 </table>
+
+
+<!-- tabla oculta formateada para impresion -->
+<div id="tabla_print">
+  <h1>Listado de Bancos</h1>
+    <table class="table table-striped table-hover" >
+  <thead>
+    <tr>
+      <th>Nombre del banco</th>
+      <th>Acciones</th>
+      <th>sucursal</th>
+      <th>direccion</th>
+      <th>telefono</th>
+      <th>correo</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bancos.each do |banco| %>
+      <tr>
+      <td><%= banco.nombre_banco %></td>
+      <td><%= banco.sucursal %></td>
+      <td><%= banco.direccion %></td>
+      <td><%= banco.telefono %></td>
+      <td><%= banco.correo %></td> 
+    <% end %>
+  </tbody>
+    </table>
+</div><!-- tabla oculta formateada para impresion -->

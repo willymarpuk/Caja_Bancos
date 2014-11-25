@@ -1,0 +1,3 @@
+report.start_new_page do |page|
+  page.item(:descripcion).value(@tipos_de_personas.descripcion)
+end

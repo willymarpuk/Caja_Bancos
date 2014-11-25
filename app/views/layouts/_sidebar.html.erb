@@ -17,8 +17,9 @@
     <li class="<%= 'active' if params[:controller] == 'tipos_de_movimientos' %>"> <a href="/tipos_de_movimientos">Tipos de Movimientos</a> </li>
     <li class="<%= 'active' if params[:controller] == 'tipos_de_personas' %>"> <a href="/tipos_de_personas">Tipos de Personas</a> </li>
   </ul>
-  <ul class="nav nav-sidebar">
-    <li class="<%= 'active' if params[:controller] == 'user_admin' %>"> <a href="/user_admin/index">Usuarios</a> </li>
+   <ul class="nav nav-sidebar">
+    <li class="<%= 'active' if params[:controller] == 'user' %>"> <a href="/users">Usuarios</a> </li>
+    <li class="<%= 'active' if params[:controller] == 'log_audits' %>"> <a href="/log_audits">Log de auditoria</a> </li>
   </ul>
 </div>
 

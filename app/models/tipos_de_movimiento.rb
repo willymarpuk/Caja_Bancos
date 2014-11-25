@@ -23,5 +23,8 @@ class TiposDeMovimiento < ActiveRecord::Base
 			:format => {
 				with: /\A[0-9]+\z/,
 				message: 'solo permite numeros'}
+	def name_with_initial
+		"#{descripcion} #{tipo}"
+	end
 
 end

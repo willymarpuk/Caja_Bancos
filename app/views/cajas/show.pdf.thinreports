@@ -1,0 +1,10 @@
+report.start_new_page do |page|
+  page.item(:estado).value(@cajas.id_estado)
+  page.item(:persona).value(@cajas.id_persona)
+  page.item(:apertura).value(@cajas.apertura)
+  page.item(:cierre).value(@cajas.cierre)
+  page.item(:saldo_inicial_efectivo).value(@cajas.saldo_inicial_efectivo)
+  page.item(:saldo_final_efectivo).value(@cajas.saldo_final_efectivo)
+  page.item(:saldo_inicial_cheque).value(@cajas.saldo_inicial_cheque)
+  page.item(:saldo_final_cheque).value(@cajas.saldo_final_cheque)
+end
