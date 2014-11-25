@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :firmantes
+
   get 'user_admin/index'
 
   resources :log_audits

@@ -1,5 +1,5 @@
 class MovimientosDeCaja < ActiveRecord::Base
-	has_many :CuentasCorrientesVentas
+	has_many :CuentasCorrientesVentum
 	belongs_to :ChequesEntrante
 	belongs_to :TiposDeMovimiento
 	belongs_to :Caja

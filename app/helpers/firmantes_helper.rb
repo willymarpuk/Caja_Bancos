@@ -1,0 +1,2 @@
+module FirmantesHelper
+end
