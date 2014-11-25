@@ -1,4 +1,6 @@
-resources :log_audits
+Rails.application.routes.draw do
+  
+  resources :log_audits
 
   resources :bancos
 
