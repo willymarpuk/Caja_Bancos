@@ -22,10 +22,10 @@
         <td><%= cuentas_bancarium.saldo %></td>
         <td><%= cuentas_bancarium.id_firmante %></td>
         <td>
-            <%= link_to edit_cuentas_corrientes_ventas_path(cuentas_corrientes_ventas), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+            <%= link_to edit_cuentas_bancarium_path(cuentas_bancarium), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
                 <span class="glyphicon glyphicon-pencil"></span>
             <% end %>
-            <%= link_to cuentas_corrientes_ventas, method: :delete, data: { confirm: 'Va eliminarlo, esta seguro?' }, class: 'btn btn-danger btn-outline btn-circle', title: 'Borrar', 'data-toggle' => 'tooltip', 'data-placement' => 'right'  do %>
+            <%= link_to cuentas_bancarium, method: :delete, data: { confirm: 'Va eliminarlo, esta seguro?' }, class: 'btn btn-danger btn-outline btn-circle', title: 'Borrar', 'data-toggle' => 'tooltip', 'data-placement' => 'right'  do %>
                 <span class="glyphicon glyphicon-remove"></span>
             <% end %>
       </td>
@@ -70,10 +70,10 @@
         <td><%= cuentas_bancarium.saldo %></td>
         <td><%= cuentas_bancarium.id_firmante %></td>
         <td>
-            <%= link_to edit_cuentas_corrientes_ventas_path(cuentas_corrientes_ventas), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+            <%= link_to edit_cuentas_bancarium_path(cuentas_bancarium), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
                 <span class="glyphicon glyphicon-pencil"></span>
             <% end %>
-            <%= link_to cuentas_corrientes_ventas, method: :delete, data: { confirm: 'Va eliminarlo, esta seguro?' }, class: 'btn btn-danger btn-outline btn-circle', title: 'Borrar', 'data-toggle' => 'tooltip', 'data-placement' => 'right'  do %>
+            <%= link_to cuentas_bancarium, method: :delete, data: { confirm: 'Va eliminarlo, esta seguro?' }, class: 'btn btn-danger btn-outline btn-circle', title: 'Borrar', 'data-toggle' => 'tooltip', 'data-placement' => 'right'  do %>
                 <span class="glyphicon glyphicon-remove"></span>
             <% end %>
       </td>

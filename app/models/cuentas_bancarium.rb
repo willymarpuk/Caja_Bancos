@@ -33,4 +33,8 @@ class CuentasBancarium < ActiveRecord::Base
 	validates :fecha_de_apertura,
 		:presence => {
 			message: 'este campo es requerido'}
+
+	def name_with_initial
+		"#{nro_cuenta}"
+	end
 end
