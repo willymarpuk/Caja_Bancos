@@ -2,6 +2,20 @@
 <div id="form1">
   <%= render 'form' %>
 </div>
+<!-- botones de reporte -->
+<div class="reports" style="margin-left: 90.333333%">
+  <%= link_to '#', onclick: "printpage()", class: 'btn btn-print btn-outline btn-circle', title: 'Imprimir reporte', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+    <span class="glyphicon glyphicon-print" style="color: white"></span>
+  <% end %>
+  <%= link_to cajas_path(@cajas, format: 'pdf'), class: 'btn btn-pdf btn-outline btn-circle', title: 'Exportar en formato PDF', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+    <span style="color: white">PDF</span>
+  <% end %>
+  <%= link_to cajas_path(:format => :xls), class: 'btn btn-xls btn-outline btn-circle', title: 'Exportar en formato XLS', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+    <span style="color: white">XLS</span>
+  <% end %>
+</div><!-- botones de reporte -->
+</br>
+
 <table id="table" class="table table-striped table-hover">
   <thead>
     <tr>
@@ -29,10 +43,6 @@
         <td><%= caja.saldo_inicial_cheque %></td>
         <td><%= caja.saldo_final_cheque %></td>
         <td>
-           <!--  <%= link_to caja , class: 'btn btn-info btn-outline btn-circle', title: 'View', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
-                <span class="glyphicon glyphicon-search"></span>
-                <% end %> -->
-            
             <%= link_to edit_caja_path(caja), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
                 <span class="glyphicon glyphicon-pencil"></span>
                 <% end %>
@@ -44,7 +54,37 @@
       </tr>
     <% end %>
   </tbody>
-  <%= link_to "PRINT", '#', onclick: "printpage()"%> | 
-  <%= link_to 'PDF', cajas_path(@cajass, format: 'pdf') %> | 
-  <%= link_to 'Excel Download', cajas_path(:format => :xls) %>
 </table>
+
+<!-- tabla oculta formateada para impresion -->
+<div id="tabla_print">
+  <h1>Listado de Cajas</h1>
+    <table class="table table-striped table-hover" >
+      <thead>
+        <tr>
+          <th>Id estado</th>
+          <th>Id persona</th>
+          <th>Apertura</th>
+          <th>Cierre</th>
+          <th>Saldo inicial efectivo</th>
+          <th>Saldo final efectivo</th>
+          <th>Saldo inicial cheque</th>
+          <th>Saldo final cheque</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cajas.each do |caja| %>
+          <tr>
+            <td><%= caja.id_estado %></td>
+            <td><%= caja.id_persona %></td>
+            <td><%= caja.apertura %></td>
+            <td><%= caja.cierre %></td>
+            <td><%= caja.saldo_inicial_efectivo %></td>
+            <td><%= caja.saldo_final_efectivo %></td>
+            <td><%= caja.saldo_inicial_cheque %></td>
+            <td><%= caja.saldo_final_cheque %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div><!-- tabla oculta formateada para impresion -->

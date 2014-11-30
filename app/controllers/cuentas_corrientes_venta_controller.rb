@@ -4,6 +4,9 @@ class CuentasCorrientesVentaController < ApplicationController
   def index
     @cuentas_corrientes_venta = CuentasCorrientesVentum.all
     @cuentas_corrientes_ventum = CuentasCorrientesVentum.new
+        @persona = Persona.new
+    @tipos_de_persona = TiposDePersona.new
+    @movimientos_de_caja = MovimientosDeCaja.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cuentas_corrientes_venta }

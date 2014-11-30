@@ -1,4 +1,4 @@
-<%= form_for(@banco) do |f| %>
+<%= form_for(@banco) do |f| %> 
   <% if @banco.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@banco.errors.count, "error") %> prohibited this banco from being saved:</h2>
@@ -11,12 +11,32 @@
     </div>
   <% end %>
   <div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <div class="field">
-    <%= f.label :nombre_banco %><br>
-    <%= f.text_field :nombre_banco, :class => 'form-control' %> <br>
-  </div>
-  </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="field">
+        <%= f.label :nombre_banco %><br>
+        <%= f.text_field :nombre_banco, :class => 'form-control' %> <br>
+      </div>
+      <div class="field">
+        <%= f.label :sucursal %><br>
+        <%= f.text_field :sucursal, :class => 'form-control' %> <br>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="field">
+        <%= f.label :direccion %><br>
+        <%= f.text_field :direccion, :class => 'form-control' %> <br>
+      </div>
+      <div class="field">
+        <%= f.label :telefono %><br>
+        <%= f.text_field :telefono, :class => 'form-control' %> <br>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="field">
+        <%= f.label :correo %><br>
+        <%= f.text_field :correo, :class => 'form-control' %> <br>
+      </div>
+    </div>
   </div>
   <div class="actions">
     <% if controller.action_name == 'new' or controller.action_name == 'index' %>

@@ -13,8 +13,13 @@
   <div class="row">
     <div class="col-md-3">
       <div class="field">
-        <%= f.label :id_banco %><br>
-        <%= f.number_field :id_banco , :class => 'form-control'%>
+        <label for="cheques_entrante_id_banco">Banco  
+            <%= link_to "#modal-banco", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+        </label>
+        </br>
+        <%= f.collection_select :id_banco, Banco.all,:id, :name_with_initial, {prompt: "Seleccione un Banco"}, {class: "form-control"}%>
       </div>
     </div>
     <div class="col-md-3">
@@ -46,3 +51,4 @@
   </div>
 <% end %>
 <br>
+<%= render 'cheques_entrantes/modals/banco' %>

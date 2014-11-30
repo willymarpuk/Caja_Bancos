@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :firmantes
 
   get 'user_admin/index'
@@ -35,8 +36,20 @@ Rails.application.routes.draw do
 
   resources :cajas
 
-  devise_for :users
-  get 'home/index'
+  devise_for :users, path: "/", path_names: { 
+    sign_in:        'login', 
+    sign_out:       'logout', 
+    password:       'secret', 
+    confirmation:   'verification', 
+    unlock:         'unblock', 
+    registration:   'register', 
+    sign_up:        '' 
+  }
+
+  resources :users
+
+  # devise_for :users
+  # get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

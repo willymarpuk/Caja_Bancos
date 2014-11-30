@@ -16,10 +16,6 @@
       <tr>
         <td><%= tipos_de_estado.descripcion %></td>
          <td>
-           <!--  <%= link_to tipos_de_estado , class: 'btn btn-info btn-outline btn-circle', title: 'Ver', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
-                <span class="glyphicon glyphicon-search"></span>
-                <% end %> -->
-            
             <%= link_to edit_tipos_de_estado_path(tipos_de_estado), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
                 <span class="glyphicon glyphicon-pencil"></span>
                 <% end %>
@@ -31,7 +27,36 @@
       </tr>
     <% end %>
   </tbody>
-  <%= link_to "PRINT", '#', onclick: "printpage()"%> | 
-  <%= link_to 'PDF', tipos_de_estados_path(@tipos_de_estados, format: 'pdf') %> | 
-  <%= link_to 'Excel Download', tipos_de_estados_path(:format => :xls) %>
+    <div class="reports" style="margin-left: 90.333333%">
+    <%= link_to '#', onclick: "printpage()", class: 'btn btn-print btn-outline btn-circle', title: 'Imprimir reporte', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+      <span class="glyphicon glyphicon-print" style="color: white"></span>
+    <% end %>
+    <%= link_to tipos_de_estados_path(@tipos_de_estados, format: 'pdf'), class: 'btn btn-pdf btn-outline btn-circle', title: 'Exportar en formato PDF', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+      <span style="color: white">PDF</span>
+    <% end %>
+    <%= link_to tipos_de_estados_path(:format => :xls), class: 'btn btn-xls btn-outline btn-circle', title: 'Exportar en formato XLS', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+      <span style="color: white">XLS</span>
+    <% end %>
+  </div>
+  </br>
 </table>
+
+
+<div id="tabla_print">
+<h1>Tipos de Estados</h1>
+  <table class="table table-striped table-hover" >
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tipos_de_estados.each do |tipos_de_estado| %>
+      <tr>
+        <td><%= tipos_de_estado.descripcion %></td>
+      </tr>
+    <% end %>
+  </tbody>
+ </table>
+</div>

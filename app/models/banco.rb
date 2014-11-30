@@ -58,4 +58,8 @@ class Banco < ActiveRecord::Base
 			:with => VALID_EMAIL_REGEX,
 			message: "El formato del correo es invalido" }
 
+	def name_with_initial
+		"#{nombre_banco}  #{sucursal}"
+	end
+
 end

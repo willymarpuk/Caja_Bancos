@@ -4,6 +4,10 @@ class BoletasDeDepositosController < ApplicationController
   def index
     @boletas_de_depositos = BoletasDeDeposito.all
     @boletas_de_deposito = BoletasDeDeposito.new
+    @persona = Persona.new
+    @tipos_de_persona = TiposDePersona.new
+    @cuentas_bancarium = CuentasBancarium.new
+    @banco = Banco.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @boletas_de_depositos }

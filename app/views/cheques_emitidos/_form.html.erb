@@ -12,15 +12,25 @@
   <% end %>
 <div class="row">
   <div class="col-md-2">
-  <div class="field">
-    <%= f.label :id_cuenta_bancaria %><br>
-    <%= f.number_field :id_cuenta_bancaria  , :class => 'form-control'%>
-  </div>
+      <div class="field">
+        <label for="cheques_emitido_id_cuenta_bancaria">Cuenta Bancaria  
+            <%= link_to "#modal-cuentaBancaria", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+        </label>
+        </br>
+        <%= f.collection_select :id_cuenta_bancaria, CuentasBancarium.all,:id, :name_with_initial, {prompt: "Seleccione una Cuenta"}, {class: "form-control"}%>
+      </div>
 </div>
 <div class="col-md-2">
   <div class="field">
-    <%= f.label :id_banco %><br>
-    <%= f.number_field :id_banco , :class => 'form-control' %>
+    <label for="cheques_emitido_id_banco">Banco  
+        <%= link_to "#modal-banco", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+          <span class="glyphicon glyphicon-plus"></span>
+        <% end %>
+    </label>
+    </br>
+        <%= f.collection_select :id_banco, Banco.all,:id, :name_with_initial, {prompt: "Seleccione un Banco"}, {class: "form-control"}%>
   </div>
 </div>
 <div class="col-md-2">
@@ -51,3 +61,6 @@
     <% end %>
   </div>
 <% end %> <br>
+
+<%= render 'cheques_emitidos/modals/cuentaBancaria' %>
+<%= render 'cheques_emitidos/modals/banco' %>

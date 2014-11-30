@@ -4,6 +4,7 @@ class ChequesEntrantesController < ApplicationController
   def index
     @cheques_entrantes = ChequesEntrante.all
     @cheques_entrante = ChequesEntrante.new
+    @banco = Banco.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cheques_entrantes }

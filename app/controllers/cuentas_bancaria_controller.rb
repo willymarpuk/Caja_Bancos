@@ -4,6 +4,7 @@ class CuentasBancariaController < ApplicationController
   def index
     @cuentas_bancaria = CuentasBancarium.all
     @cuentas_bancarium = CuentasBancarium.new
+    @banco = Banco.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cuentas_bancaria }

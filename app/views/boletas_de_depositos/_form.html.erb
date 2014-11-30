@@ -1,7 +1,7 @@
 <%= form_for(@boletas_de_deposito) do |f| %>
   <% if @boletas_de_deposito.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@boletas_de_deposito.errors.count, "error") %> prohibited this boletas_de_deposito from being saved:</h2>
+      <h2><%= pluralize(@boletas_de_deposito.errors.count, "error") %> no se guardo en boletas de deposito por lo siguiente:</h2>
 
       <ul>
       <% @boletas_de_deposito.errors.full_messages.each do |message| %>
@@ -13,23 +13,37 @@
 <div class="row">
   <div class="col-md-3">
       <div class="field">
-        <%= f.label :id_banco %><br>
-        <%= f.number_field :id_banco, :class => 'form-control' %>
+        <label for="boletas_de_deposito_id_banco">Banco  
+            <%= link_to "#modal-banco", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+        </label>
+        </br>
+        <%= f.collection_select :id_banco, Banco.all,:id, :name_with_initial, {prompt: "Seleccione un Banco"}, {class: "form-control"}%>
       </div>
       <div class="field">
-        <%= f.label :id_persona %><br>
-        <%= f.number_field :id_persona, :class => 'form-control' %>
+        <label for="boletas_de_deposito_id_persona">Persona  
+            <%= link_to "#modal-persona", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+        </label>
+        </br>
+        <%= f.collection_select :id_persona, Persona.all,:id, :name_with_initial, {prompt: "Seleccione un Personal"}, {class: "form-control"}%>
       </div>
   </div>
-
    <div class="col-md-offset-1 col-md-3">
       <div class="field">
-        <%= f.label :id_cuenta_bancaria %><br>
-        <%= f.number_field :id_cuenta_bancaria, :class => 'form-control' %>
+        <label for="boletas_de_deposito_id_cuenta_bancaria">Cuenta Bancaria  
+            <%= link_to "#modal-cuentaBancaria", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+        </label>
+        </br>
+        <%= f.collection_select :id_cuenta_bancaria, CuentasBancarium.all,:id, :name_with_initial, {prompt: "Seleccione una Cuenta"}, {class: "form-control"}%>
       </div>
       <div class="field">
-        <%= f.label :id_caja %><br>
-        <%= f.number_field :id_caja, :class => 'form-control' %>
+        <label for="boletas_de_deposito_id_caja">Caja</label><br>
+        <%= f.collection_select :id_caja, Caja.all,:id, :name_with_initial, {prompt: "Seleccione una Caja"}, {class: "form-control"}%>
       </div>
   </div>
    <div class="col-md-offset-1 col-md-3">
@@ -40,7 +54,6 @@
   </div>
 </div>
 
-
   <div class="actions">
     <% if controller.action_name == 'new' or controller.action_name == 'index' %>
       <%= f.submit "Agregar", :class => 'btn btn-primary'%>
@@ -49,3 +62,7 @@
     <% end %>
   </div>
   <% end %>
+
+<%= render 'boletas_de_depositos/modals/persona' %>
+<%= render 'boletas_de_depositos/modals/cuentaBancaria' %>
+<%= render 'boletas_de_depositos/modals/banco' %>

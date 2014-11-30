@@ -4,6 +4,11 @@ class MovimientosDeBancosController < ApplicationController
   def index
     @movimientos_de_bancos = MovimientosDeBanco.all
     @movimientos_de_banco = MovimientosDeBanco.new
+    @persona = Persona.new
+    @tipos_de_persona = TiposDePersona.new
+    @cuentas_bancarium = CuentasBancarium.new
+    @banco = Banco.new
+    @tipos_de_movimiento = TiposDeMovimiento.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @movimientos_de_bancos }

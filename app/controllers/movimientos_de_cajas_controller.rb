@@ -4,6 +4,8 @@ class MovimientosDeCajasController < ApplicationController
   def index
     @movimientos_de_cajas = MovimientosDeCaja.all
     @movimientos_de_caja = MovimientosDeCaja.new
+    @persona = Persona.new
+    @tipos_de_persona = TiposDePersona.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @movimientos_de_cajas }

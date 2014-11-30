@@ -4,6 +4,7 @@ class PersonasController < ApplicationController
   def index
     @personas = Persona.all
     @persona = Persona.new
+    @tipos_de_persona = TiposDePersona.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @personas }

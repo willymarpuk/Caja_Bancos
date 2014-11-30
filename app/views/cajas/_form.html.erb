@@ -1,7 +1,7 @@
 <%= form_for(@caja) do |f| %>
   <% if @caja.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@caja.errors.count, "error") %> prohibited this caja from being saved:</h2>
+      <h2><%= pluralize(@caja.errors.count, "error") %> no se guardo en caja por lo siguiente:</h2>
 
       <ul>
       <% @caja.errors.full_messages.each do |message| %>
@@ -13,45 +13,55 @@
 <div class="row">
   <div class="col-md-3">
       <div class="field">
-        <%= f.label :id_estado %><br>
-        <%= f.number_field :id_estado , :class => 'form-control'%>
+        <label for="caja_id_estado">Estado  
+            <%= link_to "#modal-estado", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+        </label>
+        </br>
+        <%= f.collection_select :id_estado, TiposDeEstado.all,:id, :name_with_initial, {prompt: "Seleccione un Estado"}, {class: "form-control"}%>
       </div>
       <div class="field">
-        <%= f.label :id_persona %><br>
-        <%= f.number_field :id_persona , :class => 'form-control'%>
+        <label for="caja_id_persona">Persona  
+            <%= link_to "#modal-persona", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+        </label>
+        </br>
+        <%= f.collection_select :id_persona, Persona.all,:id, :name_with_initial, {prompt: "Seleccione un Personal"}, {class: "form-control"}%>
       </div>
   </div>
 
   <div class="col-md-3">
       <div class="field">
-        <i class="glyphicon glyphicon-calendar"></i> <%= f.label :apertura %><br>
+        <i class="glyphicon glyphicon-calendar"></i> <%= f.label :apertura, style: 'margin-bottom: 14px' %><br>
         <%= f.text_field :apertura, :class => 'datepicker form-control' %>
 
       </div>
       <div class="field">
-        <i class="glyphicon glyphicon-calendar"></i> <%= f.label :cierre %><br>
+        <i class="glyphicon glyphicon-calendar"></i> <%= f.label :cierre , style: 'margin-bottom: 14px'%><br>
         <%= f.text_field :cierre, :class => 'datepicker form-control' %>
       </div>
   </div>
 
   <div class="col-md-3">
     <div class="field">
-      <i class="glyphicon glyphicon-usd"></i> <%= f.label :saldo_inicial_efectivo %><br>
+      <i class="glyphicon glyphicon-usd"></i> <%= f.label :saldo_inicial_efectivo, style: 'margin-bottom: 14px' %><br>
       <%= f.text_field :saldo_inicial_efectivo, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' }  %>
     </div>
     <div class="field">
-      <i class="glyphicon glyphicon-usd"></i> <%= f.label :saldo_final_efectivo %><br>
+      <i class="glyphicon glyphicon-usd"></i> <%= f.label :saldo_final_efectivo, style: 'margin-bottom: 14px' %><br>
       <%= f.text_field :saldo_final_efectivo, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' } %>
     </div>
   </div>
 
   <div class="col-md-3">
     <div class="field">
-      <i class="glyphicon glyphicon-usd"></i> <%= f.label :saldo_inicial_cheque %><br>
+      <i class="glyphicon glyphicon-usd"></i> <%= f.label :saldo_inicial_cheque, style: 'margin-bottom: 14px' %><br>
       <%= f.text_field :saldo_inicial_cheque, :class => 'form-control' %>
     </div>
     <div class="field">
-      <i class="glyphicon glyphicon-usd"></i> <%= f.label :saldo_final_cheque %><br>
+      <i class="glyphicon glyphicon-usd"></i> <%= f.label :saldo_final_cheque , style: 'margin-bottom: 14px'%><br>
       <%= f.text_field :saldo_final_cheque , :class => 'form-control'%>
     </div>
   </div>
@@ -67,3 +77,6 @@
       </div>
   <% end %>
   </br>
+
+<%= render 'cajas/modals/estado' %>
+<%= render 'cajas/modals/persona' %>

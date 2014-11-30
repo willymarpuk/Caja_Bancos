@@ -1,0 +1,37 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="field"> 
+    <label for="user_username">Nombre de Usuario</label><br />
+      <%= f.text_field :username , :autofocus=>true,:class => 'form-control'%>
+    </div> 
+    <div class="field">
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email, :class => 'form-control' %></div>
+    </div>
+    <div class="field">
+      <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+        <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %></div>
+    </div>
+    <div class="field">
+      <label for="user_password_confirmation">Confirmar Password</label><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control' %>
+    </div>
+
+    <div class="actions">
+    <% if controller.action_name == 'new' or controller.action_name == 'index' %>
+      <%= f.submit "Agregar", :class => 'btn btn-primary'%>
+    <% elsif controller.action_name == 'edit' %>
+      <%= f.submit "Actualizar", :class => 'btn btn-primary'%>
+    <% end %>
+  </div>
+<% end %>

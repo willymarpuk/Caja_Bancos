@@ -14,4 +14,9 @@ class TiposDeEstado < ActiveRecord::Base
 		:format => {
 			with: /\A[a-zA-Z]+\z/,
 			message: 'solo permite letras'}
+
+	def name_with_initial
+		"#{descripcion}"
+	end
+
 end

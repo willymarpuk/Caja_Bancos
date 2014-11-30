@@ -21,6 +21,7 @@
 //= require moment/es
 //= require bootstrap-datetimepicker
 //= require autoNumeric
+
 //= require_tree .
 
 
@@ -76,7 +77,35 @@ $(document).ready(function() {
 	});
 });
 
-function printpage()
-  {
-  window.print()
-  };
+$(document).ready(function () {
+	$("#new_banco").validate({
+		debug: true,
+		rules: {
+		"banco[nombre_banco]": {required: true}
+		},
+		message:{
+			 "banco[nombre_banco]": "We need your email address to contact you"
+			  
+		}
+	});
+});
+
+ function printpage() {
+	//Get the HTML of div
+	var divElements = document.getElementById("tabla_print").innerHTML;
+	//Get the HTML of whole page
+	var oldPage = document.body.innerHTML;
+
+	//Reset the page's HTML with div's HTML only
+	document.body.innerHTML = 
+	  "<html><head><title></title></head><body>" + 
+	  divElements + "</body>";
+
+	//Print Page
+	window.print();
+
+	//Restore orignal HTML
+	document.body.innerHTML = oldPage;
+
+          
+}

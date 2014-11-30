@@ -4,6 +4,9 @@ class CajasController < ApplicationController
   def index
     @cajas = Caja.all
     @caja = Caja.new
+    @tipos_de_estado = TiposDeEstado.new
+    @persona = Persona.new
+    @tipos_de_persona = TiposDePersona.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cajas }
