@@ -19,7 +19,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_banco, Banco.all,:id, :name_with_initial, {prompt: "Seleccione un Banco"}, {class: "form-control"}%>
+        <%= f.collection_select :id_banco, Banco.all,:id, :name_with_initial, {:selected => Banco.find(1)}, {class: "form-control"}%>
       </div>
       <div class="field">
         <label for="boletas_de_deposito_id_persona">Persona  
@@ -28,7 +28,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_persona, Persona.all,:id, :name_with_initial, {prompt: "Seleccione un Personal"}, {class: "form-control"}%>
+        <%= f.collection_select :id_persona, Persona.all,:id, :name_with_initial, {:selected => Persona.find(1)}, {class: "form-control"}%>
       </div>
   </div>
    <div class="col-md-offset-1 col-md-3">
@@ -39,7 +39,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_cuenta_bancaria, CuentasBancarium.all,:id, :name_with_initial, {prompt: "Seleccione una Cuenta"}, {class: "form-control"}%>
+        <%= f.collection_select :id_cuenta_bancaria, CuentasBancarium.all,:id, :name_with_initial, {:selected => CuentasBancarium.find(1)}, {class: "form-control"}%>
       </div>
       <div class="field">
         <label for="boletas_de_deposito_id_caja">Caja</label><br>

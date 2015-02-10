@@ -19,7 +19,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_estado, TiposDeEstado.all,:id, :name_with_initial, {prompt: "Seleccione un Estado"}, {class: "form-control"}%>
+        <%= f.collection_select :id_estado, TiposDeEstado.all,:id, :name_with_initial, {:selected => TiposDeEstado.find(1)}, {class: "form-control"}%>
       </div>
       <div class="field">
         <label for="caja_id_persona">Persona  
@@ -28,7 +28,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_persona, Persona.all,:id, :name_with_initial, {prompt: "Seleccione un Personal"}, {class: "form-control"}%>
+        <%= f.collection_select :id_persona, Persona.all,:id, :name_with_initial, {:selected => Persona.find(1)}, {class: "form-control"}%>
       </div>
   </div>
 
@@ -47,22 +47,22 @@
   <div class="col-md-3">
     <div class="field">
       <i class="glyphicon glyphicon-usd"></i> <%= f.label :saldo_inicial_efectivo, style: 'margin-bottom: 14px' %><br>
-      <%= f.text_field :saldo_inicial_efectivo, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' }  %>
+      <%= f.text_field :saldo_inicial_efectivo, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' }, value: 0  %>
     </div>
     <div class="field">
       <i class="glyphicon glyphicon-usd"></i> <%= f.label :saldo_final_efectivo, style: 'margin-bottom: 14px' %><br>
-      <%= f.text_field :saldo_final_efectivo, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' } %>
+      <%= f.text_field :saldo_final_efectivo, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' }, value: 0 %>
     </div>
   </div>
 
   <div class="col-md-3">
     <div class="field">
       <i class="glyphicon glyphicon-usd"></i> <%= f.label :saldo_inicial_cheque, style: 'margin-bottom: 14px' %><br>
-      <%= f.text_field :saldo_inicial_cheque, :class => 'form-control' %>
+      <%= f.text_field :saldo_inicial_cheque, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' }, value: 0  %>
     </div>
     <div class="field">
       <i class="glyphicon glyphicon-usd"></i> <%= f.label :saldo_final_cheque , style: 'margin-bottom: 14px'%><br>
-      <%= f.text_field :saldo_final_cheque , :class => 'form-control'%>
+      <%= f.text_field :saldo_final_cheque , :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' }, value: 0  %>
     </div>
   </div>
 

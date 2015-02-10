@@ -43,7 +43,7 @@ class CajasController < ApplicationController
     @caja = Caja.new(caja_params)
     respond_to do |format|
       if @caja.save
-        format.html { redirect_to caja_path, notice: 'caja was successfully created.' }
+        format.html { redirect_to @caja, notice: 'caja was successfully created.' }
         format.json { render :show, status: :created, location: @caja }
       else
         format.html { render :new }

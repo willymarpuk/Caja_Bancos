@@ -34,33 +34,37 @@ class Caja < ActiveRecord::Base
 
 	validates :saldo_inicial_cheque,
 		:presence => {
-			message: 'este campo es requerido'},
+			message: 'este campo es requerido'}#,
 
-		:format => {
-			with: /\A[0-9]+\z/,
-			message: 'solo permite numeros'}
+		#:format => {
+		#	with: /\A[0-9]+\z/,
+		#	message: 'solo permite numeros'}
 
-	validates :saldo_final_cheque,
-		:presence => {
-			message: 'este campo es requerido'},
+	#validates :saldo_final_cheque,
+	#	:presence => {
+	#		message: 'este campo es requerido'}#,
 
-		:format => {
-			with: /\A[0-9]+\z/,
-			message: 'solo permite numeros'}
+		#:format => {
+		#	with: /\A[0-9]+\z/,
+		#	message: 'solo permite numeros'}
 
 	validates :saldo_inicial_efectivo,
 		:presence => {
-			message: 'este campo es requerido'},
+			message: 'este campo es requerido'}#,
 
-		:format => {
-			with: /\A[0-9]+\z/,
-			message: 'solo permite numeros'}
+		#:format => {
+		#	with: /\A[0-9]+\z/,
+		#	message: 'solo permite numeros'}
 
-	validates :saldo_final_efectivo,
-		:presence => {
-			message: 'este campo es requerido'},
+	#validates :saldo_final_efectivo,
+	#	:presence => {
+	#		message: 'este campo es requerido'}#,
 
-		:format => {
-			with: /\A[0-9]+\z/,
-			message: 'solo permite numeros'}
+		#:format => {
+		#	with: /\A[0-9]+\z/,
+		#	message: 'solo permite numeros'}
+
+  def name_with_initial
+	"#{id}"
+  end
 end

@@ -19,7 +19,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_tipo_de_movimiento, TiposDeMovimiento.all,:id, :name_with_initial, {prompt: "Seleccione el movimiento"}, {class: "form-control"}%>
+        <%= f.collection_select :id_tipo_de_movimiento, TiposDeMovimiento.all,:id, :name_with_initial, {prompt: "Seleccione un tipo"}, {class: "form-control"}%>
       </div>
       <div class="field">
         <label for="movimientos_de_caja_id_cuenta_bancaria">Caja</label><br>
@@ -34,7 +34,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_cheque_entrante, ChequesEntrante.all,:id, :name_with_initial, {prompt: "Seleccione el cheque entrante"}, {class: "form-control"}%>
+        <%= f.collection_select :id_cheque_entrante, ChequesEntrante.all,:id, :name_with_initial, {:selected => ChequesEntrante.find(1)}, {class: "form-control"}%>
       </div>
       <div class="field">
         <label for="movimientos_de_caja_id_cheque_emitido">Cheque Emitido
@@ -43,7 +43,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_cheque_emitido, ChequesEmitido.all,:id, :name_with_initial, {prompt: "Seleccione el cheque entrante"}, {class: "form-control"}%>
+        <%= f.collection_select :id_cheque_emitido, ChequesEmitido.all,:id, :name_with_initial, {:selected => ChequesEmitido.find(1)}, {class: "form-control"}%>
       </div>
   </div>
   <div class="col-md-3">
@@ -53,13 +53,13 @@
       </div>
   <div class="field">
      <i class="glyphicon glyphicon-usd"></i> <%= f.label :monto_efectivo %><br>
-    <%= f.text_field :monto_efectivo, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' } %>
+    <%= f.text_field :monto_efectivo, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' }, value: 0 %>
   </div>
   </div>
   <div class="col-md-3">
     <div class="field">
        <i class="glyphicon glyphicon-usd"></i> <%= f.label :monto_cheque %><br>
-      <%= f.text_field :monto_cheque, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' } %>
+      <%= f.text_field :monto_cheque, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' }, value: 0 %>
     </div>
   </div>
 </div>

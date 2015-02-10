@@ -20,11 +20,11 @@ class Persona < ActiveRecord::Base
 
 		:length => { 
 			:maximum => 20,
-			:too_long => 'debe tener como maximo %{count} caracteres'},
+			:too_long => 'debe tener como maximo %{count} caracteres'}#,
 
-		:format => {
-			with: /\A[a-zA-Z]+\z/,
-			message: 'solo permite letras'}
+		#:format => {
+		#	with: /\A[a-zA-Z]+\z/,
+		#	message: 'solo permite letras'}
 
 	validates :direccion,
 		:presence => {
@@ -32,11 +32,11 @@ class Persona < ActiveRecord::Base
 
 		:length => { 
 			:maximum => 50,
-			:too_long => 'debe tener como maximo %{count} caracteres'},
+			:too_long => 'debe tener como maximo %{count} caracteres'}#,
 
-		:format => {
-			with: /\A[A-Za-z0-9]+\z/,
-			message: 'No se permite caracteres de puntuacion'}
+		#:format => {
+		#	with: /\A[A-Za-z0-9]+\z/,
+		#	message: 'No se permite caracteres de puntuacion'}
 
 	validates :localidad,
 		:presence => {
@@ -44,11 +44,11 @@ class Persona < ActiveRecord::Base
 
 		:length => { 
 			:maximum => 20,
-			:too_long => 'debe tener como maximo %{count} caracteres'},
+			:too_long => 'debe tener como maximo %{count} caracteres'}#,
 
-		:format => {
-			with: /\A[a-zA-Z]+\z/,
-			message: 'solo permite letras'}
+		#:format => {
+		#	with: /\A[a-zA-Z]+\z/,
+		#	message: 'solo permite letras'}
 
 	validates :departamento,
 		:presence => {
@@ -56,11 +56,11 @@ class Persona < ActiveRecord::Base
 
 		:length => { 
 			:maximum => 20,
-			:too_long => 'debe tener como maximo %{count} caracteres'},
+			:too_long => 'debe tener como maximo %{count} caracteres'}#,
 
-		:format => {
-			with: /\A[a-zA-Z]+\z/,
-			message: 'solo permite letras'}
+		#:format => {
+		#	with: /\A[a-zA-Z]+\z/,
+		#	message: 'solo permite letras'}
 
 	validates :telefono,
 		:presence => {

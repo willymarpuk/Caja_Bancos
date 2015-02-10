@@ -9,13 +9,13 @@ class TiposDePersona < ActiveRecord::Base
 
 		:length => { 
 			:maximum => 20,
-			:too_long => 'debe tener como maximo %{count} caracteres'},
+			:too_long => 'debe tener como maximo %{count} caracteres'}#,
 
-		:format => {
-			with: /\A[a-zA-Z]+\z/,
-			message: 'solo permite letras'}
+		#:format => {
+		#	with: /\A[a-zA-Z]+\z/,
+		#	message: 'solo permite letras'}
 
 	def name_with_initial
-		"#{descripcion}"
+		"#{id}"
 	end
 end

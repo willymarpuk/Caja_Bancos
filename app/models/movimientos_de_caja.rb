@@ -51,19 +51,19 @@ class MovimientosDeCaja < ActiveRecord::Base
 			with: /\A[a-zA-Z]+\z/,
 			message: 'solo permite letras'}
 
-	validates :monto_efectivo,
-		:presence => {
-			message: 'este campo es requerido'},
+	#validates :monto_efectivo,
+	#	:presence => {
+	#		message: 'este campo es requerido'},
 
-		:format => {
-			with: /\A[0-9]+\z/,
-			message: 'solo permite numeros'}
+	#	:format => {
+	#		with: /\A[0-9]+\z/,
+	#		message: 'solo permite numeros'}
 
-	validates :monto_cheque,
-		:presence => {
-			message: 'este campo es requerido'},
+	#validates :monto_cheque,
+	#	:presence => {
+	#		message: 'este campo es requerido'},
 
-		:format => {
-			with: /\A[0-9]+\z/,
-			message: 'solo permite numeros'}
+	#	:format => {
+	#		with: /\A[0-9]+\z/,
+	#		message: 'solo permite numeros'}
 end

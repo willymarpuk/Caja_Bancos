@@ -126,6 +126,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_audit (0.2.0)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -185,6 +186,7 @@ DEPENDENCIES
   rolify
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  simple_audit
   simple_form
   thinreports-rails
   to_xls

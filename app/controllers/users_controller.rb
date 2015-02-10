@@ -11,6 +11,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
+      format.xls { send_data @users.to_xls(
+        :columns => [:username, :email, :sign_in_count, :last_sign_in_at, :created_at, :updated_at],
+        :headers => ["Nombre de usuario", "email", "cantidad de conexiones al sistema", "ultima vez conectado", "creacion del perfil", "modificacion del perfil"] ),
+        :filename => 'Usuarios.xls' }
+      format.pdf { render_user_list(@users) }
     end
   end
 
@@ -91,5 +96,31 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:username,:email, :password, :password_confirmation)
+    end
+
+
+    def render_user_list(user)
+      report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'users', 'show.tlf')
+
+      user.each do |task|
+        report.list.add_row do |row|
+          row.values name: task.username,
+                     email: task.email,
+                     conexiones_al_sistema: task.sign_in_count,
+                     ultima_vez_conectado: task.last_sign_in_at,
+                     creacion_del_perfil: task.created_at,
+                     modificacion_del_perfil: task.updated_at
+          row.item(:name).style(:color, 'red')
+          row.item(:email).style(:color, 'red')
+          row.item(:conexiones_al_sistema).style(:color, 'red')
+          row.item(:ultima_vez_conectado).style(:color, 'red')
+          row.item(:creacion_del_perfil).style(:color, 'red')
+          row.item(:modificacion_del_perfil).style(:color, 'red')
+        end
+      end
+      
+      send_data report.generate, filename: 'usuarios.pdf', 
+                                 type: 'application/pdf', 
+                                 disposition: 'attachment'
     end
 end

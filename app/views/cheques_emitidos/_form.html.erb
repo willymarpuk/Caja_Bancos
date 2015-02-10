@@ -19,7 +19,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_cuenta_bancaria, CuentasBancarium.all,:id, :name_with_initial, {prompt: "Seleccione una Cuenta"}, {class: "form-control"}%>
+        <%= f.collection_select :id_cuenta_bancaria, CuentasBancarium.all,:id, :name_with_initial, {:selected => CuentasBancarium.find(1)}, {class: "form-control"}%>
       </div>
 </div>
 <div class="col-md-2">
@@ -30,7 +30,7 @@
         <% end %>
     </label>
     </br>
-        <%= f.collection_select :id_banco, Banco.all,:id, :name_with_initial, {prompt: "Seleccione un Banco"}, {class: "form-control"}%>
+        <%= f.collection_select :id_banco, Banco.all,:id, :name_with_initial, {:selected => Banco.find(1)}, {class: "form-control"}%>
   </div>
 </div>
 <div class="col-md-2">
@@ -48,7 +48,7 @@
 <div class="col-md-3">
   <div class="field">
      <i class="glyphicon glyphicon-usd"></i> <%= f.label :monto %><br>
-    <%= f.text_field :monto, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' } %>
+    <%= f.text_field :monto, :class => 'form-control', data: { role: 'money', a_sep: '.', a_dec: ',' }, value: 0 %>
   </div>
 </div>
 </div>

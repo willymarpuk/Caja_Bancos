@@ -19,7 +19,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select  :id_tipo_de_persona, TiposDePersona.all,:id, :name_with_initial, {prompt: "Seleccione un tipo de Persona"}, {class: "form-control"} %>
+        <%= f.collection_select  :id_tipo_de_persona, TiposDePersona.all,:id, :name_with_initial, {:selected => TiposDePersona.find(1)}, {class: "form-control"} %>
       </div>
 
     <div class="field">
