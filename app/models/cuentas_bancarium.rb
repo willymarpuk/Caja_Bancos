@@ -34,7 +34,13 @@ class CuentasBancarium < ActiveRecord::Base
 		:presence => {
 			message: 'este campo es requerido'}
 
+<<<<<<< HEAD
   def name_with_initial
 		"#{nro_cuenta}"
   end
+=======
+	def name_with_initial
+		"#{nro_cuenta}"
+	end
+>>>>>>> origin
 end
