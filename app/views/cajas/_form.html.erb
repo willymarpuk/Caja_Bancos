@@ -19,7 +19,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_estado, TiposDeEstado.all,:id, :name_with_initial, {:selected => TiposDeEstado.find(1)}, {class: "form-control"}%>
+        <%= f.collection_select :id_estado, TiposDeEstado.all,:id, :name_with_initial, {prompt: "Seleccione un tipo de estado"}, {class: "form-control"}%>
       </div>
       <div class="field">
         <label for="caja_id_persona">Persona  
@@ -28,7 +28,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_persona, Persona.all,:id, :name_with_initial, {:selected => Persona.find(1)}, {class: "form-control"}%>
+        <%= f.collection_select :id_persona, Persona.all,:id, :name_with_initial, {prompt: "Seleccione una persona"}, {class: "form-control"}%>
       </div>
   </div>
 
