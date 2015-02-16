@@ -1,4 +1,4 @@
-<h1>Listing detalles_boleta_de_depositos</h1>
+<h1>Listando detalle de boleta de deposito</h1>
 
 <table>
   <thead>
@@ -20,9 +20,9 @@
         <td><%= detalles_boleta_de_deposito.monto %></td>
         <td><%= detalles_boleta_de_deposito.item %></td>
         <td><%= detalles_boleta_de_deposito.id_cheque_entrante %></td>
-        <td><%= link_to 'Show', detalles_boleta_de_deposito %></td>
-        <td><%= link_to 'Edit', edit_detalles_boleta_de_deposito_path(detalles_boleta_de_deposito) %></td>
-        <td><%= link_to 'Destroy', detalles_boleta_de_deposito, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', detalles_boleta_de_deposito %></td>
+        <td><%= link_to 'Editar', edit_detalles_boleta_de_deposito_path(detalles_boleta_de_deposito) %></td>
+        <td><%= link_to 'Destruir', detalles_boleta_de_deposito, method: :delete, data: { confirm: 'esta seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Detalles boleta de deposito', new_detalles_boleta_de_deposito_path %>
+<%= link_to 'Nuevo Detalle boleta de deposito', new_detalles_boleta_de_deposito_path %>

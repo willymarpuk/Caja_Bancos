@@ -1,7 +1,7 @@
 <%= form_for(@cheques_entrante) do |f| %>
   <% if @cheques_entrante.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@cheques_entrante.errors.count, "error") %> prohibited this cheques_entrante from being saved:</h2>
+      <h2><%= pluralize(@cheques_entrante.errors.count, "errores") %> prohiben que este cheque entrante sea guardado:</h2>
 
       <ul>
       <% @cheques_entrante.errors.full_messages.each do |message| %>
@@ -19,7 +19,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_banco, Banco.all,:id, :name_with_initial, {:selected => Banco.find(1)}, {class: "form-control"}%>
+        <%= f.collection_select :id_banco, Banco.all,:id, :name_with_initial, {prompt: "Seleccione un banco"}, {class: "form-control"}%>
       </div>
     </div>
     <div class="col-md-3">

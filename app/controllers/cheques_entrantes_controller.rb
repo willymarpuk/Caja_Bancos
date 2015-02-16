@@ -32,7 +32,7 @@ class ChequesEntrantesController < ApplicationController
       format.json { render json: @cheques_entrante }
     end
   end
-  
+
   def edit
     @cheques_entrante= ChequesEntrante.find(params[:id])
   end
@@ -42,7 +42,7 @@ class ChequesEntrantesController < ApplicationController
 
     respond_to do |format|
       if @cheques_entrante.save
-        format.html { redirect_to @cheques_entrante, notice: 'cheques_entrante was successfully created.' }
+        format.html { redirect_to @cheques_entrante, notice: 'el cheque entrante fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @cheques_entrante }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class ChequesEntrantesController < ApplicationController
   def update
     respond_to do |format|
       if @cheques_entrante.update(cheques_entrante_params)
-        format.html { redirect_to @cheques_entrante, notice: 'cheques_entrante was successfully updated.' }
+        format.html { redirect_to @cheques_entrante, notice: 'el cheque entrante fue actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @cheques_entrante }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class ChequesEntrantesController < ApplicationController
   def destroy
     @cheques_entrante.destroy
     respond_to do |format|
-      format.html { redirect_to @cheques_entrante, notice: 'cheques_entrante was successfully destroyed.' }
+      format.html { redirect_to @cheques_entrante, notice: 'el cheque entrante fue destruido exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -88,16 +88,16 @@ class ChequesEntrantesController < ApplicationController
           row.values banco: task.id_banco,
                      numero: task.numero,
                      monto: task.monto,
-                     concepto: task.concepto                     
+                     concepto: task.concepto
           row.item(:banco).style(:color, 'red')
           row.item(:numero).style(:color, 'red')
           row.item(:monto).style(:color, 'red')
           row.item(:concepto).style(:color, 'red')
         end
       end
-      
-      send_data report.generate, filename: 'cheques entrantes.pdf', 
-                                 type: 'application/pdf', 
+
+      send_data report.generate, filename: 'cheques entrantes.pdf',
+                                 type: 'application/pdf',
                                  disposition: 'attachment'
     end
 end

@@ -40,7 +40,7 @@ class TiposDeEstadosController < ApplicationController
     @tipos_de_estado = TiposDeEstado.new(tipos_de_estado_params)
     respond_to do |format|
       if @tipos_de_estado.save
-        format.html { redirect_to @tipos_de_estado, notice: 'tipos_de_estado was successfully created.' }
+        format.html { redirect_to @tipos_de_estado, notice: 'el tipo de estado fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipos_de_estado }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class TiposDeEstadosController < ApplicationController
   def update
     respond_to do |format|
       if @tipos_de_estado.update(tipos_de_estado_params)
-        format.html { redirect_to @tipos_de_estado, notice: 'tipos_de_estado was successfully updated.' }
+        format.html { redirect_to @tipos_de_estado, notice: 'el tipo de estado fue actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipos_de_estado }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class TiposDeEstadosController < ApplicationController
   def destroy
     @tipos_de_estado.destroy
     respond_to do |format|
-      format.html { redirect_to @tipos_de_estado, notice: 'tipos_de_estado was successfully destroyed.' }
+      format.html { redirect_to @tipos_de_estado, notice: 'el tipo de estado fue destruido exitosamente.' }
       format.json { head :no_content }
     end
   end

@@ -1,7 +1,7 @@
 <%= form_for(@tipos_de_persona) do |f| %>
   <% if @tipos_de_persona.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@tipos_de_persona.errors.count, "error") %> prohibited this tipos_de_persona from being saved:</h2>
+      <h2><%= pluralize(@tipos_de_persona.errors.count, "errores") %> prohiben que este tipo de persona sea guardada:</h2>
 
       <ul>
       <% @tipos_de_persona.errors.full_messages.each do |message| %>

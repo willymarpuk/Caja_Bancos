@@ -40,7 +40,7 @@ class TiposDeMovimientosController < ApplicationController
     @tipos_de_movimiento = TiposDeMovimiento.new(tipos_de_movimiento_params)
     respond_to do |format|
       if @tipos_de_movimiento.save
-        format.html { redirect_to @tipos_de_movimiento, notice: 'tipos_de_movimiento was successfully created.' }
+        format.html { redirect_to @tipos_de_movimiento, notice: 'el tipo de movimiento fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipos_de_movimiento }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class TiposDeMovimientosController < ApplicationController
   def update
      respond_to do |format|
       if @tipos_de_movimiento.update(tipos_de_movimiento_params)
-        format.html { redirect_to @tipos_de_movimiento, notice: 'tipos_de_movimiento was successfully updated.' }
+        format.html { redirect_to @tipos_de_movimiento, notice: 'el tipo de movimiento fue actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipos_de_movimiento }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class TiposDeMovimientosController < ApplicationController
   def destroy
     @tipos_de_movimiento.destroy
     respond_to do |format|
-      format.html { redirect_to @tipos_de_movimiento, notice: 'tipos_de_movimiento was successfully destroyed.' }
+      format.html { redirect_to @tipos_de_movimiento, notice: 'el tipo de movimiento fue destruido exitosamente.' }
       format.json { head :no_content }
     end
   end

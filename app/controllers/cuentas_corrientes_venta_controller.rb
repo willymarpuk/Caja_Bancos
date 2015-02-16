@@ -43,7 +43,7 @@ class CuentasCorrientesVentaController < ApplicationController
     @cuentas_corrientes_ventum = CuentasCorrientesVentum.new(cuentas_corrientes_ventum_params)
     respond_to do |format|
       if @cuentas_corrientes_ventum.save
-        format.html { redirect_to @cuentas_corrientes_ventum, notice: 'cuentas corrientes ventas was successfully created.' }
+        format.html { redirect_to @cuentas_corrientes_ventum, notice: 'la cuenta corriente venta fue creada exitosamente.' }
         format.json { render :show, status: :created, location: @cuentas_corrientes_ventum }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class CuentasCorrientesVentaController < ApplicationController
   def update
     respond_to do |format|
       if @cuentas_corrientes_ventum.update(cuentas_corrientes_ventum_params)
-        format.html { redirect_to @cuentas_corrientes_ventum, notice: 'cuentas corrientes ventas was successfully updated.' }
+        format.html { redirect_to @cuentas_corrientes_ventum, notice: 'la cuenta corriente venta fue actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @cuentas_corrientes_ventum }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class CuentasCorrientesVentaController < ApplicationController
   def destroy
     @cuentas_corrientes_ventum.destroy
     respond_to do |format|
-      format.html { redirect_to @cuentas_corrientes_ventum, notice: 'cuentas corrientes ventas was successfully destroyed.' }
+      format.html { redirect_to @cuentas_corrientes_ventum, notice: 'la cuenta corriente venta fue destruida exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -87,7 +87,7 @@ class CuentasCorrientesVentaController < ApplicationController
 
       cuenta_corrientes_venta.each do |task|
         report.list.add_row do |row|
-          row.values persona: task.id_persona, 
+          row.values persona: task.id_persona,
                      caja: task.id_caja,
                      movimiento_de_caja: task.id_movimiento_de_caja,
                      monto: task.monto
@@ -97,9 +97,9 @@ class CuentasCorrientesVentaController < ApplicationController
           row.item(:monto).style(:color, 'red')
         end
       end
-      
-      send_data report.generate, filename: 'cuentas corrientes ventas.pdf', 
-                                 type: 'application/pdf', 
+
+      send_data report.generate, filename: 'cuentas corrientes ventas.pdf',
+                                 type: 'application/pdf',
                                  disposition: 'attachment'
     end
 end

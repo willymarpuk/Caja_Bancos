@@ -1,7 +1,7 @@
 <%= form_for(@cuentas_corrientes_ventum) do |f| %>
   <% if @cuentas_corrientes_ventum.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@cuentas_corrientes_ventum.errors.count, "error") %> prohibited this cuentas_corrientes_ventum from being saved:</h2>
+      <h2><%= pluralize(@cuentas_corrientes_ventum.errors.count, "errores") %> prohiben que esta cuenta corriente venta sea guardada:</h2>
 
       <ul>
       <% @cuentas_corrientes_ventum.errors.full_messages.each do |message| %>

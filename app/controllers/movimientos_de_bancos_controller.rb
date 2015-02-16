@@ -45,7 +45,7 @@ class MovimientosDeBancosController < ApplicationController
     @movimientos_de_banco = MovimientosDeBanco.new(movimientos_de_banco_params)
     respond_to do |format|
       if @movimientos_de_banco.save
-        format.html { redirect_to @movimientos_de_banco, notice: 'movimientos_de_banco was successfully created.' }
+        format.html { redirect_to @movimientos_de_banco, notice: 'el movimiento de banco fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @movimientos_de_banco }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class MovimientosDeBancosController < ApplicationController
   def update
     respond_to do |format|
       if @movimientos_de_banco.update(movimientos_de_banco_params)
-        format.html { redirect_to @movimientos_de_banco, notice: 'movimientos_de_banco was successfully updated.' }
+        format.html { redirect_to @movimientos_de_banco, notice: 'el movimiento de banco fue actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @movimientos_de_banco }
       else
         format.html { render :edit }
@@ -69,9 +69,9 @@ class MovimientosDeBancosController < ApplicationController
   def destroy
     @movimientos_de_banco.destroy
     respond_to do |format|
-      format.html { redirect_to @movimientos_de_banco, notice: 'movimientos_de_banco was successfully destroyed.' }
+      format.html { redirect_to @movimientos_de_banco, notice: 'el movimiento de banco fue destruido exitosamente.' }
       format.json { head :no_content }
-    end  
+    end
   end
 
   private
@@ -88,7 +88,7 @@ class MovimientosDeBancosController < ApplicationController
 
       movimientos_de_banco.each do |task|
         report.list.add_row do |row|
-          row.values tipo_de_movimiento: task.id_tipo_de_movimiento, 
+          row.values tipo_de_movimiento: task.id_tipo_de_movimiento,
                      banco: task.id_banco,
                      cuenta_bancaria: task.id_cuenta_bancaria,
                      monto: task.monto,
@@ -100,9 +100,9 @@ class MovimientosDeBancosController < ApplicationController
           row.item(:descripcion).style(:color, 'red')
         end
       end
-      
-      send_data report.generate, filename: 'movimientos de bancos.pdf', 
-                                 type: 'application/pdf', 
+
+      send_data report.generate, filename: 'movimientos de bancos.pdf',
+                                 type: 'application/pdf',
                                  disposition: 'attachment'
     end
 end

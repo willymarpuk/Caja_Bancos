@@ -1,7 +1,7 @@
 <%= form_for(@banco) do |f| %> 
   <% if @banco.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@banco.errors.count, "error") %> prohibited this banco from being saved:</h2>
+      <h2><%= pluralize(@banco.errors.count, "errores") %> prohiben que este banco sea guardado:</h2>
 
       <ul>
       <% @banco.errors.full_messages.each do |message| %>

@@ -10,7 +10,7 @@ development:
   database: caja_banco_development
   pool: 5
   # username: adrian
-  username: postgres
+  username: william
   password: 123
 
 test:
@@ -19,7 +19,7 @@ test:
   database: caja_banco_test
   pool: 5
   # username: adrian
-  username: postgres
+  username: william
   password: 123
 
 production:
@@ -28,5 +28,5 @@ production:
   database: caja_banco_production
   pool: 5
   # username: adrian
-  username: postgres
+  username: william
   password: 123

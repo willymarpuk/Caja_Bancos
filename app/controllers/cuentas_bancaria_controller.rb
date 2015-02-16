@@ -41,7 +41,7 @@ class CuentasBancariaController < ApplicationController
     @cuentas_bancarium = CuentasBancarium.new(cuentas_bancarium_params)
     respond_to do |format|
       if @cuentas_bancarium.save
-        format.html { redirect_to @cuentas_bancarium, notice: 'cuentas_bancarias was successfully created.' }
+        format.html { redirect_to @cuentas_bancarium, notice: 'la cuenta bancaria fue creada exitosamente.' }
         format.json { render :show, status: :created, location: @cuentas_bancarium }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class CuentasBancariaController < ApplicationController
   def update
     respond_to do |format|
       if @cuentas_bancarium.update(cuentas_bancarium_params)
-        format.html { redirect_to @cuentas_bancarium, notice: 'cuentas_bancarias was successfully updated.' }
+        format.html { redirect_to @cuentas_bancarium, notice: 'la cuenta bancaria fue actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @cuentas_bancarium }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class CuentasBancariaController < ApplicationController
   def destroy
    @cuentas_bancarium.destroy
     respond_to do |format|
-      format.html { redirect_to @cuentas_bancarium, notice: 'cuentas_bancarias was successfully destroyed.' }
+      format.html { redirect_to @cuentas_bancarium, notice: 'la cuenta bancaria fue destruida exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -84,7 +84,7 @@ class CuentasBancariaController < ApplicationController
 
       cuenta_bancaria.each do |task|
         report.list.add_row do |row|
-          row.values banco: task.id_banco, 
+          row.values banco: task.id_banco,
                      fecha_de_apertura: task.fecha_de_apertura,
                      saldo: task.saldo,
                      firmante: task.id_firmante
@@ -94,9 +94,9 @@ class CuentasBancariaController < ApplicationController
           row.item(:firmante).style(:color, 'red')
         end
       end
-      
-      send_data report.generate, filename: 'cuentas bancarias.pdf', 
-                                 type: 'application/pdf', 
+
+      send_data report.generate, filename: 'cuentas bancarias.pdf',
+                                 type: 'application/pdf',
                                  disposition: 'attachment'
     end
 end

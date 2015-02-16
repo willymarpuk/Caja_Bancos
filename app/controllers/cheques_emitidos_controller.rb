@@ -42,7 +42,7 @@ class ChequesEmitidosController < ApplicationController
     @cheques_emitido = ChequesEmitido.new(cheques_emitido_params)
     respond_to do |format|
       if @cheques_emitido.save
-        format.html { redirect_to @cheques_emitido, notice: 'cheques_emitido was successfully created.' }
+        format.html { redirect_to @cheques_emitido, notice: 'el cheque emitido fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @cheques_emitido }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class ChequesEmitidosController < ApplicationController
   def update
     respond_to do |format|
       if @cheques_emitido.update(cheques_emitido_params)
-        format.html { redirect_to @cheques_emitido, notice: 'cheques_emitido was successfully updated.' }
+        format.html { redirect_to @cheques_emitido, notice: 'el cheque emitido fue actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @cheques_emitido }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class ChequesEmitidosController < ApplicationController
   def destroy
     @cheques_emitido.destroy
     respond_to do |format|
-      format.html { redirect_to @cheques_emitido, notice: 'cheques_emitido was successfully destroyed.' }
+      format.html { redirect_to @cheques_emitido, notice: 'el cheque emitido fue destruido exitosamente.' }
       format.json { head :no_content }
     end
   end

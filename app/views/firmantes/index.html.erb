@@ -1,4 +1,4 @@
-<h1>Listing firmantes</h1>
+<h1>Firmantes</h1>
 
 <table>
   <thead>
@@ -12,9 +12,9 @@
     <% @firmantes.each do |firmante| %>
       <tr>
         <td><%= firmante.nombre %></td>
-        <td><%= link_to 'Show', firmante %></td>
-        <td><%= link_to 'Edit', edit_firmante_path(firmante) %></td>
-        <td><%= link_to 'Destroy', firmante, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', firmante %></td>
+        <td><%= link_to 'Editar', edit_firmante_path(firmante) %></td>
+        <td><%= link_to 'Destruir', firmante, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Firmante', new_firmante_path %>
+<%= link_to 'Nuevo Firmante', new_firmante_path %>

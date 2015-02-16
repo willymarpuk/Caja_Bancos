@@ -43,7 +43,7 @@ class CajasController < ApplicationController
     @caja = Caja.new(caja_params)
     respond_to do |format|
       if @caja.save
-        format.html { redirect_to @caja, notice: 'caja was successfully created.' }
+        format.html { redirect_to @caja, notice: 'la caja fue creada exitosamente.' }
         format.json { render :show, status: :created, location: @caja }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class CajasController < ApplicationController
   def update
    respond_to do |format|
       if @caja.update(caja_params)
-        format.html { redirect_to @caja, notice: 'caja was successfully updated.' }
+        format.html { redirect_to @caja, notice: 'la caja fue actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @caja }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class CajasController < ApplicationController
   def destroy
     @caja.destroy
       respond_to do |format|
-      format.html { redirect_to @caja, notice: 'caja was successfully destroyed.' }
+      format.html { redirect_to @caja, notice: 'la caja fue destruida exitosamente.' }
       format.json { head :no_content }
     end
   end

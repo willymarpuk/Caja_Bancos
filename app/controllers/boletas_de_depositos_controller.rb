@@ -45,7 +45,7 @@ end
 
     respond_to do |format|
       if @boletas_de_deposito.save
-        format.html { redirect_to @boletas_de_deposito, notice: 'boletas_de_deposito was successfully created.' }
+        format.html { redirect_to @boletas_de_deposito, notice: 'la boleta de deposito fue creada exitosamente.' }
         format.json { render :show, status: :created, location: @boletas_de_deposito }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ end
   def update
     respond_to do |format|
       if @boletas_de_deposito.update(boletas_de_deposito_params)
-        format.html { redirect_to @boletas_de_deposito, notice: 'boletas_de_deposito was successfully updated.' }
+        format.html { redirect_to @boletas_de_deposito, notice: 'la boleta de deposito fue actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @boletas_de_deposito }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ end
   def destroy
     @boletas_de_deposito.destroy
     respond_to do |format|
-      format.html { redirect_to @boletas_de_deposito, notice: 'boletas_de_deposito was successfully destroyed.' }
+      format.html { redirect_to @boletas_de_deposito, notice: 'la boleta de deposito fue destruida exitosamente.' }
       format.json { head :no_content }
     end
   end

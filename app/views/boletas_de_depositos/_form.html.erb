@@ -1,7 +1,7 @@
 <%= form_for(@boletas_de_deposito) do |f| %>
   <% if @boletas_de_deposito.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@boletas_de_deposito.errors.count, "error") %> no se guardo en boletas de deposito por lo siguiente:</h2>
+      <h2><%= pluralize(@boletas_de_deposito.errors.count, "errores") %> prohiben que esta boleta de deposito sea guardado:</h2>
 
       <ul>
       <% @boletas_de_deposito.errors.full_messages.each do |message| %>
@@ -19,7 +19,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_banco, Banco.all,:id, :name_with_initial, {:selected => Banco.find(1)}, {class: "form-control"}%>
+        <%= f.collection_select :id_banco, Banco.all,:id, :name_with_initial, {prompt: "Seleccione una banco"}, {class: "form-control"}%>
       </div>
       <div class="field">
         <label for="boletas_de_deposito_id_persona">Persona  
@@ -28,7 +28,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_persona, Persona.all,:id, :name_with_initial, {:selected => Persona.find(1)}, {class: "form-control"}%>
+        <%= f.collection_select :id_persona, Persona.all,:id, :name_with_initial, {prompt: "Seleccione una persona"}, {class: "form-control"}%>
       </div>
   </div>
    <div class="col-md-offset-1 col-md-3">
@@ -39,7 +39,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_cuenta_bancaria, CuentasBancarium.all,:id, :name_with_initial, {:selected => CuentasBancarium.find(1)}, {class: "form-control"}%>
+        <%= f.collection_select :id_cuenta_bancaria, CuentasBancarium.all,:id, :name_with_initial, {prompt: "Seleccione una cuenta bancaria"}, {class: "form-control"}%>
       </div>
       <div class="field">
         <label for="boletas_de_deposito_id_caja">Caja</label><br>

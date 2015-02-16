@@ -1,7 +1,7 @@
 <%= form_for(@detalles_caja) do |f| %>
   <% if @detalles_caja.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@detalles_caja.errors.count, "error") %> prohibited this detalles_caja from being saved:</h2>
+      <h2><%= pluralize(@detalles_caja.errors.count, "errores") %> prohiben que este detalle de caja sea guardado:</h2>
 
       <ul>
       <% @detalles_caja.errors.full_messages.each do |message| %>

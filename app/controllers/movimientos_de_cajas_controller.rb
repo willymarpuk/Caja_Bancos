@@ -42,7 +42,7 @@ class MovimientosDeCajasController < ApplicationController
     @movimientos_de_caja = MovimientosDeCaja.new(movimientos_de_caja_params)
     respond_to do |format|
       if @movimientos_de_caja.save
-        format.html { redirect_to @movimientos_de_caja, notice: 'movimientos_de_caja was successfully created.' }
+        format.html { redirect_to @movimientos_de_caja, notice: 'el movimiento de caja fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @movimientos_de_caja }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class MovimientosDeCajasController < ApplicationController
   def update
     respond_to do |format|
       if @movimientos_de_caja.update(movimientos_de_caja_params)
-        format.html { redirect_to @movimientos_de_caja, notice: 'movimientos_de_caja was successfully updated.' }
+        format.html { redirect_to @movimientos_de_caja, notice: 'el movimiento de caja fue actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @movimientos_de_caja }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class MovimientosDeCajasController < ApplicationController
   def destroy
     @movimientos_de_caja.destroy
     respond_to do |format|
-      format.html { redirect_to @movimientos_de_caja, notice: 'movimientos_de_caja was successfully destroyed.' }
+      format.html { redirect_to @movimientos_de_caja, notice: 'el movimiento de caja fue destruido exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -86,13 +86,13 @@ def render_movimientos_de_cajas_list(movimientos_de_caja)
 
       movimientos_de_caja.each do |task|
         report.list.add_row do |row|
-          row.values tipo_de_movimiento: task.id_tipo_de_movimiento, 
+          row.values tipo_de_movimiento: task.id_tipo_de_movimiento,
                      caja: task.caja,
                      cheque_entrante: task.id_cheque_entrante,
                      cheque_emitido: task.id_cheque_emitido,
                      descripcion: task.descripcion,
                      monto_efectivo: task.monto_efectivo,
-                     monto_cheque: task.monto_cheque                    
+                     monto_cheque: task.monto_cheque
           row.item(:tipo_de_movimiento).style(:color, 'red')
           row.item(:caja).style(:color, 'red')
           row.item(:cheque_entrante).style(:color, 'red')
@@ -102,9 +102,9 @@ def render_movimientos_de_cajas_list(movimientos_de_caja)
           row.item(:monto_cheque).style(:color, 'red')
         end
       end
-      
-      send_data report.generate, filename: 'movimientos de cajas.pdf', 
-                                 type: 'application/pdf', 
+
+      send_data report.generate, filename: 'movimientos de cajas.pdf',
+                                 type: 'application/pdf',
                                  disposition: 'attachment'
     end
 end

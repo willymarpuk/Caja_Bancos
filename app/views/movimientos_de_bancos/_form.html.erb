@@ -1,7 +1,7 @@
 <%= form_for(@movimientos_de_banco) do |f| %>
   <% if @movimientos_de_banco.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@movimientos_de_banco.errors.count, "error") %> prohibited this movimientos_de_banco from being saved:</h2>
+      <h2><%= pluralize(@movimientos_de_banco.errors.count, "errores") %> prohiben que este movimiento de banco sea guardado:</h2>
 
       <ul>
       <% @movimientos_de_banco.errors.full_messages.each do |message| %>
@@ -25,14 +25,14 @@
           <span class="glyphicon glyphicon-plus"></span>
         <% end %>
       </label></br>
-        <%= f.collection_select  :id_banco, Banco.all,:id, :name_with_initial, {:selected => Banco.find(1)}, {class: "form-control"} %>
+        <%= f.collection_select  :id_banco, Banco.all,:id, :name_with_initial, {prompt: "seleccione un banco"}, {class: "form-control"} %>
 
         <label for="caja_id_persona">Cuenta Bancaria
           <%= link_to "#modal-cuentaBancaria", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
             <span class="glyphicon glyphicon-plus"></span>
           <% end %>
         </label></br>
-        <%= f.collection_select  :id_cuenta_bancaria, CuentasBancarium.all,:id, :name_with_initial,  {:selected => CuentasBancarium.find(1)}, {class: "form-control"} %>
+        <%= f.collection_select  :id_cuenta_bancaria, CuentasBancarium.all,:id, :name_with_initial,  {prompt: "Seleccione una cuenta bancaria"}, {class: "form-control"} %>
     </div>
   </div>
 

@@ -7,19 +7,19 @@ class Banco < ActiveRecord::Base
 
 
 	# Validaciones
-	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+	VALID_EMAIL_REGEX = /\A[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})\z/
 
-	validates :nombre_banco, 
+	validates :nombre_banco,
 		:presence => {
 			message: 'este campo es requerido'},
 
-		:length => { 
+		:length => {
 			:maximum => 20,
-			:too_long => 'debe tener como maximo %{count} caracteres'},
+			:too_long => 'debe tener como maximo %{count} caracteres'}
 
-		:format => {
-			with: /\A[a-zA-Z]+\z/,
-			message: 'solo permite letras'}
+		#:format => {
+		#	with: /\A[a-zA-Z]+\z/,
+		#	message: 'solo permite letras'}
 
 	validates :telefono,
 		:presence => {
@@ -33,28 +33,28 @@ class Banco < ActiveRecord::Base
 		:presence => {
 			message: 'este campo es requerido'},
 
-		:length => { 
+		:length => {
 			:maximum => 50,
-			:too_long => 'debe tener como maximo %{count} caracteres'},
+			:too_long => 'debe tener como maximo %{count} caracteres'}
 
-		:format => {
-			with: /\A[A-Za-z0-9]+\z/,
-			message: 'No se permite caracteres de puntuacion'}
+		#:format => {
+		#	with: /\A[A-Za-z0-9]+\z/,
+		#	message: 'No se permite caracteres de puntuacion'}
 
 	validates :sucursal,
 		:presence => {
 			message: 'este campo es requerido'},
 
-		:length => { 
+		:length => {
 			:maximum => 50,
-			:too_long => 'debe tener como maximo %{count} caracteres'},
+			:too_long => 'debe tener como maximo %{count} caracteres'}
 
+		#:format => {
+		#	with: /\A[A-Za-z0-9]+\z/,
+		#	message: 'No se permite caracteres de puntuacion'}
+
+	validates :correo,
 		:format => {
-			with: /\A[A-Za-z0-9]+\z/,
-			message: 'No se permite caracteres de puntuacion'}
-
-	validates :correo, 
-		:format => { 
 			:with => VALID_EMAIL_REGEX,
 			message: "El formato del correo es invalido" }
 

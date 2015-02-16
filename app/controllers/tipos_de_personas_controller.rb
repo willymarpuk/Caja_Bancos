@@ -40,7 +40,7 @@ class TiposDePersonasController < ApplicationController
     @tipos_de_persona = TiposDePersona.new(tipos_de_persona_params)
     respond_to do |format|
       if @tipos_de_persona.save
-        format.html { redirect_to @tipos_de_persona, notice: 'tipos_de_persona was successfully created.' }
+        format.html { redirect_to @tipos_de_persona, notice: 'el tipo de persona fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipos_de_persona }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class TiposDePersonasController < ApplicationController
   def update
     respond_to do |format|
       if @tipos_de_persona.update(tipos_de_persona_params)
-        format.html { redirect_to @tipos_de_persona, notice: 'tipos_de_persona was successfully updated.' }
+        format.html { redirect_to @tipos_de_persona, notice: 'el tipo de persona fue actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipos_de_persona }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class TiposDePersonasController < ApplicationController
   def destroy
     @tipos_de_persona.destroy
     respond_to do |format|
-      format.html { redirect_to @tipos_de_persona, notice: 'tipos_de_persona was successfully destroyed.' }
+      format.html { redirect_to @tipos_de_persona, notice: 'el tipo de persona fue destruido exitosamente.' }
       format.json { head :no_content }
     end
   end

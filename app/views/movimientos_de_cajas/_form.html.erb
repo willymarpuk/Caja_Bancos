@@ -1,7 +1,7 @@
 <%= form_for(@movimientos_de_caja) do |f| %>
   <% if @movimientos_de_caja.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@movimientos_de_caja.errors.count, "error") %> prohibited this movimientos_de_caja from being saved:</h2>
+      <h2><%= pluralize(@movimientos_de_caja.errors.count, "errores") %> prohiben que este movimiento de caja sea guardado:</h2>
 
       <ul>
       <% @movimientos_de_caja.errors.full_messages.each do |message| %>
@@ -34,7 +34,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_cheque_entrante, ChequesEntrante.all,:id, :name_with_initial, {:selected => ChequesEntrante.find(1)}, {class: "form-control"}%>
+        <%= f.collection_select :id_cheque_entrante, ChequesEntrante.all,:id, :name_with_initial, {prompt: "Seleccione un cheque entrante"}, {class: "form-control"}%>
       </div>
       <div class="field">
         <label for="movimientos_de_caja_id_cheque_emitido">Cheque Emitido
@@ -43,7 +43,7 @@
             <% end %>
         </label>
         </br>
-        <%= f.collection_select :id_cheque_emitido, ChequesEmitido.all,:id, :name_with_initial, {:selected => ChequesEmitido.find(1)}, {class: "form-control"}%>
+        <%= f.collection_select :id_cheque_emitido, ChequesEmitido.all,:id, :name_with_initial, {prompt: "Seleccione un cheque emitido"}, {class: "form-control"}%>
       </div>
   </div>
   <div class="col-md-3">

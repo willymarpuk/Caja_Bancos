@@ -1,7 +1,7 @@
 <%= form_for(@detalles_boleta_de_deposito) do |f| %>
   <% if @detalles_boleta_de_deposito.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@detalles_boleta_de_deposito.errors.count, "error") %> prohibited this detalles_boleta_de_deposito from being saved:</h2>
+      <h2><%= pluralize(@detalles_boleta_de_deposito.errors.count, "errores") %> prohiben que este detalle de boleta de deposito sea guardado:</h2>
 
       <ul>
       <% @detalles_boleta_de_deposito.errors.full_messages.each do |message| %>

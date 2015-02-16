@@ -17,7 +17,7 @@
              <li style="margin-top: 16px;"> Bienvenido <%= current_user.username %> </li> 
              <li> <%= link_to "<i class=\"glyphicon glyphicon-log-out\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Cerrar Sesión\"></i>".html_safe, destroy_user_session_path, :method => :delete %></li>
             <% else %>
-           <li>  <%= link_to "Sign in", new_user_session_path %> </li> 
+           <li>  <%= link_to "Iniciar cession", new_user_session_path %> </li> 
             <% end %>
           </ul>
         </div>

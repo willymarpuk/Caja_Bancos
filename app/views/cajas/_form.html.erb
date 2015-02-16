@@ -1,7 +1,7 @@
 <%= form_for(@caja) do |f| %>
   <% if @caja.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@caja.errors.count, "error") %> no se guardo en caja por lo siguiente:</h2>
+      <h2><%= pluralize(@caja.errors.count, "errores") %> prohiben que esta caja sea guardada:</h2>
 
       <ul>
       <% @caja.errors.full_messages.each do |message| %>

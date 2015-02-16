@@ -84,7 +84,7 @@ $(document).ready(function () {
 		"banco[nombre_banco]": {required: true}
 		},
 		message:{
-			 "banco[nombre_banco]": "We need your email address to contact you"
+			 "banco[nombre_banco]": "Necesitamos su direccion de email para contactarnos con usted"
 			  
 		}
 	});
