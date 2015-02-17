@@ -84,7 +84,7 @@ class CuentasCorrientesVentaController < ApplicationController
 
 
  def render_cuentas_corrientes_ventas_list(cuenta_corrientes_venta)
-      report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'cuenta_corrientes_venta', 'show.tlf')
+      report = ThinReports::Report.new layout: File.join(Rails.root, 'app','views', 'cuentas_corrientes_venta', 'show.tlf')
 
       cuenta_corrientes_venta.each do |task|
         report.list.add_row do |row|

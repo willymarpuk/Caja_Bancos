@@ -11,8 +11,8 @@ class BancosController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @bancos }
       format.xls { send_data @bancos.to_xls(
-        :columns => [:nombre_banco],
-        :headers => ["Banco" ] ),
+        :columns => [:nombre_banco, :sucursal, :direccion, :telefono, :correo],
+        :headers => ["Banco", "Sucursal", "direccion", "telefono","correo"] ),
         :filename => 'bancos.xls' }
       format.pdf { render_banco_list(@bancos) }
     end

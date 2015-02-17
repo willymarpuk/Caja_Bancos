@@ -56,6 +56,7 @@
   <thead>
     <tr>
       <th>Id banco</th>
+      <th>Nro cuenta</th>
       <th>Fecha de apertura</th>
       <th>Saldo</th>
       <th>Id firmante</th>
@@ -68,6 +69,7 @@
     <% @cuentas_bancaria.each do |cuentas_bancarium| %>
       <tr>
         <td><%= cuentas_bancarium.id_banco %></td>
+        <td><%= cuentas_bancarium.nro_cuenta %></td>
         <td><%= cuentas_bancarium.fecha_de_apertura %></td>
         <td><%= cuentas_bancarium.saldo %></td>
         <td><%= cuentas_bancarium.id_firmante %></td>

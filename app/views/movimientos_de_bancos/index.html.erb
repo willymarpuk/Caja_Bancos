@@ -38,10 +38,10 @@
     <%= link_to '#', onclick: "printpage()", class: 'btn btn-print btn-outline btn-circle', title: 'Imprimir reporte', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
       <span class="glyphicon glyphicon-print" style="color: white"></span>
     <% end %>
-    <%= link_to bancos_path(@bancos, format: 'pdf'), class: 'btn btn-pdf btn-outline btn-circle', title: 'Exportar en formato PDF', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+    <%= link_to movimientos_de_bancos_path(@movimientos_de_bancos, format: 'pdf'), class: 'btn btn-pdf btn-outline btn-circle', title: 'Exportar en formato PDF', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
       <span style="color: white">PDF</span>
     <% end %>
-    <%= link_to bancos_path(:format => :xls), class: 'btn btn-xls btn-outline btn-circle', title: 'Exportar en formato XLS', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+    <%= link_to movimientos_de_bancos_path(:format => :xls), class: 'btn btn-xls btn-outline btn-circle', title: 'Exportar en formato XLS', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
       <span style="color: white">XLS</span>
     <% end %>
   </div>
