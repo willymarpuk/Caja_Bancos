@@ -4,7 +4,6 @@ class MovimientosDeBancosController < ApplicationController
   def index
     @movimientos_de_bancos = MovimientosDeBanco.all
     @movimientos_de_banco = MovimientosDeBanco.new
-    @persona = Persona.new
     @tipos_de_persona = TiposDePersona.new
     @cuentas_bancarium = CuentasBancarium.new
     @banco = Banco.new
@@ -45,7 +44,7 @@ class MovimientosDeBancosController < ApplicationController
     @movimientos_de_banco = MovimientosDeBanco.new(movimientos_de_banco_params)
     respond_to do |format|
       if @movimientos_de_banco.save
-        format.html { redirect_to @movimientos_de_banco, notice: 'el movimiento de banco fue creado exitosamente.' }
+        format.html { redirect_to movimientos_de_bancos_url, notice: 'el movimiento de banco fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @movimientos_de_banco }
       else
         format.html { render :new }

@@ -49,7 +49,7 @@ class BancosController < ApplicationController
 
     respond_to do |format|
       if @banco.save
-        format.html { redirect_to @banco, notice: 'el banco fue creado exitosamente.' }
+        format.html { redirect_to bancos_url, notice: 'el banco fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @banco }
       else
         format.html { render :new }
@@ -86,7 +86,7 @@ class BancosController < ApplicationController
     end
 
     def banco_params
-      params.require(:banco).permit(:nombre_banco)
+      params.require(:banco).permit(:nombre_banco, :sucursal, :direccion, :telefono, :correo)
     end
 
   def render_banco_list(banco)

@@ -42,7 +42,7 @@ class ChequesEmitidosController < ApplicationController
     @cheques_emitido = ChequesEmitido.new(cheques_emitido_params)
     respond_to do |format|
       if @cheques_emitido.save
-        format.html { redirect_to @cheques_emitido, notice: 'el cheque emitido fue creado exitosamente.' }
+        format.html { redirect_to cheques_emitidos_url, notice: 'el cheque emitido fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @cheques_emitido }
       else
         format.html { render :new }

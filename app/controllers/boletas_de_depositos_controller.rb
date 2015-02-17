@@ -45,7 +45,7 @@ end
 
     respond_to do |format|
       if @boletas_de_deposito.save
-        format.html { redirect_to @boletas_de_deposito, notice: 'la boleta de deposito fue creada exitosamente.' }
+        format.html { redirect_to boletas_de_depositos_url, notice: 'la boleta de deposito fue creada exitosamente.' }
         format.json { render :show, status: :created, location: @boletas_de_deposito }
       else
         format.html { render :new }

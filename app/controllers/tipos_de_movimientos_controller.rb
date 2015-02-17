@@ -40,7 +40,7 @@ class TiposDeMovimientosController < ApplicationController
     @tipos_de_movimiento = TiposDeMovimiento.new(tipos_de_movimiento_params)
     respond_to do |format|
       if @tipos_de_movimiento.save
-        format.html { redirect_to @tipos_de_movimiento, notice: 'el tipo de movimiento fue creado exitosamente.' }
+        format.html { redirect_to tipos_de_movimientos_url, notice: 'el tipo de movimiento fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipos_de_movimiento }
       else
         format.html { render :new }

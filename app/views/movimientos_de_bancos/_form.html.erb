@@ -14,7 +14,7 @@
   <div class="col-md-3">
     <div class="field">
       <label for="movimientos_de_banco_">Tipo de Movimiento  
-        <%= link_to "#modal-persona", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
+        <%= link_to "#modal-tipoDeMovimiento", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
           <span class="glyphicon glyphicon-plus"></span>
         <% end %>
       </label></br>
@@ -27,7 +27,7 @@
       </label></br>
         <%= f.collection_select  :id_banco, Banco.all,:id, :name_with_initial, {prompt: "seleccione un banco"}, {class: "form-control"} %>
 
-        <label for="caja_id_persona">Cuenta Bancaria
+        <label for="cuentaBancaria">Cuenta Bancaria
           <%= link_to "#modal-cuentaBancaria", "data-toggle" => "modal" , class: 'btn btn-warning btn-outline btn-circle' do %>
             <span class="glyphicon glyphicon-plus"></span>
           <% end %>
@@ -57,6 +57,6 @@
 <% end %>
 </br>
 
-<%= render 'movimientos_de_bancos/modals/persona' %>
+<%= render 'movimientos_de_bancos/modals/banco' %>
 <%= render 'movimientos_de_bancos/modals/cuentaBancaria' %>
 <%= render 'movimientos_de_bancos/modals/tipoDeMovimiento' %>

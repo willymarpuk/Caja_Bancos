@@ -23,21 +23,21 @@ class MovimientosDeCaja < ActiveRecord::Base
 			with: /\A[0-9]+\z/,
 			message: 'solo permite numeros'}
 
-	validates :id_cheque_entrante,
-		:presence => {
-			message: 'este campo es requerido'},
+	#validates :id_cheque_entrante,
+	#	:presence => {
+	#		message: 'este campo es requerido'},
 
-		:format => {
-			with: /\A[0-9]+\z/,
-			message: 'solo permite numeros'}
+	#	:format => {
+	#		with: /\A[0-9]+\z/,
+	#		message: 'solo permite numeros'}
 
-	validates :id_cheque_emitido,
-		:presence => {
-			message: 'este campo es requerido'},
+	#validates :id_cheque_emitido,
+	#	:presence => {
+	#		message: 'este campo es requerido'},
 
-		:format => {
-			with: /\A[0-9]+\z/,
-			message: 'solo permite numeros'}
+	#	:format => {
+	#		with: /\A[0-9]+\z/,
+	#		message: 'solo permite numeros'}
 
 	validates :descripcion,
 		:presence => {
@@ -45,11 +45,11 @@ class MovimientosDeCaja < ActiveRecord::Base
 
 		:length => { 
 			:maximum => 20,
-			:too_long => 'debe tener como maximo %{count} caracteres'},
+			:too_long => 'debe tener como maximo %{count} caracteres'}
 
-		:format => {
-			with: /\A[a-zA-Z]+\z/,
-			message: 'solo permite letras'}
+		#:format => {
+		#	with: /\A[a-zA-Z]+\z/,
+		#	message: 'solo permite letras'}
 
 	#validates :monto_efectivo,
 	#	:presence => {
@@ -66,4 +66,7 @@ class MovimientosDeCaja < ActiveRecord::Base
 	#	:format => {
 	#		with: /\A[0-9]+\z/,
 	#		message: 'solo permite numeros'}
+	def name_with_initial
+		"#{id}  #{descripcion}"
+	end
 end

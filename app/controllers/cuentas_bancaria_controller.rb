@@ -41,7 +41,7 @@ class CuentasBancariaController < ApplicationController
     @cuentas_bancarium = CuentasBancarium.new(cuentas_bancarium_params)
     respond_to do |format|
       if @cuentas_bancarium.save
-        format.html { redirect_to @cuentas_bancarium, notice: 'la cuenta bancaria fue creada exitosamente.' }
+        format.html { redirect_to cuentas_bancaria_url, notice: 'la cuenta bancaria fue creada exitosamente.' }
         format.json { render :show, status: :created, location: @cuentas_bancarium }
       else
         format.html { render :new }
@@ -76,7 +76,7 @@ class CuentasBancariaController < ApplicationController
     end
 
     def cuentas_bancarium_params
-      params.require(:cuentas_bancarium).permit(:id_banco, :fecha_de_apertura, :saldo, :id_firmante)
+      params.require(:cuentas_bancarium).permit(:id_banco,:nro_cuenta, :fecha_de_apertura, :saldo, :id_firmante)
     end
 
  def render_cuentas_bancaria_list(cuenta_bancaria)

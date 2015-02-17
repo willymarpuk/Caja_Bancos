@@ -40,7 +40,7 @@ class TiposDePersonasController < ApplicationController
     @tipos_de_persona = TiposDePersona.new(tipos_de_persona_params)
     respond_to do |format|
       if @tipos_de_persona.save
-        format.html { redirect_to @tipos_de_persona, notice: 'el tipo de persona fue creado exitosamente.' }
+        format.html { redirect_to tipos_de_personas_url, notice: 'el tipo de persona fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipos_de_persona }
       else
         format.html { render :new }

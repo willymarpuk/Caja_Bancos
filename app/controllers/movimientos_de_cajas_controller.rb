@@ -42,7 +42,7 @@ class MovimientosDeCajasController < ApplicationController
     @movimientos_de_caja = MovimientosDeCaja.new(movimientos_de_caja_params)
     respond_to do |format|
       if @movimientos_de_caja.save
-        format.html { redirect_to @movimientos_de_caja, notice: 'el movimiento de caja fue creado exitosamente.' }
+        format.html { redirect_to movimientos_de_cajas_url, notice: 'el movimiento de caja fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @movimientos_de_caja }
       else
         format.html { render :new }

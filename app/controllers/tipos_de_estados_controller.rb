@@ -40,7 +40,7 @@ class TiposDeEstadosController < ApplicationController
     @tipos_de_estado = TiposDeEstado.new(tipos_de_estado_params)
     respond_to do |format|
       if @tipos_de_estado.save
-        format.html { redirect_to @tipos_de_estado, notice: 'el tipo de estado fue creado exitosamente.' }
+        format.html { redirect_to tipos_de_estados_url, notice: 'el tipo de estado fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipos_de_estado }
       else
         format.html { render :new }

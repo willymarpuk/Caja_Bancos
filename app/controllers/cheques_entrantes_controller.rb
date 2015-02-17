@@ -42,7 +42,7 @@ class ChequesEntrantesController < ApplicationController
 
     respond_to do |format|
       if @cheques_entrante.save
-        format.html { redirect_to @cheques_entrante, notice: 'el cheque entrante fue creado exitosamente.' }
+        format.html { redirect_to cheques_entrantes_url, notice: 'el cheque entrante fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @cheques_entrante }
       else
         format.html { render :new }

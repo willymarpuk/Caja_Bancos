@@ -5,6 +5,7 @@ class CuentasCorrientesVentaController < ApplicationController
     @cuentas_corrientes_venta = CuentasCorrientesVentum.all
     @cuentas_corrientes_ventum = CuentasCorrientesVentum.new
         @persona = Persona.new
+        @personas = Persona.all
     @tipos_de_persona = TiposDePersona.new
     @movimientos_de_caja = MovimientosDeCaja.new
     respond_to do |format|
@@ -43,7 +44,7 @@ class CuentasCorrientesVentaController < ApplicationController
     @cuentas_corrientes_ventum = CuentasCorrientesVentum.new(cuentas_corrientes_ventum_params)
     respond_to do |format|
       if @cuentas_corrientes_ventum.save
-        format.html { redirect_to @cuentas_corrientes_ventum, notice: 'la cuenta corriente venta fue creada exitosamente.' }
+        format.html { redirect_to cuentas_corrientes_venta_url, notice: 'la cuenta corriente venta fue creada exitosamente.' }
         format.json { render :show, status: :created, location: @cuentas_corrientes_ventum }
       else
         format.html { render :new }
