@@ -110,10 +110,17 @@ Se ha tenido bastante problemas con el diseño según los requerimientos del enu
 
 No se logro lo siguiente:
 *Manejo de Roles para los usuarios y sus asignación de permisos segun el rol.
+
 *Usuario que esta realizando modificaciones en el log de auditoria.
+
 *Reportes Filtrados.
+
 *Validaciones del lado del Cliente.
+
 *Asiento Automático.
+
 *Calculo diario de los movimientos de caja y banco.
+
 *Realizar correctamente la apertura y el cierre correctamente de caja.
+
 *No se llego a implementar el libro de bancos.
